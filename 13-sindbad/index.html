@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sindbad — Restaurant lebanese în București</title>
+<meta name="description" content="Sindbad — Preparate proaspete, atmosferă primitoare și o masă rezervată în câteva secunde. Te așteptăm la Sindbad.">
+<meta name="theme-color" content="#7c3aed">
+<link rel="canonical" href="https://www.openstreetmap.org/?mlat=44.4326517&amp;mlon=26.0979795">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2064%2064'%3E%3Crect%20width%3D'64'%20height%3D'64'%20rx%3D'14'%20fill%3D'%237c3aed'%2F%3E%3Ctext%20x%3D'50%25'%20y%3D'54%25'%20dominant-baseline%3D'central'%20text-anchor%3D'middle'%20font-family%3D'Arial%2CHelvetica%2Csans-serif'%20font-size%3D'36'%20font-weight%3D'bold'%20fill%3D'%23ffffff'%3ES%3C%2Ftext%3E%3C%2Fsvg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sindbad — Restaurant lebanese în București">
+<meta property="og:description" content="Preparate proaspete, atmosferă primitoare și o masă rezervată în câteva secunde. Te așteptăm la Sindbad.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1000&amp;q=80&amp;auto=format&amp;fit=crop">
+<meta property="og:url" content="https://www.openstreetmap.org/?mlat=44.4326517&amp;mlon=26.0979795">
+<meta property="og:locale" content="ro_RO">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Sindbad","image":"https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1000&q=80&auto=format&fit=crop","url":"https://www.openstreetmap.org/?mlat=44.4326517&mlon=26.0979795","address":{"@type":"PostalAddress","streetAddress":"Strada Lipscani 19, București","addressLocality":"București","addressCountry":"RO"},"telephone":"+40 735 222 888","servesCuisine":"lebanese","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"60"}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;--surface:#f8f4ff;--border:#e7dcfb;--text:#1d1635;--muted:#675b80;
+    --primary:#7c3aed;--pdark:#6d28d9;--accent:#ec4899;--adark:#db2777;--on:#ffffff;
+    --rs:4px;--rm:8px;--rl:12px;--rpill:10px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.logo{font-family:'Space Grotesk',Georgia,serif}
+  a{color:inherit}
+  img{max-width:100%}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 6%}
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  .skip{position:absolute;left:-999px;top:0;z-index:999;background:var(--primary);color:var(--on);padding:.7rem 1.2rem;border-radius:0 0 var(--rs) 0;text-decoration:none;font-weight:700}
+  .skip:focus{left:0}
+
+  /* NAV */
+  header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 6%}
+  .logo{font-weight:800;font-size:1.25rem;text-decoration:none;letter-spacing:-.01em}
+  .logo b{color:var(--primary)}
+  .navlinks{display:flex;gap:1.8rem;list-style:none;align-items:center}
+  .navlinks a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.92rem;transition:color .2s}
+  .navlinks a:hover{color:var(--text)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;cursor:pointer;font-family:inherit;font-weight:700;text-decoration:none;border:none;transition:transform .2s,box-shadow .2s,background .2s}
+  .btn-primary{background:linear-gradient(135deg, #7c3aed, #ec4899);color:var(--on);padding:.75rem 1.5rem;border-radius:var(--rpill);font-size:.95rem;}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px #7c3aed40}
+  .btn-ghost{background:transparent;color:var(--text);border:2px solid var(--border);padding:.75rem 1.5rem;border-radius:var(--rpill);font-size:.95rem}
+  .btn-ghost:hover{border-color:var(--primary);color:var(--primary)}
+  .navphone{background:linear-gradient(135deg, #7c3aed, #ec4899);color:var(--on);padding:.6rem 1.2rem;border-radius:var(--rpill);font-weight:700;font-size:.9rem;text-decoration:none;}
+  .burger{display:none;background:none;border:none;cursor:pointer;padding:6px}
+  .burger span{display:block;width:24px;height:2px;background:var(--text);margin:5px 0;border-radius:2px;transition:.3s}
+  .burger[aria-expanded=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger[aria-expanded=true] span:nth-child(2){opacity:0}
+  .burger[aria-expanded=true] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+  /* HERO */
+  #hero{background:linear-gradient(140deg,#f4ecff,#ffffff 55%,#ffeef7)}
+  .hero-split{display:grid;grid-template-columns:1.05fr .95fr;gap:3.5rem;align-items:center;padding:4.5rem 0 4rem}
+  .hero-centered{text-align:center;padding:5.5rem 0 4.5rem;max-width:760px;margin:0 auto}
+  .hero-showcase{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;padding:4.5rem 0}
+  .eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:#7c3aed1a;color:var(--primary);padding:.4rem 1rem;border-radius:var(--rpill);font-size:.8rem;font-weight:700;margin-bottom:1.3rem}
+  h1{font-size:clamp(2.1rem,4.6vw,3.5rem);line-height:1.1;font-weight:800;letter-spacing:-.02em;margin-bottom:1.1rem}
+  h1 span{color:var(--primary)}
+  .lead{font-size:1.12rem;color:var(--muted);max-width:46ch;margin-bottom:1.9rem}
+  .hero-centered .lead{margin-left:auto;margin-right:auto}
+  .hero-actions{display:flex;gap:.9rem;flex-wrap:wrap;margin-bottom:2.2rem}
+  .hero-centered .hero-actions{justify-content:center}
+  .stats{display:flex;gap:1.8rem;flex-wrap:wrap}
+  .hero-centered .stats{justify-content:center}
+  .stat .v{font-size:1.7rem;font-weight:800;color:var(--primary);font-family:'Space Grotesk',serif;display:block}
+  .stat .l{font-size:.78rem;color:var(--muted)}
+  .hero-visual{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:1.6rem;box-shadow:0 30px 60px #0f172a14}
+  .hero-panel{background:linear-gradient(135deg,var(--primary),var(--pdark));color:var(--on);border-radius:var(--rm);padding:1.6rem;margin-bottom:1.1rem}
+  .hero-panel .t{font-size:1.15rem;font-weight:700;font-family:'Space Grotesk',serif}
+  .hero-panel .s{font-size:.85rem;opacity:.85;margin-top:.2rem}
+  .hero-panel .tag{display:inline-block;margin-top:1.1rem;background:rgba(255,255,255,.2);padding:.35rem .8rem;border-radius:var(--rpill);font-size:.8rem;font-weight:600}
+  .hero-list{list-style:none}
+  .hero-list li{display:flex;gap:.7rem;align-items:center;padding:.6rem 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--muted)}
+  .hero-list li:last-child{border:none}
+  .hero-list .ck{color:var(--accent);font-weight:800}
+  .medallion{display:flex;align-items:center;justify-content:center;font-size:clamp(5rem,16vw,11rem);background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:var(--rl);aspect-ratio:1;color:#fff;box-shadow:0 30px 60px #7c3aed30}
+  .hero-figure{margin:0;border-radius:var(--rl);overflow:hidden;box-shadow:0 30px 60px #0f172a1f;border:1px solid var(--border)}
+  .hero-photo{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:1}
+  .hero-photo.wide{aspect-ratio:16/9;margin-top:2rem}
+  .hero-split .hero-figure{margin-bottom:1.1rem}
+  .hero-split .hero-photo{aspect-ratio:16/10}
+
+  /* SECTIONS */
+  section{padding:5rem 0}
+  .sec-head{text-align:center;max-width:620px;margin:0 auto 3.2rem}
+  .tag{display:inline-block;background:var(--accent)1f;color:var(--adark);padding:.3rem .9rem;border-radius:var(--rpill);font-size:.74rem;font-weight:800;margin-bottom:.9rem;}
+  h2{font-size:clamp(1.7rem,3.5vw,2.6rem);font-weight:800;line-height:1.18;letter-spacing:-.02em}
+  .sec-sub{color:var(--muted);margin-top:.7rem;font-size:1.02rem}
+  .alt{background:var(--surface)}
+
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+  .card{background:var(--bg);border:1px solid var(--border);border-radius:var(--rm);padding:1.7rem;transition:transform .3s,box-shadow .3s,border-color .3s}
+  .card:hover{transform:translateY(-5px);box-shadow:0 16px 36px #0f172a12;border-color:var(--primary)}
+  .alt .card{background:var(--bg)}
+  .ic{font-size:1.9rem;margin-bottom:.8rem;display:block}
+  svg.ic{width:34px;height:34px;color:var(--primary);stroke:var(--primary)}
+  .card svg.ic{margin-bottom:.9rem}
+  .card h3{font-size:1.05rem;font-weight:700;margin-bottom:.4rem}
+  .card p{font-size:.9rem;color:var(--muted)}
+  .price{color:var(--primary);font-weight:700;font-size:.92rem;margin:.2rem 0 1.1rem}
+  .items{list-style:none}
+  .items li{display:flex;gap:.55rem;padding:.45rem 0;font-size:.88rem;color:var(--muted);border-bottom:1px solid var(--border)}
+  .items li:last-child{border:none}
+  .items li::before{content:'✓';color:var(--accent);font-weight:800}
+
+  /* STEPS */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+  .step{text-align:center}
+  .step .n{width:54px;height:54px;border-radius:var(--rm);background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;font-weight:800;font-size:1.2rem;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-family:'Space Grotesk',serif}
+  .step h3{font-size:1.05rem;margin-bottom:.4rem}
+  .step p{font-size:.9rem;color:var(--muted)}
+
+  /* TESTIMONIALS */
+  .quote{background:var(--bg);border:1px solid var(--border);border-radius:var(--rm);padding:1.7rem}
+  .quote .st{color:var(--accent);letter-spacing:2px;margin-bottom:.7rem}
+  .quote blockquote{font-size:.95rem;color:var(--text);line-height:1.7;margin-bottom:1rem;font-style:italic}
+  .quote figcaption{font-weight:700;font-size:.9rem;color:var(--muted)}
+
+  /* FAQ */
+  .faq{max-width:760px;margin:0 auto}
+  .qa{border:1px solid var(--border);border-radius:var(--rm);margin-bottom:.9rem;overflow:hidden;background:var(--bg)}
+  .qa button{width:100%;background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.15rem 1.4rem;text-align:left;font-family:inherit;font-size:1rem;font-weight:700;color:var(--text)}
+  .qa button:hover{color:var(--primary)}
+  .qa .ico{color:var(--primary);font-size:1.4rem;transition:transform .3s;flex-shrink:0}
+  .qa button[aria-expanded=true] .ico{transform:rotate(45deg)}
+  .qa .a{max-height:0;overflow:hidden;color:var(--muted);font-size:.92rem;line-height:1.7;padding:0 1.4rem;transition:max-height .35s,padding .35s}
+  .qa button[aria-expanded=true]+.a{max-height:300px;padding:0 1.4rem 1.2rem}
+
+  /* CONTACT */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
+  .contact-info h3{font-size:1.4rem;margin-bottom:1rem}
+  .contact-info p{color:var(--muted);margin-bottom:1.4rem}
+  .info-row{display:flex;gap:.7rem;align-items:center;padding:.6rem 0;font-size:.95rem;font-weight:600}
+  .info-row a{text-decoration:none}
+  .form{background:var(--bg);border:1px solid var(--border);border-radius:var(--rl);padding:1.8rem;display:grid;gap:1rem}
+  .field{display:flex;flex-direction:column;gap:.35rem}
+  .field label{font-size:.8rem;font-weight:600}
+  .field input,.field textarea{padding:.75rem .9rem;border:1.5px solid var(--border);border-radius:var(--rs);font-family:inherit;font-size:.95rem;background:var(--bg);color:var(--text)}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--primary)}
+  .field textarea{min-height:90px;resize:vertical}
+  .hp{position:absolute;left:-9999px;opacity:0}
+  .status{text-align:center;font-size:.9rem;font-weight:600;min-height:1.2em}
+  .status.ok{color:#16a34a}.status.err{color:#dc2626}
+  .note{font-size:.78rem;color:var(--muted);text-align:center}
+
+  /* CTA */
+  #cta{background:linear-gradient(135deg,var(--primary),var(--pdark));color:var(--on);text-align:center}
+  #cta h2{color:var(--on)}
+  #cta p{opacity:.9;margin:.8rem auto 2rem;max-width:46ch}
+  #cta .btn-primary{background:var(--on);color:var(--primary)}
+  #cta .btn-ghost{border-color:rgba(255,255,255,.4);color:var(--on)}
+
+  footer{background:#0f172a;color:rgba(255,255,255,.65);padding:2.5rem 0}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+  .foot a{color:rgba(255,255,255,.65);text-decoration:none}
+  .foot a:hover{color:#fff}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:880px){
+    .hero-split,.hero-showcase,.contact-grid{grid-template-columns:1fr;gap:2.2rem}
+    .hero-visual,.medallion{order:-1}
+    .grid-4{grid-template-columns:repeat(2,1fr)}
+    .grid-3,.steps{grid-template-columns:1fr}
+  }
+  @media(max-width:620px){
+    .navlinks{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start;gap:1rem;background:var(--bg);padding:1.2rem 6%;box-shadow:0 10px 30px #0003;border-bottom:1px solid var(--border)}
+    .navlinks.open{display:flex}
+    .burger{display:block}.navphone{display:none}
+    .grid-4{grid-template-columns:1fr}
+    .foot{flex-direction:column;text-align:center}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Sari la conținut</a>
+<header>
+  <nav aria-label="Navigație principală">
+    <a href="#hero" class="logo">Sindbad<b>.</b></a>
+    <ul class="navlinks" id="nav">
+      <li><a href="#features">Despre</a></li>
+      <li><a href="#services">Servicii</a></li>
+      <li><a href="#reviews">Recenzii</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:+40735222888" class="navphone">📞 +40 735 222 888</a>
+    <button class="burger" id="burger" aria-label="Meniu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+<main id="main">
+<section id="hero" aria-labelledby=""><div class="wrap hero-showcase"><div><p class="eyebrow">Local de încredere în București</p>
+      <h1>Gust autentic, <span>chiar lângă tine</span></h1>
+      <p class="lead">Preparate proaspete, atmosferă primitoare și o masă rezervată în câteva secunde. Te așteptăm la Sindbad.</p>
+      <div class="hero-actions">
+      <a href="tel:+40735222888" class="btn btn-primary">📞 Rezervă o masă</a>
+      <a href="#contact" class="btn btn-ghost">Vezi meniul</a>
+    </div><div class="stats"><div class="stat"><span class="v">10+</span><span class="l">ani de experiență</span></div><div class="stat"><span class="v">4.8★</span><span class="l">rating clienți</span></div><div class="stat"><span class="v">100%</span><span class="l">ingrediente proaspete</span></div></div></div><figure class="hero-figure"><img class="hero-photo" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1000&amp;q=80&amp;auto=format&amp;fit=crop" alt="Interior de restaurant primitor — Sindbad" loading="lazy" width="1000" height="1000"></figure></div></section>
+
+  <section id="features" class="" aria-labelledby="features-h">
+    <div class="wrap"><div class="sec-head reveal"><span class="tag">De ce noi</span><h2 id="features-h">Ce ne face diferiți</h2></div>
+    <div class="grid-4"><article class="card reveal"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 4 13C4 8 9 4 20 4c0 11-4 16-9 16z"/><path d="M11 20c0-5 2-9 6-12"/></svg><h3>Bucătărie proaspătă</h3><p>Gătim zilnic din ingrediente alese cu grijă, fără compromisuri.</p></article><article class="card reveal"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><h3>Rezervări rapide</h3><p>Rezervi masa printr-un apel sau direct din formularul de pe site.</p></article><article class="card reveal"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.2L18 9l-4.2 1.8L12 15l-1.8-4.2L6 9l4.2-1.8z"/><path d="M19 14l.7 1.8L21.5 16.5l-1.8.7L19 19l-.7-1.8L16.5 16.5l1.8-.7z"/></svg><h3>Atmosferă plăcută</h3><p>Spațiu primitor pentru cină în doi, familie sau evenimente.</p></article><article class="card reveal"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h11v9H3zM14 9h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg><h3>Comenzi la pachet</h3><p>Preferatele tale, ambalate atent, gata de ridicat sau livrat.</p></article></div></div>
+  </section>
+
+  <section id="reviews" class="alt" aria-labelledby="rev-h">
+    <div class="wrap"><div class="sec-head reveal"><span class="tag">Recenzii</span><h2 id="rev-h">Ce spun clienții</h2></div>
+    <div class="grid-3"><figure class="quote reveal"><div class="st" aria-label="5 din 5 stele">★★★★★</div><blockquote>Mâncare excelentă și servire promptă. Revin de fiecare dată cu plăcere.</blockquote><figcaption>Andrei M.</figcaption></figure><figure class="quote reveal"><div class="st" aria-label="5 din 5 stele">★★★★★</div><blockquote>Atmosferă caldă, porții generoase și prețuri corecte. Recomand!</blockquote><figcaption>Ioana D.</figcaption></figure><figure class="quote reveal"><div class="st" aria-label="5 din 5 stele">★★★★★</div><blockquote>Cel mai bun loc din zonă pentru o cină liniștită. Personal amabil.</blockquote><figcaption>Vlad P.</figcaption></figure></div></div>
+  </section>
+
+  <section id="services" class="" aria-labelledby="services-h">
+    <div class="wrap"><div class="sec-head reveal"><span class="tag">Servicii</span><h2 id="services-h">Ce îți oferim</h2></div>
+    <div class="grid-3"><article class="card reveal"><h3>Prânz de zi</h3><div class="price">meniu zilnic</div><ul class="items"><li>Supă + fel principal</li><li>Porții generoase</li><li>Preț fix avantajos</li></ul></article><article class="card reveal"><h3>Cină à la carte</h3><div class="price">rezervare recomandată</div><ul class="items"><li>Preparate de sezon</li><li>Listă de vinuri</li><li>Deserturi de casă</li></ul></article><article class="card reveal"><h3>Evenimente private</h3><div class="price">ofertă personalizată</div><ul class="items"><li>Aniversări &amp; mese festive</li><li>Meniu la alegere</li><li>Spațiu dedicat grupului</li></ul></article></div></div>
+  </section>
+
+  <section id="faq" class="alt" aria-labelledby="faq-h">
+    <div class="wrap"><div class="sec-head reveal"><span class="tag">Întrebări</span><h2 id="faq-h">Întrebări frecvente</h2></div>
+    <div class="faq"><div class="qa"><button aria-expanded="false"><span>Cum rezerv o masă?</span><span class="ico" aria-hidden="true">+</span></button><div class="a"><p>Cel mai simplu printr-un apel sau completând formularul de pe site. Confirmăm imediat disponibilitatea.</p></div></div><div class="qa"><button aria-expanded="false"><span>Aveți opțiuni pentru grupuri?</span><span class="ico" aria-hidden="true">+</span></button><div class="a"><p>Da, organizăm mese festive și evenimente private. Spune-ne câte persoane și ce dată ai în plan.</p></div></div><div class="qa"><button aria-expanded="false"><span>Se poate comanda la pachet?</span><span class="ico" aria-hidden="true">+</span></button><div class="a"><p>Da, preparatele din meniu pot fi ambalate pentru ridicare sau livrare în zonă.</p></div></div><div class="qa"><button aria-expanded="false"><span>Aveți și opțiuni vegetariene?</span><span class="ico" aria-hidden="true">+</span></button><div class="a"><p>Avem mereu preparate vegetariene în meniu. Spune-ne preferințele la rezervare.</p></div></div></div></div>
+  </section>
+
+  <section id="how" class="alt" aria-labelledby="how-h">
+    <div class="wrap"><div class="sec-head reveal"><span class="tag">Simplu</span><h2 id="how-h">Cum funcționează</h2></div>
+    <div class="steps"><div class="step reveal"><div class="n">1</div><h3>Alegi data</h3><p>Ne spui ziua, ora și numărul de persoane.</p></div><div class="step reveal"><div class="n">2</div><h3>Confirmăm masa</h3><p>Îți rezervăm locul potrivit în câteva minute.</p></div><div class="step reveal"><div class="n">3</div><h3>Te bucuri de gust</h3><p>Vii și te răsfeți — de rest ne ocupăm noi.</p></div></div></div>
+  </section>
+<section id="contact" aria-labelledby="contact-h">
+  <div class="wrap"><div class="contact-grid">
+    <div class="contact-info">
+      <span class="tag">Contact</span>
+      <h3 id="contact-h">Ți-e foame? Rezervă acum o masă.</h3>
+      <p>Sună-ne sau lasă-ne un mesaj — îți păstrăm locul cald.</p>
+      <div class="info-row">📞 <a href="tel:+40735222888">+40 735 222 888</a></div>
+      <div class="info-row">📍 <span>Strada Lipscani 19, București</span></div>
+      <div class="info-row">🗺️ <a href="https://www.openstreetmap.org/?mlat=44.4326517&amp;mlon=26.0979795" target="_blank" rel="noopener">Vezi pe hartă</a></div>
+    </div>
+    <form class="form" id="cf" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="INLOCUIESTE_CU_CHEIA_WEB3FORMS">
+      <input type="hidden" name="subject" value="Mesaj nou de pe site — Sindbad">
+      <input type="text" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="field"><label for="n">Nume</label><input id="n" name="name" required placeholder="Numele tău"></div>
+      <div class="field"><label for="t">Telefon</label><input id="t" name="phone" type="tel" required placeholder="07xx xxx xxx"></div>
+      <div class="field"><label for="m">Mesaj</label><textarea id="m" name="message" required placeholder="Spune-ne ce ai nevoie..."></textarea></div>
+      <button type="submit" class="btn btn-primary">Trimite mesajul</button>
+      <p class="status" id="st" role="status" aria-live="polite"></p>
+      <p class="note">Sau sună direct la <a href="tel:+40735222888">+40 735 222 888</a></p>
+    </form>
+  </div></div>
+</section>
+<section id="cta">
+  <div class="wrap"><h2>Ți-e foame? Rezervă acum o masă.</h2><p>Sună-ne sau lasă-ne un mesaj — îți păstrăm locul cald.</p>
+  <div class="hero-actions" style="justify-content:center"><a href="tel:+40735222888" class="btn btn-primary">📞 Sună acum</a><a href="#contact" class="btn btn-ghost">Scrie-ne</a></div></div>
+</section>
+</main>
+<footer><div class="wrap foot">
+  <span>© 2026 Sindbad · București</span>
+  <a href="tel:+40735222888">+40 735 222 888</a>
+</div></footer>
+<script>
+document.getElementById('burger').addEventListener('click',function(){var o=document.getElementById('nav').classList.toggle('open');this.setAttribute('aria-expanded',o)});
+document.querySelectorAll('.qa button').forEach(function(b){b.addEventListener('click',function(){var x=b.getAttribute('aria-expanded')==='true';document.querySelectorAll('.qa button').forEach(function(o){o.setAttribute('aria-expanded','false')});b.setAttribute('aria-expanded',String(!x))})});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+var f=document.getElementById('cf');f.addEventListener('submit',function(ev){ev.preventDefault();var s=document.getElementById('st');var key=f.access_key.value;if(key.indexOf('INLOCUIESTE')===0){s.textContent='Demo: setează cheia Web3Forms pentru a primi mesaje.';s.className='status err';return}s.textContent='Se trimite...';s.className='status';fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}}).then(function(r){return r.json()}).then(function(d){if(d.success){s.textContent='Mulțumim! Te contactăm rapid.';s.className='status ok';f.reset()}else{s.textContent='Eroare. Sună-ne direct.';s.className='status err'}}).catch(function(){s.textContent='Eroare. Sună-ne direct.';s.className='status err'})});
+</script>
+</body>
+</html>
