@@ -143,17 +143,23 @@
 
   /* equipment */
   .equip{background:var(--surface)}
-  .eq-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem}
-  .eq{background:linear-gradient(180deg,#fffafb,#fceef0);border:1px solid var(--line);border-radius:var(--r);padding:2rem;transition:transform .4s,box-shadow .4s,border-color .4s;position:relative;overflow:hidden}
-  .eq::before{content:"";position:absolute;top:-40px;right:-40px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(241,185,198,.4),transparent 70%);opacity:0;transition:opacity .4s}
+  .eq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
+  .eq{background:linear-gradient(180deg,#fffafb,#fceef0);border:1px solid var(--line);border-radius:var(--r);padding:2.1rem;transition:transform .4s,box-shadow .4s,border-color .4s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+  .eq::before{content:"";position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(241,185,198,.4),transparent 70%);opacity:0;transition:opacity .4s}
   .eq:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--line-2)}
   .eq:hover::before{opacity:1}
-  .eq .tier{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rose-d);font-weight:700;margin-bottom:1rem;display:inline-block}
-  .eq h3{font-size:1.5rem;margin-bottom:.2rem}
+  .eq-top{display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem}
+  .eq-ic{width:56px;height:56px;border-radius:15px;background:linear-gradient(135deg,var(--rose-l),var(--peach));display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0;box-shadow:0 10px 22px -12px rgba(212,132,154,.7)}
+  .eq-ic svg{width:28px;height:28px}
+  .eq .tier{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rose-d);font-weight:700;display:inline-block}
+  .eq h3{font-size:1.55rem;margin-bottom:.2rem}
   .eq .sub{color:var(--rose-d);font-size:.9rem;font-weight:600;margin-bottom:.9rem}
-  .eq p{color:var(--muted);font-size:.96rem}
+  .eq p{color:var(--muted);font-size:.96rem;margin-bottom:1.4rem}
+  .eq-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:auto}
+  .eq-tags span{font-size:.78rem;font-weight:600;color:var(--rose-d);background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:.36rem .85rem}
   .eq.featured{background:linear-gradient(135deg,var(--blush),#fbe0d4);border-color:var(--line-2)}
   .eq-note{margin-top:1.6rem;color:var(--muted);font-size:.92rem;text-align:center}
+  @media(max-width:680px){.eq-grid{grid-template-columns:1fr}}
 
   /* experience / why */
   .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
@@ -332,31 +338,47 @@
     <div class="eq-grid">
 
       <article class="eq featured reveal">
-        <span class="tier">Vârf de gamă</span>
+        <div class="eq-top">
+          <div class="eq-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v3M12 20v3M1 12h3M20 12h3M4 4l2 2M18 18l2 2M20 4l-2 2M6 18l-2 2"/></svg></div>
+          <span class="tier">Vârf de gamă</span>
+        </div>
         <h3>megaSun K9S</h3>
         <div class="sub">Performanță și confort</div>
         <p>Topul gamei: tehnologie de ultimă oră, confort superior și un bronz intens, perfect uniform. Bronzarea ca un mic ritual de răsfăț.</p>
+        <div class="eq-tags"><span>Confort superior</span><span>Bronz intens</span><span>Uniform</span></div>
       </article>
 
       <article class="eq reveal">
-        <span class="tier">Vârf de gamă</span>
+        <div class="eq-top">
+          <div class="eq-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg></div>
+          <span class="tier">Vârf de gamă</span>
+        </div>
         <h3>megaSun P9 SmartSun</h3>
         <div class="sub">Control inteligent</div>
         <p>Sesiune personalizată cu tehnologie SmartSun și beautyLight pentru piele — un bronz rafinat, exact pe gustul tău.</p>
+        <div class="eq-tags"><span>SmartSun</span><span>beautyLight</span><span>Personalizat</span></div>
       </article>
 
       <article class="eq reveal">
-        <span class="tier">Putere maximă</span>
+        <div class="eq-top">
+          <div class="eq-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg></div>
+          <span class="tier">Putere maximă</span>
+        </div>
         <h3>megaSun 6800 UltraPower</h3>
         <div class="sub">Bronz rapid, intens</div>
         <p>Performanță ridicată pentru cei cu timp puțin — un bronz frumos în sesiuni scurte, cu rezultate de la primele ședințe.</p>
+        <div class="eq-tags"><span>Putere maximă</span><span>Sesiuni scurte</span><span>Rapid</span></div>
       </article>
 
       <article class="eq reveal">
-        <span class="tier">Confort spa</span>
+        <div class="eq-top">
+          <div class="eq-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h11a3 3 0 1 0-3-3M3 16h15a3 3 0 1 1-3 3M3 12h18"/></svg></div>
+          <span class="tier">Confort spa</span>
+        </div>
         <h3>megaSun Space 3000 & 2000</h3>
         <div class="sub">Spațios și relaxant</div>
         <p>Capsule generoase, cu aer condiționat și sistem audio, pentru o sesiune confortabilă în care doar te relaxezi și te bronzezi.</p>
+        <div class="eq-tags"><span>Aer condiționat</span><span>Sistem audio</span><span>Spațios</span></div>
       </article>
 
     </div>
