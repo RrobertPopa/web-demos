@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sunshine Studio Bronzare — Solar megaSun în Militari, București</title>
+<meta name="description" content="Studio de bronzare în Militari, București. Aparate megaSun, paturi orizontale și verticale, duș autobronzant. Bronz auriu și uniform. Sună: 0723 024 125." />
+<link rel="canonical" href="https://sunshinebronzare.ro/" />
+<meta name="theme-color" content="#171310" />
+
+<meta property="og:type" content="business.business" />
+<meta property="og:title" content="Sunshine Studio Bronzare — Solar megaSun în Militari" />
+<meta property="og:description" content="Bronz auriu, uniform, ca după o vacanță. Aparate megaSun, paturi orizontale și verticale, duș autobronzant, în Militari, București." />
+<meta property="og:image" content="assets/img/megasun.jpg" />
+<meta property="og:url" content="https://sunshinebronzare.ro/" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<!-- Favicon: soare -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23171310'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%23E7BE64'/%3E%3Cg stroke='%23C89A3C' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M32 6v7M32 51v7M6 32h7M51 32h7M13 13l5 5M46 46l5 5M51 13l-5 5M18 46l-5 5'/%3E%3C/g%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=fraunces@400,500,600,7,9&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HealthAndBeautyBusiness",
+  "name": "Sunshine Studio Bronzare",
+  "description": "Studio de bronzare cu aparate megaSun în Militari, București. Paturi orizontale și verticale, duș autobronzant.",
+  "image": "https://sunshinebronzare.ro/assets/img/megasun.jpg",
+  "url": "https://sunshinebronzare.ro/",
+  "telephone": "+40723024125",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Bulevardul Iuliu Maniu 57",
+    "addressLocality": "București",
+    "addressRegion": "Sector 6",
+    "postalCode": "061081",
+    "addressCountry": "RO"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 44.4339121, "longitude": 26.0290567 },
+  "areaServed": "București",
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.6", "reviewCount": "136" },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "10:00", "closes": "22:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "20:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "12:00", "closes": "20:00" }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --bg:#F5EFE6; --bg2:#FBF7F0; --card:#FFFFFF;
+  --ink:#211A12; --muted:#6B6156;
+  --char:#171310; --char2:#221B15;
+  --gold:#C0902F; --gold-l:#E7BE64;
+  --blue:#4CA6E0;
+  --line:#E6DECF;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --sans:'General Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --r:18px; --maxw:1170px;
+  --sh:0 24px 60px -30px rgba(40,28,12,.5);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.menu-open{overflow:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.08;letter-spacing:-.01em}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+section{position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--gold);font-weight:600;font-size:.75rem;
+  letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold-l)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;font-family:var(--sans);font-weight:600;font-size:.97rem;
+  padding:.92em 1.6em;border-radius:100px;border:1.5px solid transparent;cursor:pointer;transition:.28s cubic-bezier(.2,.7,.3,1);white-space:nowrap}
+.btn svg{width:18px;height:18px}
+.btn-primary{background:var(--gold);color:#1c1305;box-shadow:0 12px 30px -12px rgba(192,144,47,.9)}
+.btn-primary:hover{background:var(--gold-l);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.38)}
+.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff;transform:translateY(-2px)}
+.btn-dark{background:var(--char);color:#fff}
+.btn-dark:hover{background:var(--char2);transform:translateY(-2px)}
+
+/* header */
+header.nav{position:sticky;top:0;z-index:60;background:var(--char);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:78px;gap:28px}
+.logo{display:inline-flex;align-items:center;gap:11px;color:#fff}
+.logo .mark{width:36px;height:36px;flex:0 0 auto}
+.logo b{font-family:var(--serif);font-weight:600;font-size:1.24rem;letter-spacing:-.01em;line-height:1;white-space:nowrap}
+.logo small{display:block;font-family:var(--sans);font-weight:600;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-l);margin-top:3px}
+.nav-links{display:flex;align-items:center;gap:30px;margin:0 auto}
+.nav-links a.link{color:rgba(255,255,255,.8);font-weight:500;font-size:.95rem;position:relative;padding:4px 0;transition:.2s}
+.nav-links a.link:hover{color:#fff}
+.nav-links a.link::after{content:'';position:absolute;left:0;bottom:-2px;width:0;height:1.6px;background:var(--gold-l);transition:.28s}
+.nav-links a.link:hover::after{width:100%}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.nav-phone{display:inline-flex;align-items:center;gap:7px;color:#fff;font-weight:600;font-size:.95rem}
+.nav-phone svg{width:16px;height:16px;color:var(--gold-l)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px;z-index:80}
+.burger span{width:26px;height:2.5px;background:#fff;border-radius:2px;transition:.3s}
+body.menu-open .burger span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+body.menu-open .burger span:nth-child(2){opacity:0}
+body.menu-open .burger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+.m-backdrop{position:fixed;inset:0;background:rgba(10,8,6,.6);opacity:0;visibility:hidden;transition:.3s;z-index:55}
+body.menu-open .m-backdrop{opacity:1;visibility:visible}
+.m-menu{position:fixed;top:0;right:0;width:min(84vw,360px);height:100dvh;background:var(--char);
+  transform:translateX(100%);transition:transform .36s cubic-bezier(.4,0,.2,1);z-index:58;
+  display:flex;flex-direction:column;padding:100px 32px 32px;gap:6px}
+body.menu-open .m-menu{transform:translateX(0)}
+.m-menu a.link{color:rgba(255,255,255,.92);font-family:var(--serif);font-size:1.5rem;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.m-menu .btn{margin-top:22px}
+.m-menu .m-foot{margin-top:auto;color:rgba(255,255,255,.6);font-size:.85rem;line-height:1.7}
+.m-menu .m-foot a{color:var(--gold-l)}
+
+/* hero */
+.hero{position:relative;min-height:90vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:#0e0b09}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.82}
+.hero-bg::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(15,11,9,.5) 0%,rgba(15,11,9,.2) 30%,rgba(15,11,9,.82) 82%,rgba(15,11,9,.97) 100%)}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-top:60px;padding-bottom:62px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.12);backdrop-filter:blur(4px);
+  border:1px solid rgba(231,190,100,.35);color:#fff;font-weight:600;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;
+  padding:.5em 1em;border-radius:100px;margin-bottom:22px}
+.hero-eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--gold-l)}
+.hero h1{font-size:clamp(2.6rem,6.4vw,4.7rem);font-weight:500;max-width:16ch;text-shadow:0 2px 34px rgba(0,0,0,.4)}
+.hero h1 em{font-style:italic;color:var(--gold-l)}
+.hero p.lead{margin-top:20px;font-size:clamp(1.05rem,2vw,1.28rem);max-width:47ch;color:rgba(255,255,255,.9);font-weight:400}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.hero-meta{display:flex;flex-wrap:wrap;align-items:center;gap:26px;margin-top:40px;padding-top:26px;border-top:1px solid rgba(255,255,255,.16)}
+.hero-stat b{display:block;font-family:var(--serif);font-size:1.7rem;line-height:1;color:#fff}
+.hero-stat span{font-size:.82rem;color:rgba(255,255,255,.76)}
+.stars{display:inline-flex;gap:2px;color:var(--gold-l)}
+.stars svg{width:16px;height:16px}
+
+/* features */
+.features{padding:80px 0 20px}
+.feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.feat{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:30px 26px;transition:.3s}
+.feat:hover{transform:translateY(-4px);box-shadow:var(--sh);border-color:var(--gold-l)}
+.feat .ic{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,#fbeccd,#f4dca6);color:#9a6f18;display:grid;place-items:center;margin-bottom:18px}
+.feat .ic svg{width:26px;height:26px}
+.feat h3{font-size:1.16rem;margin-bottom:8px}
+.feat p{color:var(--muted);font-size:.95rem}
+
+/* sections */
+.sec{padding:92px 0}
+.sec-head{max-width:640px;margin-bottom:48px}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.sec-head h2{font-size:clamp(2rem,4vw,2.9rem)}
+.sec-head p{margin-top:16px;color:var(--muted);font-size:1.06rem}
+
+/* about */
+.about{background:var(--bg2)}
+.about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:60px;align-items:center}
+.about-media{position:relative}
+.about-media img{width:100%;border-radius:22px;box-shadow:var(--sh);aspect-ratio:4/5;object-fit:cover}
+.about-media .badge{position:absolute;right:-20px;bottom:28px;background:var(--char);color:#fff;border-radius:16px;
+  padding:18px 22px;box-shadow:var(--sh);max-width:210px}
+.about-media .badge b{font-family:var(--serif);font-size:1.7rem;display:block;line-height:1.1;color:var(--gold-l)}
+.about-media .badge span{font-size:.84rem;color:rgba(255,255,255,.85)}
+.about-copy h2{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:20px}
+.about-copy p{color:var(--muted);margin-bottom:16px}
+.tick{display:flex;gap:12px;align-items:flex-start;margin-top:14px}
+.tick svg{width:22px;height:22px;color:var(--gold);flex:0 0 auto;margin-top:2px}
+.tick b{color:var(--ink)}
+
+/* services (split with image) */
+.serv-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.serv-media img{width:100%;border-radius:22px;box-shadow:var(--sh);aspect-ratio:16/11;object-fit:cover}
+.serv-list{list-style:none}
+.serv-list li{display:flex;gap:18px;padding:22px 0;border-top:1px solid var(--line)}
+.serv-list li:first-child{border-top:0;padding-top:0}
+.serv-list .n{font-family:var(--serif);font-size:1.4rem;color:var(--gold);line-height:1;flex:0 0 auto;width:38px}
+.serv-list h3{font-size:1.2rem;margin-bottom:5px}
+.serv-list p{color:var(--muted);font-size:.95rem}
+
+/* gallery */
+.gallery{background:var(--char);color:#fff}
+.gallery .sec-head h2{color:#fff}
+.gallery .sec-head p{color:rgba(255,255,255,.76)}
+.g-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px}
+.g-grid figure{overflow:hidden;border-radius:16px;position:relative}
+.g-grid img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.3,1)}
+.g-grid figure:hover img{transform:scale(1.07)}
+.g-grid .tall{grid-row:span 2}
+.g-grid .wide{grid-column:span 2}
+
+/* prices */
+.prices{background:var(--bg2)}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.price{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:34px 30px;transition:.3s;position:relative}
+.price:hover{transform:translateY(-4px);box-shadow:var(--sh)}
+.price.pop{border-color:var(--gold);box-shadow:0 24px 60px -30px rgba(192,144,47,.6)}
+.price .tag{position:absolute;top:-13px;left:30px;background:var(--gold);color:#1c1305;font-weight:700;font-size:.72rem;
+  letter-spacing:.05em;text-transform:uppercase;padding:.35em .9em;border-radius:100px}
+.price h3{font-size:1.28rem;margin-bottom:6px}
+.price .amt{font-family:var(--serif);font-size:2.5rem;color:var(--char);line-height:1;margin:14px 0 4px}
+.price .amt small{font-family:var(--sans);font-size:.9rem;color:var(--muted);font-weight:600}
+.price ul{list-style:none;margin:22px 0 0}
+.price li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;color:var(--muted);font-size:.95rem;border-top:1px solid var(--line)}
+.price li:first-child{border-top:0}
+.price li svg{width:18px;height:18px;color:var(--gold);flex:0 0 auto;margin-top:2px}
+.price-note{text-align:center;color:var(--muted);font-size:.9rem;margin-top:26px}
+
+/* reviews */
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.rev{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:30px}
+.rev .stars{margin-bottom:14px}
+.rev p{font-size:1.02rem;color:var(--ink);margin-bottom:18px}
+.rev .who{display:flex;align-items:center;gap:12px}
+.rev .av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#fbeccd,#f0d091);color:#9a6f18;display:grid;place-items:center;font-weight:600;font-family:var(--serif)}
+.rev .who b{display:block;font-size:.95rem}
+.rev .who span{font-size:.82rem;color:var(--muted)}
+
+/* contact */
+.contact{background:var(--char);color:#fff}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.contact h2{font-size:clamp(2rem,4vw,2.8rem);color:#fff;margin-bottom:18px}
+.contact .lead{color:rgba(255,255,255,.82);margin-bottom:30px;max-width:44ch}
+.cinfo{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-top:1px solid rgba(255,255,255,.13)}
+.cinfo:first-of-type{border-top:0}
+.cinfo .ic{width:44px;height:44px;border-radius:12px;background:rgba(231,190,100,.14);color:var(--gold-l);display:grid;place-items:center;flex:0 0 auto}
+.cinfo .ic svg{width:20px;height:20px}
+.cinfo b{display:block;font-size:1.02rem}
+.cinfo span,.cinfo a{color:rgba(255,255,255,.8);font-size:.95rem}
+.cinfo a:hover{color:var(--gold-l)}
+.hours{list-style:none;margin-top:4px}
+.hours li{display:flex;justify-content:space-between;gap:20px;color:rgba(255,255,255,.8);font-size:.95rem;padding:3px 0;max-width:280px}
+.form{background:#fff;border-radius:22px;padding:34px;box-shadow:var(--sh)}
+.form h3{color:var(--ink);font-size:1.4rem;margin-bottom:6px}
+.form .sub{color:var(--muted);font-size:.92rem;margin-bottom:22px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:.82rem;font-weight:600;color:var(--ink);margin-bottom:7px}
+.field input,.field textarea{width:100%;padding:.85em 1em;border:1.5px solid var(--line);border-radius:12px;font-family:var(--sans);
+  font-size:.96rem;color:var(--ink);background:var(--bg2);transition:.2s}
+.field input:focus,.field textarea:focus{outline:0;border-color:var(--gold);background:#fff;box-shadow:0 0 0 4px rgba(192,144,47,.14)}
+.form .btn{width:100%;margin-top:6px}
+.form-ok{display:none;text-align:center;padding:28px 10px;color:var(--char)}
+.form-ok.show{display:block}
+.form-ok svg{width:52px;height:52px;color:var(--gold);margin:0 auto 14px}
+.map-embed{margin-top:22px;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.15);height:210px}
+.map-embed iframe{width:100%;height:100%;border:0}
+
+/* footer */
+footer{background:#100c0a;color:rgba(255,255,255,.66);padding:56px 0 30px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot-brand .logo{margin-bottom:16px}
+.foot-brand p{font-size:.94rem;max-width:34ch}
+.foot-col h4{color:#fff;font-family:var(--sans);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px}
+.foot-col a{display:block;padding:6px 0;font-size:.95rem;transition:.2s}
+.foot-col a:hover{color:var(--gold-l)}
+.foot-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:22px;font-size:.85rem}
+.foot-bot a:hover{color:var(--gold-l)}
+
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:50;width:58px;height:58px;border-radius:50%;background:#25D366;
+  display:grid;place-items:center;box-shadow:0 14px 30px -8px rgba(37,211,102,.7);transition:.25s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:30px;height:30px;color:#fff}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:960px){
+  .nav-links,.nav-cta{display:none}
+  .burger{display:flex}
+  .feat-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid,.serv-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .about-media,.serv-media{max-width:460px}
+  .price-grid,.rev-grid{grid-template-columns:1fr}
+  .g-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:28px}
+  .foot-brand{grid-column:1/-1}
+}
+@media(max-width:560px){
+  .wrap{padding:0 18px}
+  .hero{min-height:92vh}
+  .hero-meta{gap:18px}
+  .hero-stat b{font-size:1.4rem}
+  .sec{padding:64px 0}
+  .features{padding:52px 0 0}
+  .feat-grid,.species-grid{grid-template-columns:1fr}
+  .g-grid{grid-template-columns:1fr;grid-auto-rows:220px}
+  .g-grid .wide{grid-column:span 1}
+  .g-grid .tall{grid-row:span 1}
+  .about-media .badge{left:14px;right:14px;max-width:none}
+  .foot-grid{grid-template-columns:1fr}
+  .form{padding:26px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="logo" aria-label="Sunshine Studio Bronzare">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#221B15"/><circle cx="32" cy="32" r="11" fill="#E7BE64"/><g stroke="#C0902F" stroke-width="3" stroke-linecap="round"><path d="M32 6v7M32 51v7M6 32h7M51 32h7M13 13l5 5M46 46l5 5M51 13l-5 5M18 46l-5 5"/></g></svg>
+      <span><b>Sunshine</b><small>Studio Bronzare · Militari</small></span>
+    </a>
+    <nav class="nav-links">
+      <a class="link" href="#despre">Despre</a>
+      <a class="link" href="#servicii">Aparate</a>
+      <a class="link" href="#galerie">Galerie</a>
+      <a class="link" href="#tarife">Tarife</a>
+      <a class="link" href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="nav-phone" href="tel:+40723024125"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>0723 024 125</a>
+      <a class="btn btn-primary" href="#contact">Rezervă o ședință</a>
+    </div>
+    <button class="burger" aria-label="Meniu" id="burger"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="m-backdrop" id="backdrop"></div>
+<aside class="m-menu" id="mmenu">
+  <a class="link" href="#despre">Despre</a>
+  <a class="link" href="#servicii">Aparate</a>
+  <a class="link" href="#galerie">Galerie</a>
+  <a class="link" href="#tarife">Tarife</a>
+  <a class="link" href="#contact">Contact</a>
+  <a class="btn btn-primary" href="tel:+40723024125">Sună: 0723 024 125</a>
+  <div class="m-foot">Bd. Iuliu Maniu 57, Militari<br>L–V 10–22 · Sâm 10–20 · Dum 12–20<br><a href="https://wa.me/40723024125">WhatsApp</a></div>
+</aside>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"><img src="assets/img/hero.jpg" alt="Interiorul studioului Sunshine cu pat de bronzare megaSun în lumină" /></div>
+  <div class="wrap">
+    <span class="hero-eyebrow"><span class="dot"></span>Studio de bronzare · Militari, București</span>
+    <h1>Bronz auriu, <em>ca după o vacanță</em>.</h1>
+    <p class="lead">Aparate megaSun, paturi orizontale și verticale și duș autobronzant — într-un spațiu curat și discret, cu personal care te îndrumă de la prima ședință.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="tel:+40723024125"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Rezervă o ședință</a>
+      <a class="btn btn-ghost" href="#galerie">Vezi studioul</a>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-stat">
+        <b>4.6<span style="font-size:1rem">/5</span></b>
+        <span class="stars" aria-label="4.6 din 5 stele">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.7 20.6l1.6-6.9L2 9.1l7-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.7 20.6l1.6-6.9L2 9.1l7-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.7 20.6l1.6-6.9L2 9.1l7-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.7 20.6l1.6-6.9L2 9.1l7-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.7 20.6l1.6-6.9L2 9.1l7-.6z"/></svg>
+        </span>
+        <span>136 de recenzii Google</span>
+      </div>
+      <div class="hero-stat"><b>megaSun</b><span>Aparatură profesională</span></div>
+      <div class="hero-stat"><b>7 zile / 7</b><span>Deschis și weekend</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features"><div class="wrap">
+  <div class="feat-grid">
+    <div class="feat reveal">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.5 4.5l2 2M17.5 17.5l2 2M19.5 4.5l-2 2M6.5 17.5l-2 2"/></svg></div>
+      <h3>Aparate megaSun</h3>
+      <p>Solar profesional megaSun, cu becuri schimbate la timp pentru un bronz eficient și uniform.</p>
+    </div>
+    <div class="feat reveal">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="8" height="16" rx="2"/><rect x="14" y="8" width="7" height="12" rx="2"/></svg></div>
+      <h3>Vertical & orizontal</h3>
+      <p>Alegi cum îți place: pat orizontal relaxant sau turbo vertical, mai rapid și mai igienic.</p>
+    </div>
+    <div class="feat reveal">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3c2 3 4 5 4 8a4 4 0 0 1-8 0c0-3 2-5 4-8z"/><path d="M7 20h10"/></svg></div>
+      <h3>Duș autobronzant</h3>
+      <p>Bronz instant, fără UV, aplicat uniform — ideal înainte de un eveniment sau o vacanță.</p>
+    </div>
+    <div class="feat reveal">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <h3>Curat & discret</h3>
+      <p>Cabine dezinfectate după fiecare client, atmosferă plăcută și personal amabil. Parcare la ușă.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ABOUT -->
+<section class="sec about" id="despre"><div class="wrap">
+  <div class="about-grid">
+    <div class="about-media reveal">
+      <img src="assets/img/storefront2.jpg" alt="Intrarea în Sunshine Studio Bronzare pe Bulevardul Iuliu Maniu" />
+      <div class="badge"><b>4.6★ · 136</b><span>recenzii de la clienți mulțumiți</span></div>
+    </div>
+    <div class="about-copy reveal">
+      <span class="eyebrow"><span class="dot"></span>Despre studio</span>
+      <h2>Bronzul tău, făcut ca la carte.</h2>
+      <p>Sunshine Studio Bronzare e un colț de vară pe Bulevardul Iuliu Maniu, în Militari. Aici vii pentru un bronz frumos, uniform și sănătos, cu aparatură megaSun întreținută corect.</p>
+      <p>La recepție ești îndrumat de la prima ședință: cât stai, ce loțiune ți se potrivește și cum obții cea mai frumoasă nuanță pentru pielea ta.</p>
+      <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><b>Personal amabil</b> care îți explică tot ce ai nevoie.</span></div>
+      <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><b>Plată cu cardul</b> și parcare comodă la intrare.</span></div>
+      <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><b>Deschis 7 zile</b> din 7, până seara târziu.</span></div>
+      <a class="btn btn-dark" href="#contact" style="margin-top:26px">Programează-te</a>
+    </div>
+  </div>
+</div></section>
+
+<!-- SERVICES -->
+<section class="sec" id="servicii"><div class="wrap">
+  <div class="serv-grid">
+    <div class="serv-media reveal">
+      <img src="assets/img/megasun.jpg" alt="Pat de bronzare megaSun 8000 Hybrid la Sunshine Studio" />
+    </div>
+    <div class="reveal">
+      <span class="eyebrow"><span class="dot"></span>Aparate & servicii</span>
+      <h2 style="font-size:clamp(2rem,4vw,2.7rem);margin-bottom:28px">Alege cum te bronzezi</h2>
+      <ul class="serv-list">
+        <li><span class="n">01</span><div><h3>Pat orizontal megaSun</h3><p>Bronz relaxant, întins comod, cu răcorire și muzică prin Bluetooth. Perfect pentru o pauză de răsfăț.</p></div></li>
+        <li><span class="n">02</span><div><h3>Solar vertical (turbo)</h3><p>Sesiune mai scurtă și mai intensă, în picioare — mai rapid și mai igienic, fără contact cu suprafața.</p></div></li>
+        <li><span class="n">03</span><div><h3>Duș autobronzant</h3><p>Bronz instant fără UV, aplicat uniform, gata în câteva minute. Ideal înainte de evenimente.</p></div></li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<!-- GALLERY -->
+<section class="sec gallery" id="galerie"><div class="wrap">
+  <div class="sec-head center reveal">
+    <span class="eyebrow" style="justify-content:center;color:var(--gold-l)"><span class="dot"></span>Galerie</span>
+    <h2>Studioul nostru</h2>
+    <p>Poze reale din Sunshine Studio Bronzare — cabine, aparate și atmosfera de vară.</p>
+  </div>
+  <div class="g-grid">
+    <figure class="tall reveal"><img src="assets/img/hero.jpg" alt="Cabină de bronzare cu pat megaSun în lumină albastră" loading="lazy" /></figure>
+    <figure class="wide reveal"><img src="assets/img/megasun.jpg" alt="Pat de bronzare megaSun 8000 Hybrid" loading="lazy" /></figure>
+    <figure class="reveal"><img src="assets/img/storefront.jpg" alt="Fațada Sunshine Studio Bronzare cu program afișat" loading="lazy" /></figure>
+    <figure class="reveal"><img src="assets/img/storefront2.jpg" alt="Intrarea în studio de pe stradă" loading="lazy" /></figure>
+    <figure class="wide reveal"><img src="assets/img/room2.jpg" alt="Cabină cu pat megaSun și fotoliu de așteptare" loading="lazy" /></figure>
+  </div>
+</div></section>
+
+<!-- PRICES -->
+<section class="sec prices" id="tarife"><div class="wrap">
+  <div class="sec-head center reveal">
+    <span class="eyebrow" style="justify-content:center"><span class="dot"></span>Tarife</span>
+    <h2>Ședințe & abonamente</h2>
+    <p>Tarife accesibile, cu abonamente pe minute care ies mult mai avantajos decât ședințele separate.</p>
+  </div>
+  <div class="price-grid">
+    <div class="price reveal">
+      <h3>Ședință</h3>
+      <div class="amt">2 <small>lei / minut</small></div>
+      <p style="color:var(--muted);font-size:.94rem">Plătești exact minutele pe care le stai.</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Pat orizontal sau vertical</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Fără programare obligatorie</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Consiliere la recepție</li>
+      </ul>
+    </div>
+    <div class="price pop reveal">
+      <span class="tag">Cel mai avantajos</span>
+      <h3>Abonament 100 min</h3>
+      <div class="amt">150 <small>lei</small></div>
+      <p style="color:var(--muted);font-size:.94rem">Minute la reducere, valabile oricând.</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>100 de minute de bronzare</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>1,5 lei / minut (economisești)</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Valabil la orice aparat</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Plată cu cardul acceptată</li>
+      </ul>
+    </div>
+    <div class="price reveal">
+      <h3>Duș autobronzant</h3>
+      <div class="amt">70 <small>lei / ședință</small></div>
+      <p style="color:var(--muted);font-size:.94rem">Bronz instant, fără UV.</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Aplicare uniformă profesională</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Gata în câteva minute</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Perfect înainte de evenimente</li>
+      </ul>
+    </div>
+  </div>
+  <p class="price-note">Tarife orientative. Pentru prețuri exacte și abonamentele disponibile, sună la <a href="tel:+40723024125" style="color:var(--gold);font-weight:700">0723 024 125</a>.</p>
+</div></section>
+
+<!-- REVIEWS -->
+<section class="sec" style="background:var(--bg2)"><div class="wrap">
+  <div class="sec-head center reveal">
+    <span class="eyebrow" style="justify-content:center"><span class="dot"></span>Ce spun clienții</span>
+    <h2>Recenzii de pe Google</h2>
+  </div>
+  <div class="rev-grid">
+    <div class="rev reveal">
+      <span class="stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.7 20.6l1.6-6.9L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.7 20.6l1.6-6.9L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.7 20.6l1.6-6.9L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.7 20.6l1.6-6.9L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.7 20.6l1.6-6.9L2 9.1l7-.6z"/></svg></span>
+      <p>„Mai multe paturi orizontale și verticale, plus duș de bronzare. Preț rezonabil, serviciu bun, se poate plăti cu cardul. Recomand!"</p>
+      <div class="who"><div class="av">D</div><div><b>David S.</b><span>Local Guide · Google</span></div></div>
+    </div>
+    <div class="rev reveal">
+      <span class="stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.7 20.6l1.6-6.9L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.7 20.6l1.6-6.9L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.7 20.6l1.6-6.9L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.7 20.6l1.6-6.9L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.7 20.6l1.6-6.9L2 9.1l7-.6z"/></svg></span>
+      <p>„Un loc cu adevărat profesionist. Domnișoara de la recepție îți oferă toate informațiile de care ai nevoie ca să începi ședințele."</p>
+      <div class="who"><div class="av">C</div><div><b>Cristian I.</b><span>Local Guide · Google</span></div></div>
+    </div>
+    <div class="rev reveal">
+      <span class="stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.7 20.6l1.6-6.9L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.7 20.6l1.6-6.9L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.7 20.6l1.6-6.9L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.7 20.6l1.6-6.9L2 9.1l7-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.7 20.6l1.6-6.9L2 9.1l7-.6z"/></svg></span>
+      <p>„Paturi bune, parcare la îndemână și personal prietenos. Vin cu drag de fiecare dată."</p>
+      <div class="who"><div class="av">M</div><div><b>Mihaela P.</b><span>Local Guide · Google</span></div></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- CONTACT -->
+<section class="sec contact" id="contact"><div class="wrap">
+  <div class="contact-grid">
+    <div class="reveal">
+      <span class="eyebrow" style="color:var(--gold-l)"><span class="dot"></span>Programări</span>
+      <h2>Vino să-ți faci bronzul.</h2>
+      <p class="lead">Sună sau scrie-ne pe WhatsApp și te așteptăm. Fără programare obligatorie — dar un telefon scurt îți garantează aparatul liber.</p>
+      <div class="cinfo">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div><b>Telefon & WhatsApp</b><a href="tel:+40723024125">0723 024 125</a></div>
+      </div>
+      <div class="cinfo">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><b>Adresă</b><span>Bulevardul Iuliu Maniu 57, Militari, Sector 6</span></div>
+      </div>
+      <div class="cinfo">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <div><b>Program</b>
+          <ul class="hours">
+            <li><span>Luni – Vineri</span><span>10:00 – 22:00</span></li>
+            <li><span>Sâmbătă</span><span>10:00 – 20:00</span></li>
+            <li><span>Duminică</span><span>12:00 – 20:00</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="map-embed"><iframe title="Harta Sunshine Studio Bronzare" loading="lazy" src="https://www.google.com/maps?q=Sunshine+Studio+Bronzare+Iuliu+Maniu+57+Bucuresti&z=15&output=embed"></iframe></div>
+    </div>
+    <div class="form reveal">
+      <form id="rezForm" novalidate>
+        <h3>Cere o programare</h3>
+        <p class="sub">Lasă-ne un număr și te sunăm să confirmăm ora și aparatul.</p>
+        <div class="field"><label for="nume">Nume</label><input id="nume" name="nume" type="text" placeholder="Numele tău" required /></div>
+        <div class="field"><label for="tel">Telefon</label><input id="tel" name="tel" type="tel" placeholder="07xx xxx xxx" required /></div>
+        <div class="field"><label for="serv">Ce te interesează</label><input id="serv" name="serv" type="text" placeholder="ex. pat orizontal, duș autobronzant" /></div>
+        <div class="field"><label for="mesaj">Mesaj (opțional)</label><textarea id="mesaj" name="mesaj" rows="3" placeholder="Când ai vrea să vii…"></textarea></div>
+        <button class="btn btn-primary" type="submit">Trimite cererea</button>
+      </form>
+      <div class="form-ok" id="formOk">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+        <h3>Cererea a fost trimisă!</h3>
+        <p class="sub" style="margin-top:6px">Te sunăm în cel mai scurt timp. Pentru rapiditate, ne poți suna direct la <b>0723 024 125</b>.</p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- FOOTER -->
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <a href="#top" class="logo">
+        <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#221B15"/><circle cx="32" cy="32" r="11" fill="#E7BE64"/><g stroke="#C0902F" stroke-width="3" stroke-linecap="round"><path d="M32 6v7M32 51v7M6 32h7M51 32h7M13 13l5 5M46 46l5 5M51 13l-5 5M18 46l-5 5"/></g></svg>
+        <span><b>Sunshine</b><small>Studio Bronzare · Militari</small></span>
+      </a>
+      <p>Studio de bronzare cu aparate megaSun în Militari, București. Bronz auriu, uniform, într-un spațiu curat.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Navigare</h4>
+      <a href="#despre">Despre</a>
+      <a href="#servicii">Aparate</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#tarife">Tarife</a>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <a href="tel:+40723024125">0723 024 125</a>
+      <a href="https://wa.me/40723024125">WhatsApp</a>
+      <a href="https://www.google.com/maps?q=Sunshine+Studio+Bronzare+Iuliu+Maniu+57+Bucuresti">Bd. Iuliu Maniu 57</a>
+      <a href="#contact">Programări</a>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>© 2026 Sunshine Studio Bronzare. Toate drepturile rezervate.</span>
+    <a href="#top">Sus ↑</a>
+  </div>
+</div></footer>
+
+<a class="wa-float" href="https://wa.me/40723024125" aria-label="Scrie-ne pe WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35z"/><path d="M12 2a10 10 0 0 0-8.5 15.28L2 22l4.85-1.27A10 10 0 1 0 12 2zm0 18.2c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-2.88.76.77-2.8-.2-.32A8.2 8.2 0 1 1 12 20.2z"/></svg>
+</a>
+
+<script>
+const burger=document.getElementById('burger'),backdrop=document.getElementById('backdrop'),mmenu=document.getElementById('mmenu');
+function closeMenu(){document.body.classList.remove('menu-open')}
+burger.addEventListener('click',()=>document.body.classList.toggle('menu-open'));
+backdrop.addEventListener('click',closeMenu);
+mmenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const form=document.getElementById('rezForm'),ok=document.getElementById('formOk');
+form.addEventListener('submit',(e)=>{
+  e.preventDefault();
+  if(!form.nume.value.trim()||!form.tel.value.trim()){form.reportValidity();return;}
+  form.style.display='none';ok.classList.add('show');
+});
+</script>
+</body>
+</html>
