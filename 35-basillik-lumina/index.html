@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Basillik Brașov · Cofetărie artizanală, tort la comandă și candy bar</title>
+<meta name="description" content="Cofetărie artizanală pe B-dul Muncii nr. 4, Brașov. Medovik, Napoleon, Smetanik, torturi la comandă și candy bar. Deschis zilnic 9:00 - 21:00. Comenzi: 0727 004 128.">
+<link rel="canonical" href="https://basillik.ro/">
+<meta name="theme-color" content="#F7F2EA">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Basillik Brașov · Cofetărie artizanală">
+<meta property="og:description" content="Din 2017. Blaturi coapte cu miere, cremă cu smântână, torturi la comandă și candy bar. B-dul Muncii nr. 4, Brașov.">
+<meta property="og:image" content="assets/img/tort-nunta-elegant.jpg">
+<meta property="og:locale" content="ro_RO">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F7F2EA'/%3E%3Cpath d='M32 45c-8.5 0-14-5-14-12.5C18 24 24.5 17 32 13c7.5 4 14 11 14 19.5C46 40 40.5 45 32 45z' fill='%233F4A2C'/%3E%3Cpath d='M32 14v33' stroke='%23F7F2EA' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "name": "Basillik Brașov",
+  "description": "Cofetărie artizanală cu deserturi din ingrediente naturale, torturi la comandă și candy bar pentru evenimente.",
+  "image": "assets/img/tort-nunta-elegant.jpg",
+  "telephone": "+40727004128",
+  "priceRange": "$$",
+  "servesCuisine": "Cofetărie, patiserie",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Bulevardul Muncii nr. 4",
+    "addressLocality": "Brașov",
+    "postalCode": "500281",
+    "addressCountry": "RO"
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "09:00", "closes": "21:00"
+  }],
+  "sameAs": [
+    "https://www.instagram.com/basillik.brasov/",
+    "https://www.facebook.com/basillikbrasov/",
+    "https://www.tiktok.com/@basillik.brasov"
+  ]
+}
+</script>
+
+<style>
+/* ═══════════════════════════════════════════════════════════════════════
+   Basillik. Lumina de vitrina, nu camera intunecata.
+   Cremul e fundalul pentru ca asa arata o cofetarie buna: pozele dau
+   culoarea, hartia sta deoparte. Verdele e cel din logo-ul lor.
+   ═══════════════════════════════════════════════════════════════════════ */
+:root{
+  --paper:      #F7F2EA;
+  --paper-2:    #EFE7DA;
+  --ink:        #21170F;
+  --ink-2:      #6B5B4B;
+  --olive:      #3F4A2C;
+  --olive-2:    #55643C;
+  --line:       #DCD1C0;
+
+  --serif: "DM Serif Display", Georgia, "Times New Roman", serif;
+  --sans:  "DM Sans", system-ui, -apple-system, sans-serif;
+
+  --gut: clamp(1.25rem, 5vw, 5rem);
+  --maxw: 84rem;
+  --sec: clamp(4.5rem, 10vw, 10rem);
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:var(--sans); font-size:clamp(1rem,.96rem + .2vw,1.08rem);
+  line-height:1.62; -webkit-font-smoothing:antialiased;
+  overflow-x:clip;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--olive);color:var(--paper)}
+:focus-visible{outline:2px solid var(--olive);outline-offset:3px;border-radius:2px}
+
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
+
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.02;letter-spacing:-.018em;text-wrap:balance}
+.kicker{
+  font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--olive);font-weight:700;
+}
+.lede{font-size:clamp(1.05rem,1rem + .4vw,1.28rem);line-height:1.55;color:var(--ink-2);max-width:44ch;text-wrap:pretty}
+.small{font-size:.82rem;letter-spacing:.03em;color:var(--ink-2)}
+
+/* ── butonul principal. O singura eticheta pe tot site-ul: "Comandă pe WhatsApp" */
+.btn{
+  display:inline-flex;align-items:center;gap:.65rem;
+  background:var(--olive);color:var(--paper);
+  font-weight:700;font-size:.92rem;letter-spacing:.02em;
+  padding:1.05rem 1.7rem;border-radius:999px;
+  transition:background .18s var(--ease), transform .12s var(--ease);
+}
+.btn:hover{background:var(--olive-2)}
+.btn:active{transform:translateY(1px)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn--ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn--ghost:hover{background:var(--paper-2)}
+
+/* ── bara ─────────────────────────────────────────────────────────────── */
+.bar{
+  position:fixed;top:0;left:0;right:0;z-index:80;
+  display:flex;align-items:center;gap:1.5rem;
+  padding:.85rem var(--gut);
+  background:color-mix(in oklab, var(--paper) 82%, transparent);
+  backdrop-filter:blur(12px) saturate(1.2);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s var(--ease), background .3s var(--ease);
+}
+.bar.is-stuck{border-bottom-color:var(--line)}
+.mark{font-family:var(--serif);font-size:1.42rem;letter-spacing:-.01em;flex:none}
+.mark i{font-style:italic;color:var(--olive)}
+.bar nav{display:flex;gap:1.6rem;margin-left:auto}
+.bar nav a{font-size:.84rem;color:var(--ink-2);transition:color .16s var(--ease)}
+.bar nav a:hover{color:var(--ink)}
+.bar .btn{margin-left:1.6rem;padding:.6rem 1.15rem;font-size:.8rem}
+
+/* ═══ HERO ═══════════════════════════════════════════════════════════════ */
+.hero{padding-top:clamp(5.5rem,10vh,8rem)}
+.hero__grid{
+  display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.88fr);
+  gap:clamp(2rem, 5vw, 5rem);align-items:center;
+  min-height:calc(100svh - 5.5rem);
+  padding-bottom:var(--sec);
+}
+.hero h1{
+  font-size:clamp(2.6rem, 1.4rem + 4.2vw, 4.8rem);
+  line-height:.98;letter-spacing:-.03em;
+}
+.hero h1 i{font-style:italic;color:var(--olive)}
+.hero .lede{margin-top:1.6rem}
+.hero__cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.2rem}
+.hero__meta{
+  display:flex;flex-wrap:wrap;gap:.4rem 2rem;
+  margin-top:2.6rem;padding-top:1.4rem;border-top:1px solid var(--line);
+}
+.hero__shot{position:relative}
+.hero__shot img{
+  width:100%;height:min(74svh,44vw);object-fit:cover;object-position:50% 78%;
+  border-radius:2px;
+}
+.hero__tag{
+  position:absolute;left:0;bottom:0;transform:translate(-30%, 30%);
+  background:var(--paper);padding:1.1rem 1.4rem;border:1px solid var(--line);
+  max-width:15rem;
+}
+.hero__tag b{display:block;font-family:var(--serif);font-size:1.25rem;font-weight:400;margin-bottom:.15rem}
+
+/* ═══ DOVEZI ═════════════════════════════════════════════════════════════ */
+.proof{border-block:1px solid var(--line);background:var(--paper-2)}
+.proof__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;padding-block:clamp(1.8rem,4vw,3rem)}
+.proof__i{display:flex;flex-direction:column;gap:.3rem}
+.proof__i b{font-family:var(--serif);font-size:clamp(1.9rem,1.4rem + 1.6vw,2.9rem);font-weight:400;line-height:1;color:var(--olive)}
+.proof__i span{font-size:.86rem;color:var(--ink-2);max-width:26ch}
+
+/* ═══ MENIU: lista editoriala, nu carduri ═══════════════════════════════ */
+.menu{padding-block:var(--sec)}
+.menu__head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem;align-items:end;margin-bottom:clamp(2.5rem,5vw,4.5rem)}
+.menu__head h2{font-size:clamp(2.2rem,1.5rem + 2.8vw,4rem)}
+.list{border-top:1px solid var(--line)}
+.row{
+  display:grid;grid-template-columns:minmax(0,13rem) minmax(0,1fr) auto;
+  gap:1rem 2rem;align-items:baseline;
+  padding:clamp(1.3rem,2.4vw,2rem) 0;border-bottom:1px solid var(--line);
+}
+.row__name{font-family:var(--serif);font-size:clamp(1.5rem,1.2rem + 1.1vw,2.2rem);line-height:1.05}
+.row__ingr{color:var(--ink-2);font-size:.98rem;line-height:1.5;max-width:54ch}
+.row__price{display:flex;align-items:baseline;gap:.9rem;white-space:nowrap;font-variant-numeric:tabular-nums}
+.row__price b{font-size:1.25rem;font-weight:700}
+.row__price span{font-size:.82rem;color:var(--ink-2)}
+.row__note{grid-column:2 / -1;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--olive);font-weight:700;margin-top:.5rem}
+.menu__foot{display:flex;flex-wrap:wrap;gap:1rem 2.5rem;align-items:center;margin-top:2.4rem}
+
+/* ═══ TORTURI ════════════════════════════════════════════════════════════ */
+.cakes{padding-block:var(--sec);background:var(--paper-2);border-block:1px solid var(--line)}
+.cakes__head{max-width:44rem;margin-bottom:clamp(2.5rem,5vw,4.5rem)}
+.cakes__head h2{font-size:clamp(2.2rem,1.5rem + 2.8vw,4rem)}
+.gal{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(1rem,2vw,2rem)}
+figure{margin:0}
+.gal figcaption{margin-top:.7rem;font-size:.82rem;letter-spacing:.03em;color:var(--ink-2)}
+.gal img{width:100%;height:100%;object-fit:cover;border-radius:2px}
+.g1{grid-column:1/span 7}          .g1 img{aspect-ratio:4/5}
+.g2{grid-column:8/span 5;align-self:end;padding-bottom:clamp(1rem,4vw,4rem)} .g2 img{aspect-ratio:3/4}
+.g3{grid-column:1/span 4}          .g3 img{aspect-ratio:1/1}
+.g4{grid-column:6/span 7}          .g4 img{aspect-ratio:16/11}
+
+/* ═══ CANDY BAR: banda pe toata latimea ═════════════════════════════════ */
+.cb{position:relative;min-height:clamp(30rem,74vh,44rem);display:grid;align-items:end;overflow:hidden}
+.cb__bg{position:absolute;inset:0;z-index:0}
+.cb__bg img{width:100%;height:100%;object-fit:cover;object-position:50% 74%}
+.cb__scrim{
+  position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(to right, rgba(18,12,7,.88) 0%, rgba(18,12,7,.7) 38%, rgba(18,12,7,.22) 68%, rgba(18,12,7,.05) 100%),
+    linear-gradient(to top, rgba(18,12,7,.6) 0%, rgba(18,12,7,.2) 45%, transparent 80%);
+}
+.cb__in{position:relative;z-index:2;color:#FBF7F1;padding-block:clamp(2.5rem,6vw,4.5rem)}
+.cb__in h2{font-size:clamp(2rem,1.4rem + 2.4vw,3.4rem);color:#FBF7F1}
+.cb__in .kicker{color:#D9C9A8}
+.cb__in p{color:#E8DCCB;max-width:40ch;margin-top:1rem}
+.cb__list{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.6rem}
+.cb__list li{
+  list-style:none;font-size:.84rem;color:#F0E7DA;
+  border:1px solid rgba(251,247,241,.32);padding:.42rem .85rem;border-radius:999px;
+}
+.cb .btn{margin-top:2rem;background:#FBF7F1;color:var(--ink)}
+.cb .btn:hover{background:#fff}
+
+/* ═══ POVESTEA ═══════════════════════════════════════════════════════════ */
+.story{padding-block:var(--sec)}
+.story__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,6vw,6rem);align-items:center}
+.story h2{font-size:clamp(1.9rem,1.4rem + 2.2vw,3.2rem)}
+.story p{margin-top:1.3rem;color:var(--ink-2);max-width:46ch}
+.story p b{color:var(--ink);font-weight:700}
+.story__shot img{width:100%;aspect-ratio:5/6;object-fit:cover;object-position:50% 40%;border-radius:2px}
+
+/* ═══ COMANDA ════════════════════════════════════════════════════════════ */
+.order{padding-block:var(--sec);background:var(--olive);color:#F4F1E6}
+.order h2{font-size:clamp(2.1rem,1.5rem + 2.6vw,3.8rem);color:#F8F5EC;max-width:18ch}
+.order__grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(2.5rem,6vw,6rem);align-items:start}
+.order .kicker{color:#C9CDAF}
+.order .btn{background:#F8F5EC;color:var(--ink);margin-top:2rem}
+.order .btn:hover{background:#fff}
+.order__cards{display:grid;gap:1.4rem}
+.order__c{border-top:1px solid rgba(244,241,230,.26);padding-top:1.1rem}
+.order__c h3{font-family:var(--sans);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#C9CDAF;font-weight:700;margin-bottom:.4rem}
+.order__c p{font-size:1.05rem;color:#F4F1E6;line-height:1.45}
+.order__c a{text-decoration:underline;text-underline-offset:.22em}
+.foot{
+  display:flex;flex-wrap:wrap;gap:.6rem 1.8rem;align-items:center;
+  margin-top:clamp(3rem,7vw,5rem);padding-top:1.4rem;
+  border-top:1px solid rgba(244,241,230,.26);font-size:.82rem;color:#D7D9C4;
+}
+.foot a{text-decoration:underline;text-underline-offset:.2em}
+
+/* ── bara de comanda de pe telefon: cel mai scurt drum spre conversie ──── */
+.dock{
+  position:fixed;left:0;right:0;bottom:0;z-index:90;display:none;
+  padding:.7rem var(--gut) calc(.7rem + env(safe-area-inset-bottom));
+  background:color-mix(in oklab, var(--paper) 92%, transparent);
+  backdrop-filter:blur(12px);border-top:1px solid var(--line);
+  gap:.6rem;
+}
+.dock .btn{flex:1;justify-content:center;padding:.9rem 1rem}
+.dock .btn--ghost{flex:0 0 auto}
+
+/* ── miscare: putina, si numai unde spune ceva ────────────────────────── */
+.rise{opacity:0;transform:translate3d(0,18px,0)}
+.rise.in{opacity:1;transform:none;transition:opacity .7s var(--ease), transform .7s var(--ease)}
+.par{will-change:transform}
+
+@media (max-width:960px){
+  .hero__grid{grid-template-columns:1fr;min-height:0;gap:2.4rem}
+  .hero__shot{order:-1}
+  .hero__shot img{height:auto;aspect-ratio:1/1;object-position:50% 66%}
+  .hero__tag{
+    position:static;transform:none;max-width:none;width:100%;
+    margin-top:.9rem;border:0;border-top:1px solid var(--line);
+    padding:.9rem 0 0;background:transparent;
+  }
+  .menu__head,.story__grid,.order__grid{grid-template-columns:1fr;gap:1.6rem}
+  .story__shot{order:-1}
+  .gal{grid-template-columns:repeat(6,1fr)}
+  .g1{grid-column:1/span 6}.g2{grid-column:1/span 4;padding-bottom:0}
+  .g3{grid-column:1/span 3}.g4{grid-column:1/span 6}
+  .bar nav{display:none}
+  .bar .btn{display:none}
+  .dock{display:flex}
+  body{padding-bottom:4.6rem}
+}
+@media (max-width:560px){
+  .row{grid-template-columns:1fr;gap:.35rem;padding-block:1.15rem}
+  .row__price{margin-top:.35rem}
+  .row__note{grid-column:1}
+  .proof__grid{grid-template-columns:1fr;gap:1.2rem}
+  .proof__i{flex-direction:row;align-items:baseline;gap:.8rem}
+  .proof__i b{font-size:1.6rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .rise{opacity:1;transform:none}
+  .par{transform:none !important}
+}
+</style>
+</head>
+<body>
+
+<header class="bar" id="bar">
+  <a class="mark" href="#top">Basi<i>ll</i>ik</a>
+  <nav>
+    <a href="#vitrina">Vitrina</a>
+    <a href="#torturi">Torturi</a>
+    <a href="#candybar">Candy bar</a>
+    <a href="#povestea">Povestea</a>
+  </nav>
+  <a class="btn" href="https://wa.me/40727004128">Comandă pe WhatsApp</a>
+</header>
+
+<main id="top">
+
+<!-- ═══ HERO ═══════════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div>
+      <p class="kicker rise">Cofetărie artizanală · Brașov</p>
+      <h1 class="rise" style="margin-top:1.1rem">Răsfăț fin,<br>cu <i>zahăr mai puțin</i>.</h1>
+      <p class="lede rise">Blaturi coapte cu miere, cremă cu smântână, fructe proaspete.
+        Rețete est-europene făcute ca acasă, lângă patiserie de inspirație italiană.</p>
+      <div class="hero__cta rise">
+        <a class="btn" href="https://wa.me/40727004128">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.6 14.2c-.2.7-1.2 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .5-.1.7.5l1 2.4c.1.2.1.4 0 .6l-.4.5-.3.3c-.1.1-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2.1 1.3.3.1.4.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2.2 1.1c.3.1.5.2.6.3.1.2.1.7-.1 1.4z"/></svg>
+          Comandă pe WhatsApp
+        </a>
+        <a class="btn btn--ghost" href="#vitrina">Vezi vitrina</a>
+      </div>
+      <div class="hero__meta rise">
+        <span class="small">B-dul Muncii nr. 4, Brașov</span>
+        <span class="small">Zilnic 9:00 - 21:00</span>
+        <span class="small">0727 004 128</span>
+      </div>
+    </div>
+
+    <figure class="hero__shot rise">
+      <img class="par" data-speed="-0.06" src="assets/img/tort-nunta-elegant.jpg" width="1288" height="1700"
+           alt="Tort de nuntă cu trei etaje, cremă albă cu volane și zmeură proaspătă pe fiecare nivel.">
+      <figcaption class="hero__tag">
+        <b>Tort de nuntă</b>
+        <span class="small">Trei etaje, cremă de unt, zmeură proaspătă. Făcut pe comandă.</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ═══ DOVEZI ═════════════════════════════════════════════════════════ -->
+<section class="proof">
+  <div class="wrap proof__grid">
+    <div class="proof__i rise"><b>9,6</b><span>nota clienților pe Wolt, septembrie 2026</span></div>
+    <div class="proof__i rise"><b>2017</b><span>de când coacem, întâi în Republica Moldova</span></div>
+    <div class="proof__i rise"><b>7 zile</b><span>deschis din 7, de dimineața până seara</span></div>
+  </div>
+</section>
+
+<!-- ═══ VITRINA: meniul ca lista editoriala ════════════════════════════ -->
+<section class="menu" id="vitrina">
+  <div class="wrap">
+    <div class="menu__head">
+      <div class="rise">
+        <p class="kicker">Vitrina</p>
+        <h2 style="margin-top:1rem">Ce e în vitrină astăzi</h2>
+      </div>
+      <p class="lede rise">Monoporții făcute în casă, din ingrediente naturale, cu zahăr puțin.
+        Prețurile sunt cele de pe Wolt, septembrie 2026.</p>
+    </div>
+
+    <div class="list">
+      <article class="row rise">
+        <h3 class="row__name">Medovik</h3>
+        <p class="row__ingr">Blaturi coapte cu miere, caramel, cremă cu smântână. Se lasă trei zile
+          în cremă, ca blaturile să se înmoaie singure.</p>
+        <p class="row__price"><b>26 lei</b><span>120 g</span></p>
+        <p class="row__note">Cel mai cerut</p>
+      </article>
+
+      <article class="row rise">
+        <h3 class="row__name">Smetanik</h3>
+        <p class="row__ingr">Blaturi cu miere, cremă de smântână, nuci caramelizate.</p>
+        <p class="row__price"><b>28 lei</b><span>130 g</span></p>
+      </article>
+
+      <article class="row rise">
+        <h3 class="row__name">Napoleon</h3>
+        <p class="row__ingr">Foietaj sfărâmicios, cremă fiartă cu ciocolată albă, vișine.</p>
+        <p class="row__price"><b>33 lei</b><span>140 g</span></p>
+      </article>
+
+      <article class="row rise">
+        <h3 class="row__name">Black Forest</h3>
+        <p class="row__ingr">Blat cu cacao, mousse din ciocolată neagră, vișină, ganaș.</p>
+        <p class="row__price"><b>30 lei</b><span>140 g</span></p>
+      </article>
+
+      <article class="row rise">
+        <h3 class="row__name">Coffee Cake</h3>
+        <p class="row__ingr">Dacquoise de migdale, cremă de cafea, caramel cu vanilie,
+          mousse de ciocolată caramelizată, un strop de amaretto.</p>
+        <p class="row__price"><b>30 lei</b><span>150 g</span></p>
+      </article>
+
+      <article class="row rise">
+        <h3 class="row__name">Fit Cake</h3>
+        <p class="row__ingr">Blat și mousse de ciocolată neagră, cremă de mango, jeleu de căpșună.</p>
+        <p class="row__price"><b>32 lei</b><span>130 g</span></p>
+        <p class="row__note">Fără zahăr</p>
+      </article>
+
+      <article class="row rise">
+        <h3 class="row__name">Twix</h3>
+        <p class="row__ingr">Blat crocant, caramel, ciocolată, alune.</p>
+        <p class="row__price"><b>9 lei</b><span>22 g</span></p>
+      </article>
+    </div>
+
+    <div class="menu__foot rise">
+      <p class="small" style="max-width:46ch">Lângă vitrină: limonade făcute în casă 22 - 25 lei,
+        fresh de portocale sau grapefruit 25 lei, americano 16 lei, flat white 29 lei.</p>
+      <a class="btn" href="https://wa.me/40727004128">Comandă pe WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TORTURI ════════════════════════════════════════════════════════ -->
+<section class="cakes" id="torturi">
+  <div class="wrap">
+    <div class="cakes__head rise">
+      <p class="kicker">La comandă</p>
+      <h2 style="margin-top:1rem">Tortul se face după eveniment, nu invers.</h2>
+      <p class="lede" style="margin-top:1.3rem">Spuneți tema, culorile, numărul de porții și data.
+        Restul se desenează împreună. Comenzile se fac cu câteva zile înainte.</p>
+    </div>
+
+    <div class="gal">
+      <figure class="g1 rise">
+        <img class="par" data-speed="-0.03" src="assets/img/tort-botez.jpg" width="1275" height="1700"
+             alt="Tort de botez alb cu două etaje, decorat cu bile roz, aurii și verzi și cu un ursuleț modelat.">
+        <figcaption>Botez · două etaje, decor modelat manual</figcaption>
+      </figure>
+      <figure class="g2 rise">
+        <img src="assets/img/monoportii-afine.jpg" width="956" height="1700"
+             alt="Tort rotund cu cremă albă, cerc de afine proaspete și mesajul Happy birthday scris cu ciocolată.">
+        <figcaption>Aniversare · fructe proaspete, scris manual</figcaption>
+      </figure>
+      <figure class="g3 rise">
+        <img src="assets/img/tort-sirena.jpg" width="956" height="1700"
+             alt="Tort pentru copii cu tematică marină, cu personaj sirenă modelat și decor de corali colorați.">
+        <figcaption>Copii · personaje modelate</figcaption>
+      </figure>
+      <figure class="g4 rise">
+        <img class="par" data-speed="-0.03" src="assets/img/torturi-evenimente.jpg" width="1000" height="1333"
+             alt="Tort alb pentru nuntă cu trandafiri și eucalipt, alături de monoporții asortate pe platou.">
+        <figcaption>Nuntă · tort și monoporții asortate</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CANDY BAR ══════════════════════════════════════════════════════ -->
+<section class="cb" id="candybar">
+  <div class="cb__bg"><img class="par" data-speed="-0.05" src="assets/img/candybar-mare.jpg" width="1287" height="1700"
+       alt="Platouri cu zeci de mini prăjituri decorate cu zmeură, afine și cireșe, aranjate pentru un candy bar."></div>
+  <div class="cb__scrim" aria-hidden="true"></div>
+  <div class="wrap cb__in">
+    <p class="kicker rise">Candy bar</p>
+    <h2 class="rise" style="margin-top:1rem">Masa dulce, făcută pe tema evenimentului.</h2>
+    <p class="rise">Spuneți tema, culorile, florile sau stilul. Se livrează aranjată, nu în cutii.</p>
+    <ul class="cb__list rise">
+      <li>Monoporții în format mic</li>
+      <li>Macarons</li>
+      <li>Tarte cu fructe</li>
+      <li>Mini éclair-uri</li>
+      <li>Etajere și decorul mesei</li>
+      <li>Tort principal asortat</li>
+    </ul>
+    <a class="btn rise" href="https://wa.me/40727004128">Cere o ofertă</a>
+  </div>
+</section>
+
+<!-- ═══ POVESTEA ═══════════════════════════════════════════════════════ -->
+<section class="story" id="povestea">
+  <div class="wrap story__grid">
+    <div class="rise">
+      <p class="kicker">Povestea</p>
+      <h2 style="margin-top:1rem">O afacere de familie, mutată cu tot cu rețete.</h2>
+      <p>Prima cofetărie a familiei s-a deschis în <b>2017, în Republica Moldova</b>. La Brașov
+        am adus aceleași rețete și același mod de lucru: blaturi coapte în casă, cremă făcută
+        dimineața, fără scurtături.</p>
+      <p>De aici vin Medovik, Smetanik și Napoleon, deserturile est-europene care nu se găsesc
+        în orice cofetărie. Lângă ele stă patiseria de inspirație italiană, făcută la fel de atent.</p>
+      <p><b>Ingrediente naturale, zahăr puțin, gust echilibrat.</b> Ce se termină astăzi se coace
+        mâine dimineață.</p>
+    </div>
+    <figure class="story__shot rise">
+      <img class="par" data-speed="-0.04" src="assets/img/candybar-wedding.jpg" width="956" height="1700"
+           alt="Etajeră albă cu macarons roz și galbeni și mini deserturi pe bețe, pregătite pentru un eveniment.">
+    </figure>
+  </div>
+</section>
+
+<!-- ═══ COMANDA ════════════════════════════════════════════════════════ -->
+<section class="order" id="comanda">
+  <div class="wrap order__grid">
+    <div class="rise">
+      <p class="kicker">Comenzi</p>
+      <h2 style="margin-top:1rem">Un mesaj cu data și numărul de porții. Atât.</h2>
+      <a class="btn" href="https://wa.me/40727004128">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.6 14.2c-.2.7-1.2 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .5-.1.7.5l1 2.4c.1.2.1.4 0 .6l-.4.5-.3.3c-.1.1-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2.1 1.3.3.1.4.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2.2 1.1c.3.1.5.2.6.3.1.2.1.7-.1 1.4z"/></svg>
+        Comandă pe WhatsApp
+      </a>
+    </div>
+
+    <div class="order__cards rise">
+      <div class="order__c">
+        <h3>Adresă</h3>
+        <p>B-dul Muncii nr. 4, Brașov 500281</p>
+      </div>
+      <div class="order__c">
+        <h3>Program</h3>
+        <p>Luni - Duminică, 9:00 - 21:00</p>
+      </div>
+      <div class="order__c">
+        <h3>Telefon</h3>
+        <p><a href="tel:+40727004128">0727 004 128</a></p>
+      </div>
+      <div class="order__c">
+        <h3>Livrare</h3>
+        <p>Prin Wolt, comandă minimă 35 lei</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap foot">
+    <span>Basillik Brașov</span>
+    <a href="https://www.instagram.com/basillik.brasov/">Instagram</a>
+    <a href="https://www.facebook.com/basillikbrasov/">Facebook</a>
+    <a href="https://www.tiktok.com/@basillik.brasov">TikTok</a>
+  </div>
+</section>
+
+</main>
+
+<div class="dock">
+  <a class="btn" href="https://wa.me/40727004128">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.6 14.2c-.2.7-1.2 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .5-.1.7.5l1 2.4c.1.2.1.4 0 .6l-.4.5-.3.3c-.1.1-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2.1 1.3.3.1.4.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2.2 1.1c.3.1.5.2.6.3.1.2.1.7-.1 1.4z"/></svg>
+    Comandă pe WhatsApp
+  </a>
+  <a class="btn btn--ghost" href="tel:+40727004128" aria-label="Sună la 0727 004 128">Sună</a>
+</div>
+
+<script>
+/* Trei lucruri, toate mici. Nimic nu depinde de fetch, deci pagina merge si
+   deschisa cu dublu-click de pe disc. */
+(function () {
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* 1. Dezvaluirea la intrare. Fara librarie, si cu o plasa: daca observerul
+        nu raporteaza, verificarea din scroll aprinde oricum elementele. */
+  var els = [].slice.call(document.querySelectorAll('.rise'));
+  function light(el) { el.classList.add('in'); }
+  if (reduce) { els.forEach(light); els = []; }
+
+  var io = window.IntersectionObserver ? new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var i = els.indexOf(e.target);
+      if (i > -1) { light(e.target); els.splice(i, 1); }
+      io.unobserve(e.target);
+    });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 }) : null;
+  if (io) els.forEach(function (el) { io.observe(el); });
+
+  function sweep() {
+    for (var i = els.length - 1; i >= 0; i--) {
+      var r = els[i].getBoundingClientRect();
+      if (r.top < innerHeight * 0.92 && r.bottom > 0) { light(els[i]); els.splice(i, 1); }
+    }
+  }
+
+  /* 2. Parallax pe poze. Cateva zeci de pixeli, cat sa se simta adancimea,
+        nu cat sa se vada mecanismul. */
+  var pars = [].slice.call(document.querySelectorAll('.par'));
+  function move() {
+    var vh = innerHeight;
+    for (var i = 0; i < pars.length; i++) {
+      var el = pars[i], r = el.getBoundingClientRect();
+      if (r.bottom < -200 || r.top > vh + 200) continue;
+      var mid = r.top + r.height / 2, d = (mid - vh / 2) / vh;
+      el.style.transform = 'translate3d(0,' + (d * (parseFloat(el.dataset.speed) || -0.05) * 100).toFixed(1) + 'px,0) scale(1.04)';
+    }
+  }
+
+  /* 3. Bara capata linie cand pagina a plecat de sus. */
+  var bar = document.getElementById('bar');
+
+  var raf = 0;
+  function frame() {
+    raf = 0;
+    if (els.length) sweep();
+    if (!reduce) move();
+    bar.classList.toggle('is-stuck', scrollY > 12);
+  }
+  function onScroll() { if (!raf) raf = requestAnimationFrame(frame); }
+  addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('resize', onScroll);
+  frame();
+})();
+</script>
+</body>
+</html>
