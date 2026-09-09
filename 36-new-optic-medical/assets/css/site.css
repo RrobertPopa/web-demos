@@ -1,0 +1,249 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   New Optic Medical — foaia de stil comuna tuturor paginilor.
+   Albastrul e al lor, luat din logo. Restul e alb rece si mult aer, pentru ca
+   o optica medicala vinde claritate, nu atmosfera.
+   ═══════════════════════════════════════════════════════════════════════════ */
+:root{
+  --navy:      #0B2545;
+  --navy-2:    #123A63;
+  --ink:       #102337;
+  --ink-2:     #566C84;
+  --paper:     #FFFFFF;
+  --paper-2:   #F2F6FA;
+  --accent:    #1183CE;
+  --accent-d:  #0C6BAA;
+  --accent-s:  #DCEDF9;
+  --line:      #DCE5EE;
+
+  --display: "Outfit", system-ui, -apple-system, sans-serif;
+  --text:    "Source Sans 3", system-ui, -apple-system, sans-serif;
+
+  --gut: clamp(1.15rem, 4.5vw, 4.5rem);
+  --maxw: 80rem;
+  --sec: clamp(4rem, 8.5vw, 8.5rem);
+  --r: 14px;
+  --ease: cubic-bezier(.22, 1, .36, 1);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--text);font-size:clamp(1rem, 0.97rem + 0.16vw, 1.09rem);
+  line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--accent);color:#fff}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.06;letter-spacing:-.025em;text-wrap:balance}
+.h-xl{font-size:clamp(2.3rem, 1.5rem + 3.2vw, 4.2rem)}
+.h-lg{font-size:clamp(1.85rem, 1.3rem + 2.2vw, 3.1rem)}
+.h-md{font-size:clamp(1.35rem, 1.1rem + 1.1vw, 2rem)}
+.lede{font-size:clamp(1.05rem, 1rem + .35vw, 1.24rem);line-height:1.55;color:var(--ink-2);max-width:46ch;text-wrap:pretty}
+.muted{color:var(--ink-2)}
+.small{font-size:.85rem;color:var(--ink-2)}
+
+/* eyebrow cu linie scurta, ca la referinta */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.7rem;
+  font-size:.72rem;letter-spacing:.19em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;font-family:var(--text);
+}
+.eyebrow::before{content:"";width:1.8rem;height:2px;background:var(--accent);flex:none}
+
+/* ── butoane. O singura eticheta primara pe tot site-ul: "Sună acum". ───── */
+.btn{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:var(--accent);color:#fff;font-family:var(--display);
+  font-weight:600;font-size:.95rem;letter-spacing:.01em;
+  padding:.95rem 1.5rem;border-radius:999px;border:1px solid transparent;
+  transition:background .18s var(--ease), transform .12s var(--ease);
+}
+.btn:hover{background:var(--accent-d)}
+.btn:active{transform:translateY(1px)}
+.btn svg{width:17px;height:17px;flex:none}
+.btn--ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn--ghost:hover{background:var(--paper-2)}
+.btn--light{background:#fff;color:var(--navy)}
+.btn--light:hover{background:#EAF3FA}
+
+/* ── bara: pastila flotanta, desprinsa de marginea de sus ───────────────── */
+.bar{position:sticky;top:0;z-index:90;padding:.7rem var(--gut) 0}
+.bar__in{
+  max-width:var(--maxw);margin-inline:auto;
+  display:flex;align-items:center;gap:1.2rem;
+  background:rgba(255,255,255,.86);backdrop-filter:blur(14px) saturate(1.3);
+  border:1px solid var(--line);border-radius:999px;
+  padding:.5rem .6rem .5rem 1.15rem;
+  box-shadow:0 1px 2px rgba(11,37,69,.05), 0 10px 26px -14px rgba(11,37,69,.28);
+}
+.mark{display:flex;align-items:center;gap:.6rem;flex:none}
+.mark img{width:34px;height:34px;object-fit:contain}
+.mark b{font-family:var(--display);font-weight:700;font-size:1.02rem;letter-spacing:-.02em;line-height:1.05}
+.mark__t > span{display:block;font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-2);font-weight:600}
+.bar nav{display:flex;gap:1.35rem;margin-left:auto}
+.bar nav a{font-size:.92rem;color:var(--ink-2);transition:color .16s var(--ease)}
+.bar nav a:hover{color:var(--ink)}
+.bar nav a[aria-current="page"]{color:var(--ink);font-weight:600}
+.bar .btn{padding:.6rem 1.1rem;font-size:.88rem}
+
+/* ── sectiuni ───────────────────────────────────────────────────────────── */
+.sec{padding-block:var(--sec)}
+.sec--alt{background:var(--paper-2);border-block:1px solid var(--line)}
+.sec--dark{background:var(--navy);color:#EAF2F9}
+.sec--dark h2,.sec--dark h3{color:#fff}
+.sec--dark .muted,.sec--dark .lede{color:#A9C0D6}
+.sec--dark .eyebrow{color:#6FC0F0}
+.sec--dark .eyebrow::before{background:#6FC0F0}
+.sec__head{max-width:44rem;margin-bottom:clamp(2.2rem, 4.5vw, 3.8rem)}
+.sec__head h2{margin-top:1rem}
+.sec__head .lede{margin-top:1.1rem}
+
+/* ── banda de dovezi ────────────────────────────────────────────────────── */
+.proof{border-block:1px solid var(--line);background:var(--paper-2)}
+.proof__g{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;padding-block:clamp(1.6rem,3.2vw,2.6rem)}
+.proof__i b{display:block;font-family:var(--display);font-weight:600;font-size:clamp(1.5rem,1.2rem + 1.1vw,2.3rem);line-height:1;color:var(--navy)}
+.proof__i span{display:block;font-size:.86rem;color:var(--ink-2);margin-top:.35rem;max-width:24ch}
+.proof__i a{color:var(--accent);text-decoration:underline;text-underline-offset:.2em}
+.stars{color:#E8A33D;letter-spacing:.08em}
+
+/* ── lista de servicii: randuri, nu carduri ─────────────────────────────── */
+.rows{border-top:1px solid var(--line)}
+.row{
+  display:grid;grid-template-columns:3.2rem minmax(0,15rem) minmax(0,1fr) auto;
+  gap:.6rem 2rem;align-items:baseline;
+  padding:clamp(1.25rem,2.4vw,1.9rem) 0;border-bottom:1px solid var(--line);
+  transition:background .2s var(--ease);
+}
+.row:hover{background:var(--paper-2)}
+.row__n{font-family:var(--display);font-weight:600;color:var(--accent);font-size:.95rem;letter-spacing:.04em}
+.row__t{font-family:var(--display);font-weight:600;font-size:clamp(1.15rem,1rem + .7vw,1.6rem);letter-spacing:-.02em;line-height:1.15}
+.row__d{color:var(--ink-2);font-size:.99rem;line-height:1.55;max-width:58ch}
+.row__x{white-space:nowrap;color:var(--accent);font-weight:600;font-size:.88rem;font-family:var(--display)}
+
+/* ── recenzii ───────────────────────────────────────────────────────────── */
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,1.8vw,1.6rem)}
+.rev{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--r);
+  padding:clamp(1.3rem,2vw,1.8rem);display:flex;flex-direction:column;gap:.85rem;
+}
+.sec--dark .rev{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.14)}
+.rev p{font-size:1rem;line-height:1.6}
+.sec--dark .rev p{color:#DCE9F4}
+.rev footer{margin-top:auto;display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap}
+.rev b{font-family:var(--display);font-weight:600;font-size:.96rem}
+.rev time{font-size:.8rem;color:var(--ink-2)}
+.sec--dark .rev time{color:#8FA9C2}
+
+/* ── branduri de lentile ────────────────────────────────────────────────── */
+.brands{display:flex;flex-wrap:wrap;gap:.55rem 2.2rem;align-items:baseline}
+.brands span{font-family:var(--display);font-weight:600;font-size:clamp(1.05rem,.9rem + .8vw,1.7rem);letter-spacing:-.02em;color:var(--navy)}
+.sec--dark .brands span{color:#fff}
+
+/* ── media si figuri ────────────────────────────────────────────────────── */
+.fig{border-radius:var(--r);overflow:hidden;background:var(--paper-2)}
+.fig img{width:100%;height:100%;object-fit:cover}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.8rem,4.5vw,4.5rem);align-items:center}
+
+/* ── subsol ─────────────────────────────────────────────────────────────── */
+.foot{background:var(--navy);color:#C6D8E8;padding-block:clamp(2.5rem,5vw,4rem)}
+.foot a{color:#C6D8E8}
+.foot a:hover{color:#fff}
+.foot__g{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem}
+.foot h3{font-family:var(--text);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#6FC0F0;font-weight:700;margin-bottom:.7rem}
+.foot p{margin-bottom:.35rem;font-size:.95rem}
+.foot__b{margin-top:2.4rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;font-size:.82rem;color:#8FA9C2}
+
+/* ── bara de contact de pe telefon ──────────────────────────────────────── */
+.dock{
+  position:fixed;left:0;right:0;bottom:0;z-index:95;display:none;gap:.55rem;
+  padding:.6rem var(--gut) calc(.6rem + env(safe-area-inset-bottom));
+  background:rgba(255,255,255,.94);backdrop-filter:blur(12px);
+  border-top:1px solid var(--line);
+}
+.dock .btn{flex:1;justify-content:center}
+
+/* ── dezvaluire la intrare ──────────────────────────────────────────────── */
+.rise{opacity:0;transform:translate3d(0,16px,0)}
+.rise.in{opacity:1;transform:none;transition:opacity .65s var(--ease), transform .65s var(--ease)}
+
+@media (max-width:980px){
+  .split{grid-template-columns:1fr}
+  .revs{grid-template-columns:1fr}
+  .proof__g{grid-template-columns:repeat(2,1fr)}
+  .foot__g{grid-template-columns:1fr 1fr}
+  .bar nav{display:none}
+  .dock{display:flex}
+  body{padding-bottom:4.4rem}
+}
+@media (max-width:620px){
+  .row{grid-template-columns:2.2rem 1fr;gap:.3rem .9rem}
+  .row__d{grid-column:2}
+  .row__x{grid-column:2;margin-top:.3rem}
+  .proof__g{grid-template-columns:1fr;gap:1rem}
+  .proof__i{display:flex;align-items:baseline;gap:.7rem}
+  .proof__i b{font-size:1.4rem}
+  .proof__i span{margin-top:0}
+  .foot__g{grid-template-columns:1fr}
+  .mark__t > span{display:none}
+  /* numarul nu incape in bara pe telefon si se rupe pe trei randuri.
+     Bara fixa de jos are oricum butonul de apel. */
+  .bar .btn{display:none}
+  .bar__in{padding-right:1.15rem}
+}
+@media (prefers-reduced-motion:reduce){ .rise{opacity:1;transform:none} }
+
+/* ── LENTILA (doar pe pagina principala) ─────────────────────────────────── */
+.lens{position:relative}
+.lens__blur{display:none}
+.lens.on .lens__blur{
+  display:block;position:absolute;inset:0;margin:0;
+  /* aceleasi metrici ca titlul, altfel cele doua straturi se rup pe randuri
+     diferite si efectul arata a defect, nu a lentila */
+  font-family:var(--display);font-weight:600;line-height:1.06;
+  letter-spacing:-.025em;text-wrap:balance;color:var(--ink);
+  filter:blur(3.4px);opacity:.9;pointer-events:none;
+}
+.lens.on .lens__sharp{
+  position:relative;
+  clip-path:circle(clamp(110px, 16vw, 210px) at var(--lx,50%) var(--ly,46%));
+}
+.lens__hint{
+  display:none;margin-top:1.15rem;font-size:.78rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-2);
+}
+@media (hover:hover) and (pointer:fine){ .lens.on + .lens__hint{display:block} }
+@media (prefers-reduced-motion:reduce){
+  .lens.on .lens__blur{display:none}
+  .lens.on .lens__sharp{clip-path:none}
+  .lens.on + .lens__hint{display:none}
+}
+
+/* ── hero ───────────────────────────────────────────────────────────────── */
+.hero{padding-top:clamp(2rem,4vw,3.5rem)}
+.hero__g{
+  display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.9fr);
+  gap:clamp(1.8rem,4vw,4rem);align-items:center;padding-block:clamp(1.5rem,4vw,4rem);
+}
+.hero h1{margin-top:1.1rem}
+.hero .lede{margin-top:1.4rem}
+.hero__cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem}
+.hero__meta{display:flex;flex-wrap:wrap;gap:.3rem 1.8rem;margin-top:2.2rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+.hero__shot{position:relative;border-radius:var(--r);overflow:hidden}
+.hero__shot img{width:100%;height:min(62svh,34rem);object-fit:cover;object-position:50% 45%}
+.hero__badge{
+  position:absolute;left:1rem;bottom:1rem;right:1rem;
+  background:rgba(255,255,255,.94);backdrop-filter:blur(8px);
+  border-radius:10px;padding:.85rem 1.05rem;display:flex;align-items:center;gap:.8rem;
+}
+.hero__badge b{font-family:var(--display);font-weight:600;font-size:1.05rem;white-space:nowrap}
+.hero__badge span{font-size:.82rem;color:var(--ink-2);line-height:1.35}
+@media (max-width:980px){
+  .hero__g{grid-template-columns:1fr}
+  .hero__shot{order:-1}
+  .hero__shot img{height:min(46svh,22rem)}
+}
