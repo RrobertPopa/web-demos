@@ -91,6 +91,43 @@ h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.06;letter-spac
 .bar nav a[aria-current="page"]{color:var(--ink);font-weight:600}
 .bar .btn{padding:.6rem 1.1rem;font-size:.88rem}
 
+/* ── butonul de meniu si panoul de pe telefon ───────────────────────────── */
+.burger{
+  display:none;margin-left:auto;flex:none;
+  width:44px;height:44px;border-radius:999px;border:1px solid var(--line);
+  background:#fff;cursor:pointer;position:relative;
+  transition:background .16s var(--ease);
+}
+.burger:hover{background:var(--paper-2)}
+.burger span{
+  position:absolute;left:12px;right:12px;height:2px;border-radius:2px;
+  background:var(--ink);transition:transform .22s var(--ease), opacity .16s var(--ease);
+}
+.burger span:nth-child(1){top:16px}
+.burger span:nth-child(2){top:26px}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){transform:translateY(-5px) rotate(-45deg)}
+
+.menu{
+  max-width:var(--maxw);margin:.5rem auto 0;
+  background:#fff;border:1px solid var(--line);border-radius:22px;
+  box-shadow:0 1px 2px rgba(11,37,69,.05), 0 18px 40px -18px rgba(11,37,69,.35);
+  padding:.5rem;overflow:hidden;
+}
+.menu[hidden]{display:none}
+.menu a:not(.btn){
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.95rem 1.1rem;border-radius:14px;
+  font-family:var(--display);font-weight:600;font-size:1.08rem;
+  transition:background .16s var(--ease);
+}
+.menu a:not(.btn):hover{background:var(--paper-2)}
+.menu a[aria-current="page"]{color:var(--accent)}
+.menu a:not(.btn)::after{content:"→";color:var(--accent);font-weight:400}
+.menu .btn{width:100%;justify-content:center;margin-top:.4rem}
+.menu__sep{height:1px;background:var(--line);margin:.4rem 1.1rem}
+.menu__meta{padding:.7rem 1.1rem .3rem;font-size:.85rem;color:var(--ink-2)}
+
 /* ── sectiuni ───────────────────────────────────────────────────────────── */
 .sec{padding-block:var(--sec)}
 .sec--alt{background:var(--paper-2);border-block:1px solid var(--line)}
@@ -177,6 +214,7 @@ h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.06;letter-spac
   .proof__g{grid-template-columns:repeat(2,1fr)}
   .foot__g{grid-template-columns:1fr 1fr}
   .bar nav{display:none}
+  .burger{display:block}
   .dock{display:flex}
   body{padding-bottom:4.4rem}
 }
@@ -191,9 +229,8 @@ h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.06;letter-spac
   .foot__g{grid-template-columns:1fr}
   .mark__t > span{display:none}
   /* numarul nu incape in bara pe telefon si se rupe pe trei randuri.
-     Bara fixa de jos are oricum butonul de apel. */
-  .bar .btn{display:none}
-  .bar__in{padding-right:1.15rem}
+     Il muta in panoul de meniu si in bara fixa de jos. */
+  .bar > .bar__in > .btn{display:none}
 }
 @media (prefers-reduced-motion:reduce){ .rise{opacity:1;transform:none} }
 

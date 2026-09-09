@@ -43,9 +43,16 @@ decupat la un cerc care urmărește cursorul. Prin cerc se vede clar, în rest e
 Exact ce face un ochelar. Pe telefon cercul traversează singur titlul, pe măsură ce derulezi.
 Sub `prefers-reduced-motion` efectul dispare complet și rămâne titlul normal.
 
+## Meniul de pe telefon
+Prima versiune ascundea pe mobil **și** navigația, **și** butonul de telefon, deci în bară rămânea
+doar logo-ul: pe un site de patru pagini, celelalte trei erau de neatins. Reparat cu un buton
+de meniu care deschide un panou cu cele patru pagini, adresa, programul și butonul de apel.
+Se închide la Escape, la click în afară, la alegerea unei pagini și când fereastra se lărgește
+peste pragul la care revine navigația normală.
+
 ## Verificat
 Desktop 1512, plus 320 și 390 în iframe-uri. Zero scroll orizontal. Toate cele patru pagini,
-navigație între ele, marcarea paginii curente.
+navigație între ele, marcarea paginii curente, meniul de pe telefon deschis și închis.
 **Neverificat:** telefon real, `prefers-reduced-motion`, deschidere pe `file://`
 (paginile n-au `fetch`, module ES sau căi absolute, deci ar trebui să meargă).
 

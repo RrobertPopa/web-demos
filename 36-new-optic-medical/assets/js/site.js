@@ -67,6 +67,29 @@
   var y = document.querySelector('[data-year]');
   if (y) y.textContent = new Date().getFullYear();
 
+
+  /* 4 · meniul de pe telefon ---------------------------------------------- */
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('meniu');
+  if (burger && menu) {
+    var open = false;
+    function setMenu(v) {
+      open = v;
+      menu.hidden = !v;
+      burger.setAttribute('aria-expanded', v ? 'true' : 'false');
+      burger.setAttribute('aria-label', v ? 'Închide meniul' : 'Deschide meniul');
+    }
+    burger.addEventListener('click', function () { setMenu(!open); });
+    menu.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+    addEventListener('keydown', function (e) { if (e.key === 'Escape' && open) { setMenu(false); burger.focus(); } });
+    // daca fereastra se largeste peste pragul la care reapare navigatia normala,
+    // panoul deschis ar ramane atarnat sub bara
+    addEventListener('resize', function () { if (open && innerWidth > 980) setMenu(false); });
+    document.addEventListener('click', function (e) {
+      if (open && !menu.contains(e.target) && !burger.contains(e.target)) setMenu(false);
+    });
+  }
+
   var raf2 = 0;
   function onScroll() { if (!raf2) raf2 = requestAnimationFrame(function () { raf2 = 0; if (els.length) sweep(); }); }
   addEventListener('scroll', onScroll, { passive: true });
