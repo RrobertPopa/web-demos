@@ -1,0 +1,132 @@
+/* site-premium — bază: reset, scară, culori.
+   Se copiază în proiect și se schimbă DOAR blocul de culori pentru fiecare client. */
+
+/* ── Reset ───────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+input, button, textarea, select { font: inherit; color: inherit; }
+button { background: none; border: 0; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+p, h1, h2, h3, h4 { overflow-wrap: break-word; }
+ul, ol { list-style: none; padding: 0; }
+
+/* ── Tokeni ──────────────────────────────────────────────────── */
+:root {
+  /* Culori — SE SCHIMBĂ per client. Un singur accent. */
+  --ink: #101012;          /* text principal */
+  --ink-2: #55565c;        /* text secundar */
+  --ink-3: #8a8b93;        /* text terțiar, etichete */
+  --line: #e6e6ea;         /* linii, borduri */
+  --bg: #ffffff;
+  --bg-2: #f6f6f8;         /* banda alternantă */
+  --accent: #1d4ed8;       /* UNICUL accent */
+  --accent-ink: #ffffff;   /* text pe accent */
+
+  /* Tipografie */
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, "Helvetica Neue", Arial, sans-serif;
+  --step--1: clamp(0.86rem, 0.84rem + 0.1vw, 0.92rem);
+  --step-0:  clamp(1rem, 0.97rem + 0.15vw, 1.125rem);
+  --step-1:  clamp(1.2rem, 1.12rem + 0.4vw, 1.5rem);
+  --step-2:  clamp(1.5rem, 1.32rem + 0.9vw, 2.25rem);
+  --step-3:  clamp(2rem, 1.6rem + 2vw, 3.5rem);
+  --step-4:  clamp(2.6rem, 1.7rem + 4.4vw, 6rem);
+
+  /* Spații */
+  --sp-1: 0.5rem;
+  --sp-2: 1rem;
+  --sp-3: 1.5rem;
+  --sp-4: 2.5rem;
+  --sp-5: 4rem;
+  --sp-6: 6rem;
+  --sp-7: 9rem;
+
+  /* Formă */
+  --r-sm: 11px;
+  --r-lg: 24px;
+  --shadow-rest: 0 1px 2px rgba(16, 16, 18, 0.06);
+  --shadow-lift: 0 18px 50px -18px rgba(16, 16, 18, 0.28);
+
+  /* Lățimi */
+  --wrap: 1180px;
+  --wrap-narrow: 760px;
+}
+
+/* ── Elemente de bază ────────────────────────────────────────── */
+body {
+  font-family: var(--font);
+  font-size: var(--step-0);
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+h1, h2, h3 {
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+h1 { font-size: var(--step-4); letter-spacing: -0.035em; }
+h2 { font-size: var(--step-3); letter-spacing: -0.028em; }
+h3 { font-size: var(--step-1); letter-spacing: -0.015em; }
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--sp-3);
+}
+
+/* Etichetă mică, majuscule — folosită rar */
+.tag {
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* Buton pill cu accent */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  padding: 0.85em 1.4em;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 550;
+  font-size: var(--step-0);
+  letter-spacing: -0.01em;
+}
+.btn--ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+/* Inputs: minimum 16px, altfel iOS face zoom */
+input, textarea, select { font-size: max(16px, 1rem); }
+
+/* Focus vizibil, dar discret */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Banda alternantă — secțiunile se despart prin fundal, nu prin spațiu */
+.band { background: var(--bg-2); }
+.section { padding-block: var(--sp-6); }
+
+@media (max-width: 640px) {
+  .section { padding-block: var(--sp-5); }
+  .wrap { padding-inline: var(--sp-2); }
+}
