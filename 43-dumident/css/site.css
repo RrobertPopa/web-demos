@@ -340,6 +340,12 @@ h3 { font-size: var(--step-1); letter-spacing: -.018em; }
   .hero__loc { background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); }
 }
 .hero__loc b { font-weight: 600; color: var(--ink); }
+.hero__loc-short { display: none; }
+@media (max-width: 460px) {
+  /* Adresa completă nu încape pe un rând la 320px, iar ruptă arată prost. */
+  .hero__loc-long { display: none; }
+  .hero__loc-short { display: inline; }
+}
 .hero__dot {
   width: 7px; height: 7px; border-radius: 50%; flex: none;
   background: #23b46b; box-shadow: 0 0 0 3px rgba(35, 180, 107, .18);
@@ -507,9 +513,28 @@ h3 { font-size: var(--step-1); letter-spacing: -.018em; }
 @media (max-width: 760px) {
   .nav, .bar__cta { display: none; }
   .burger { display: block; }
+
+  /* Pe telefon pilula se desface în bandă lipită de marginea de sus:
+     la 320px o pilulă centrată ar lăsa gutiere pe care nu le avem de dat. */
+  .bar {
+    top: 0; left: 0; right: 0;
+    transform: none;
+    width: 100%; max-width: none;
+    border-radius: 0;
+    border-left: 0; border-right: 0; border-top: 0;
+    border-bottom: 1px solid transparent;
+    padding-top: env(safe-area-inset-top, 0px);
+    box-shadow: 0 1px 12px -6px rgba(29, 29, 31, .18);
+  }
+  .bar.is-stuck {
+    border-bottom-color: var(--line);
+    box-shadow: 0 6px 20px -10px rgba(29, 29, 31, .22);
+  }
+  .bar__in { padding-inline: var(--sp-3); }
   .section { padding-block: var(--sp-5); }
 
-  .hero { padding-top: calc(var(--bar-top) + var(--bar-h) + var(--sp-3) + env(safe-area-inset-top, 0px)); padding-bottom: var(--sp-4); }
+  .hero { padding-top: calc(var(--bar-h) + var(--sp-4) + env(safe-area-inset-top, 0px)); padding-bottom: var(--sp-4); }
+  .panel { top: calc(var(--bar-h) + 8px + env(safe-area-inset-top, 0px)); }
   .tiles { grid-template-columns: 1fr; gap: .7rem; }
   .tile { padding: var(--sp-2) var(--sp-3); flex-direction: row; align-items: baseline; justify-content: space-between; gap: var(--sp-2); }
   .tile__l { text-align: right; }
@@ -544,7 +569,7 @@ h3 { font-size: var(--step-1); letter-spacing: -.018em; }
 .med { padding: var(--sp-3); display: flex; flex-direction: column; gap: .5rem; }
 .med__ini {
   width: 44px; height: 44px; border-radius: 50%; flex: none;
-  display: grid; place-items: center;
+  display: grid; place-items: center; color: #fff;
   background: linear-gradient(155deg, #98a2b3, var(--steel-deep));
   color: #fff; font-weight: 600; font-size: .92rem; letter-spacing: -.02em;
   box-shadow: 0 6px 16px -6px rgba(74, 84, 98, .5);
