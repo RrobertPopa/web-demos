@@ -532,6 +532,9 @@ h3 { font-size: var(--step-1); letter-spacing: -.018em; }
     box-shadow: 0 6px 20px -10px rgba(29, 29, 31, .22);
   }
   .bar__in { padding-inline: var(--sp-3); }
+  /* Pilula isi ia latimea dupa continut, deci pe desktop nimic nu trebuie impins.
+     In banda full-width, burgerul are nevoie de ceva care sa-l duca la margine. */
+  .burger { margin-left: auto; margin-right: -8px; }
   .section { padding-block: var(--sp-5); }
 
   .hero { padding-top: calc(var(--bar-h) + var(--sp-4) + env(safe-area-inset-top, 0px)); padding-bottom: var(--sp-4); }
