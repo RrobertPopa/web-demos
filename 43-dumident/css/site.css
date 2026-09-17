@@ -297,14 +297,15 @@ h3 { font-size: var(--step-1); letter-spacing: -.018em; }
 .panel {
   position: fixed; z-index: 50;
   top: calc(var(--bar-top) + var(--bar-h) + 10px + env(safe-area-inset-top, 0px));
-  left: 10px; right: 10px;
+  right: 10px; left: auto;
+  width: min(264px, calc(100% - 20px));
   padding: var(--sp-2);
   border-radius: var(--r-xl);
   background: rgba(255, 255, 255, .93);
   border: 1px solid var(--glass-line);
   box-shadow: 0 26px 60px -22px rgba(29, 29, 31, .34), inset 0 1px 0 rgba(255, 255, 255, .9);
-  transform-origin: top center;
-  opacity: 0; transform: scale(.95) translateY(-6px);
+  transform-origin: top right;
+  opacity: 0; transform: scale(.94) translate(6px, -6px);
   transition: opacity var(--d-panel) var(--ease-smooth), transform var(--d-panel) var(--ease-smooth);
 }
 @supports (backdrop-filter: blur(1px)) {
