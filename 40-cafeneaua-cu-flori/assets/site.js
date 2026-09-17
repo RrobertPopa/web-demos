@@ -94,6 +94,53 @@
     secte.forEach(function (s) { ioBar.observe(s); });
   }
 
+  /* ── 3b · Meniul de telefon ───────────────────────────────────────────
+     Se inchide la click pe o legatura, la Escape si cand ecranul se face
+     destul de lat cat bara orizontala sa reapara — altfel ar ramane un
+     panou deschis peste un meniu care e deja vizibil. */
+  var burger = document.getElementById('burger');
+  var meniu  = document.getElementById('meniu');
+
+  if (burger && meniu) {
+    [].forEach.call(meniu.querySelectorAll('nav a'), function (a, i) {
+      a.style.setProperty('--i', i);
+    });
+
+    var deschis = false;
+
+    var pune = function (stare) {
+      deschis = stare;
+      burger.setAttribute('aria-expanded', stare ? 'true' : 'false');
+      document.body.classList.toggle('blocat', stare);
+      if (stare) {
+        meniu.hidden = false;
+        // reporneste animatia de intrare a legaturilor la fiecare deschidere
+        [].forEach.call(meniu.querySelectorAll('nav a'), function (a) {
+          a.style.animation = 'none';
+          void a.offsetWidth;
+          a.style.animation = '';
+        });
+      } else {
+        meniu.hidden = true;
+      }
+    };
+
+    burger.addEventListener('click', function () { pune(!deschis); });
+
+    meniu.addEventListener('click', function (e) {
+      if (e.target.closest('a')) pune(false);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && deschis) { pune(false); burger.focus(); }
+    });
+
+    var lat = window.matchMedia('(min-width: 861px)');
+    var laLatime = function () { if (lat.matches && deschis) pune(false); };
+    if (lat.addEventListener) lat.addEventListener('change', laLatime);
+    else if (lat.addListener) lat.addListener(laLatime);
+  }
+
   /* ── 4 · Almanahul ────────────────────────────────────────────────────
      Sezonalitate reala de florarie din Romania. Se deschide pe luna curenta. */
   var SEZON = [

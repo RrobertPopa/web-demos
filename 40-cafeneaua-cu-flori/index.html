@@ -19,7 +19,7 @@
     <img src="assets/img/logo-sm.jpg" alt="" width="34" height="34">
     <span>Cafeneaua cu Flori</span>
   </a>
-  <nav aria-label="Secțiuni">
+  <nav class="bar__nav" aria-label="Secțiuni">
     <a href="#cafea">cafea</a>
     <a href="#flori">flori</a>
     <a href="#vitrina">vitrina</a>
@@ -27,7 +27,25 @@
     <a href="#gasesti">unde ne găsești</a>
   </nav>
   <a class="bar__tel" href="tel:+40773790024">0773 790 024</a>
+  <button type="button" class="burger" id="burger" aria-label="Meniu" aria-expanded="false" aria-controls="meniu">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+
+<div class="meniu" id="meniu" hidden>
+  <nav aria-label="Meniu">
+    <a href="#cafea">Cafea</a>
+    <a href="#flori">Flori</a>
+    <a href="#vitrina">Vitrina</a>
+    <a href="#perechea">Perechea</a>
+    <a href="#gasesti">Unde ne găsești</a>
+  </nav>
+  <a class="meniu__tel" href="tel:+40773790024">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 12l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2Z"/></svg>
+    0773 790 024
+  </a>
+  <p class="meniu__orar">Zilnic 08:00&ndash;18:30 · două adrese în București</p>
+</div>
 
 <main id="sus">
 
@@ -94,7 +112,7 @@
   <section class="sect" data-tint style="--tint: var(--salvie)">
     <div class="wrap">
       <p class="eyebrow" data-rise>Două meserii, aceleași mâini</p>
-      <h2 class="title" data-rise style="max-width: 20ch">Nu e o florărie care vinde și cafea. <em>Și nu e invers.</em></h2>
+      <h2 class="title" data-rise style="max-width: 20ch">Cafeaua și buchetul vin <em>de la aceeași persoană.</em></h2>
 
       <div class="duo" style="margin-top: clamp(1.8rem, 4vw, 2.8rem)">
         <article class="duo__card" data-rise>
@@ -134,11 +152,11 @@
           <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h14l-1.5 12H6.5z"/><path d="M4 8h16M9 4h6"/></svg>
           cafea la pachet
         </span>
-        <h2 class="title">Nu ai unde <em>să stai.</em> Și e în regulă.</h2>
+        <h2 class="title">Cafea bună, <em>luată din mers.</em></h2>
         <p class="lede">
-          E o cafenea to go: îți iei cafeaua și pleci cu ea. O spune limpede chiar
-          proprietarul, într-un răspuns public pe Google. Afară e loc, înăuntru nu —
-          așa a fost gândit locul.
+          Se face pe loc și pleacă cu tine: spre birou dimineața, sau la plimbarea
+          de după-amiază prin cartier. Iar dacă e vreme bună, ai unde să stai afară,
+          în fața magazinului.
         </p>
       </div>
       <div class="cups">
@@ -146,21 +164,21 @@
           <span class="cup__n">01</span>
           <span class="cup__b">
             <strong>Ciocolată caldă</strong>
-            <span>Densă, nu dulceagă. Singura băutură pe care clienții o scriu pe nume în recenzii.</span>
-            <span class="tag">numită de 3 ori pe Google</span>
+            <span>Densă și catifelată, din ciocolată adevărată. Cea pentru care lumea se întoarce.</span>
+            <span class="tag">cea mai lăudată</span>
           </span>
         </div>
         <div class="cup" data-rise>
           <span class="cup__n">02</span>
-          <span class="cup__b"><strong>Espresso</strong><span>Scurt, băut în picioare, lângă găleata cu lalele.</span></span>
+          <span class="cup__b"><strong>Espresso</strong><span>Scurt și intens, cu o cremă groasă deasupra.</span></span>
         </div>
         <div class="cup" data-rise>
           <span class="cup__n">03</span>
-          <span class="cup__b"><strong>Cappuccino</strong><span>Cel din pozele lăsate de clienți pe fișa lor de Google.</span></span>
+          <span class="cup__b"><strong>Cappuccino</strong><span>Cremos, cu spumă fină și lapte bine aburit.</span></span>
         </div>
         <div class="cup" data-rise>
           <span class="cup__n">04</span>
-          <span class="cup__b"><strong>Ceai de plante</strong><span>Cât se leagă buchetul, dacă ai venit și pentru flori.</span></span>
+          <span class="cup__b"><strong>Ceai de plante</strong><span>Cald și liniștitor, bun în diminețile răcoroase de toamnă.</span></span>
         </div>
       </div>
     </div>
@@ -450,13 +468,6 @@
         </a>
       </div>
 
-      <p class="subsol">
-        Datele de pe pagină sunt publice, culese pe 17.09.2026 de pe
-        <a href="https://www.google.com/maps/place/Cafeneaua+cu+Flori/@44.4009855,26.1000569,17z" target="_blank" rel="noopener">fișa Google</a>
-        și de pe <a href="https://www.instagram.com/cafeneaua_cu_flori_/" target="_blank" rel="noopener">Instagram</a>.
-        Programul e cel confirmat public de proprietar într-un răspuns la o recenzie.
-        Meniul complet și prețurile se completează împreună cu ei.
-      </p>
     </div>
   </section>
 
