@@ -11,7 +11,7 @@
 
   /* ── Meniu mobil ──────────────────────────────────────── */
   var burger = document.getElementById('burger');
-  var sheet = document.getElementById('menu');
+  var sheet = document.getElementById('panel');
   var scrim = document.getElementById('scrim');
   var lastY = 0;
 
