@@ -29,6 +29,8 @@ changes only grammar and world will fail it.
 | Build | Grammar | Nav treatment | Hero device | Act-sequence shape | Close pattern | Signature move | World | Port |
 |---|---|---|---|---|---|---|---|---|
 | basillik-brasov | Gallery / catalog | Index de obiecte, fix, cu sectiunea curenta marcata; sare | Vitrina: pin cu 5 planuri de parallax (lumina, raft-spate, cadru, geam, raft-fata) | pin > flow > pan > tacere > pin(varf) > reveal > parallax > pin · 8 acte · 17,6vh | Placa de comanda tipografiata ca eticheta de muzeu, in chenar, fara magnet si fara spotlight | "Felia": sectiune prin Medovik care se construieste strat cu strat din `--sc-p`, cu linii de indicatie si ingredientul real pe fiecare strat | Fotografic, verde-padure / os / miere | 8766 |
+| sferic-optic | Editorial ledger | Fara nav; bara de contact fixa doar pe telefon | Tipografic, o propozitie, fara imagine | tipografic > lista revelata > tacere > unealta(varf) > doua coloane > orar viu · 5 acte · 9,2vh la 320px | Orar viu care spune daca e deschis acum, plus butonul de sunat | "Devizul": alegi lentila, montajul si extrele, iar totalul se compune din preturile publicate de ei, cu 2 lentile la pereche | Tipografic, alb rece / negru / chihlimbar | 4500 |
+| cafeneaua-cu-flori | Almanah / perechi | Bara subtire care isi ia accentul cromatic de la sectiunea curenta | Diptic: doua panouri care se despart si lasa numele intre ele; pe telefon se intoarce pe verticala | pin > flow > pin > pan > flow > pin(varf) > flow > pin · 8 acte · 11,8vh | Buchetul care se deseneaza singur cand actul intra, cu cele doua adrese ca etichete | "Perechea": alegi o bautura si primesti floarea care merge cu ea, si invers — bidirectional | Tipografic + ilustratie vectoriala, hartie calda / accent unic pe sectiune | 4500 |
 
 
 
@@ -46,6 +48,11 @@ as a constraint, so writing them down is the whole point.
 - **Inchidere pe placa tipografiata** in chenar, fara magnet si fara spotlight.
 - **Sectiunea prin produs** ca miscare semnatura. Nu se refoloseste desenul in sectiune.
 - Banda **8 acte / 17,6vh**.
+- **Almanah / perechi** ca grammar: pagina organizata pe lucruri care vin in doi.
+- **Nav care isi ia culoarea de la sectiunea curenta.** Nu se refoloseste mecanismul.
+- **Diptic** ca hero, si rotirea lui pe verticala ca art direction de telefon.
+- **Buchetul care se deseneaza** ca inchidere (stroke-dashoffset pe tulpini).
+- Paleta **hartie + un singur accent per sectiune**, adica nicio culoare dominanta.
 - Paleta **verde-padure + os + miere** pe demo de cofetarie.
 
 ---

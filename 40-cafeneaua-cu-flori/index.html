@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cafeneaua cu Flori · București — cafea și flori, aceleași mâini</title>
+<meta name="description" content="Florărie și cafenea în același spațiu. Drumul Sării 2 și Șoseaua Olteniței 8, București. Buchete, aranjamente, evenimente, workshopuri — și o ciocolată caldă cât aștepți.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23FAF7F2'/><circle cx='16' cy='13' r='4.2' fill='none' stroke='%232A2622' stroke-width='1.5'/><path d='M16 17.5V26' stroke='%232A2622' stroke-width='1.5' stroke-linecap='round'/></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="scrollcraft.css">
+<style>
+  :root {
+    --sc-canvas:     #FAF7F2;
+    --sc-surface:    #F2EDE5;
+    --sc-ink:        #2A2622;
+    --sc-ink-soft:   #6E655C;
+    --sc-accent:     #A8BCA1;
+    --sc-accent-ink: #2A2622;
+    --sc-font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
+    --sc-font-text:    "Karla", system-ui, -apple-system, sans-serif;
+
+    /* Accentele. Fiecare apare O SINGURĂ DATĂ pe pagină, de aceea niciunul nu domină. */
+    --salvie:   #A8BCA1;
+    --piersica: #E3B393;
+    --prune:    #A98BA0;
+    --mustar:   #D4B978;
+    --caramida: #C2705C;
+    --creta:    #F2EDE5;
+    --sepia:    #6E655C;
+  }
+
+  /* ── Bara ─────────────────────────────────────────────────────────────── */
+  .bar {
+    position: fixed; inset: 0 0 auto 0; z-index: 40;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: .85rem clamp(1rem, 4vw, 2.5rem);
+    background: color-mix(in srgb, var(--sc-canvas) 86%, transparent);
+    backdrop-filter: blur(9px);
+    border-bottom: 1px solid color-mix(in srgb, var(--sc-ink) 9%, transparent);
+  }
+  /* Nav treatment: firul de sub bară ia culoarea secțiunii în care ești. */
+  .bar::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+    background: var(--tint, transparent);
+    transition: background .7s cubic-bezier(.22,.61,.36,1);
+  }
+  .bar__mark {
+    font-family: var(--sc-font-display); font-size: 1.15rem; letter-spacing: .01em;
+    text-decoration: none; color: var(--sc-ink); white-space: nowrap;
+  }
+  .bar__mark em { font-style: italic; }
+  .bar__links { display: flex; gap: 1.4rem; }
+  .bar__links a {
+    font-size: .8rem; letter-spacing: .06em; text-transform: lowercase;
+    color: var(--sc-ink-soft); text-decoration: none; transition: color .3s;
+  }
+  .bar__links a:hover, .bar__links a:focus-visible { color: var(--sc-ink); }
+  .bar__cta {
+    font-size: .8rem; letter-spacing: .04em; text-decoration: none;
+    color: var(--sc-ink); border: 1px solid currentColor; border-radius: 999px;
+    padding: .45rem 1rem; white-space: nowrap; transition: background .3s, color .3s;
+  }
+  .bar__cta:hover, .bar__cta:focus-visible { background: var(--sc-ink); color: var(--sc-canvas); }
+  @media (max-width: 720px) { .bar__links { display: none; } }
+
+  /* ── Tipografie proprie ───────────────────────────────────────────────── */
+  .eyebrow {
+    font-size: .72rem; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--sc-ink-soft); margin-bottom: 1.1rem;
+  }
+  .lede { font-size: clamp(1.02rem, 1.6vw, 1.2rem); color: var(--sc-ink-soft); max-width: 46ch; }
+  h2.title {
+    font-family: var(--sc-font-display); font-weight: 400;
+    font-size: clamp(2.1rem, 6vw, 4.2rem); line-height: 1.02; letter-spacing: -.01em;
+    margin: 0 0 1.2rem; text-wrap: balance;
+  }
+  h2.title em { font-style: italic; color: var(--tint, var(--sc-ink)); }
+  .wrap { width: min(1180px, 100% - clamp(2rem, 8vw, 7rem)); margin-inline: auto; }
+
+  /* ── 1 · Dipticul ─────────────────────────────────────────────────────── */
+  .diptic { position: relative; height: 100%; display: grid; place-items: center; overflow: hidden; }
+  .diptic__panel {
+    position: absolute; top: 0; bottom: 0; width: 50%;
+    display: grid; place-items: center;
+  }
+  .diptic__panel--l { left: 0;  background: var(--creta); }
+  .diptic__panel--r { right: 0; background: #EDE6DC; }
+  .diptic__panel svg { width: min(38vw, 260px); height: auto; opacity: .9; }
+  .diptic__mid { position: relative; z-index: 3; text-align: center; padding: 3.5rem 1rem 1rem; }
+  /* Scrim LOCAL, doar sub text. La 320px paragraful cadea peste tulpinile
+     desenate si contrastul scadea la 3,96:1. Un voal pe tot cadrul ar fi
+     stins si ilustratiile; asta se stinge la margini si nu se vede. */
+  @media (max-width: 720px) {
+    .diptic__mid::before {
+      content: ""; position: absolute; inset: -14% -10%; z-index: -1;
+      background: radial-gradient(ellipse at center,
+        var(--sc-canvas) 46%,
+        color-mix(in srgb, var(--sc-canvas) 55%, transparent) 72%,
+        transparent 92%);
+    }
+  }
+  .diptic__mid h1 {
+    font-family: var(--sc-font-display); font-weight: 400;
+    font-size: clamp(2.4rem, 8.5vw, 6.4rem); line-height: .96; margin: 0;
+    letter-spacing: -.015em;
+  }
+  .diptic__mid h1 em { font-style: italic; }
+  .diptic__mid p {
+    margin: 1.1rem auto 0; max-width: 34ch;
+    font-size: clamp(.9rem, 2.4vw, 1.05rem);
+    color: #57504A;   /* mai inchis decat --sc-ink-soft: text mic peste desen */
+  }
+  .diptic__seam {
+    position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; z-index: 2;
+    background: color-mix(in srgb, var(--sc-ink) 14%, transparent);
+  }
+
+  /* Scenele fixate care tin text de citit incep sub bara, nu sub ea. */
+  .stage-pad {
+    display: grid; place-items: center; align-content: center;
+    padding: clamp(4.5rem, 9vh, 6.5rem) 0 clamp(1.5rem, 4vh, 3rem);
+  }
+  .stage-pad > * { width: 100%; }
+  /* Actul pan: rail-ul trebuie sa poata iesi din cadru, dar NU are voie sa
+     lateasca grid-ul — altfel titlul sectiunii se intinde si el la latimea
+     rail-ului (1331px masurat) si iese din ecran pe telefon. Coloana se
+     fixeaza la minmax(0,1fr), iar rail-ul depaseste peste ea si e taiat de
+     overflow:clip al scenei. */
+  [data-sc-act="pan"] .stage-pad {
+    justify-items: stretch; grid-template-columns: minmax(0, 1fr);
+  }
+  [data-sc-act="pan"] .stage-pad > * { min-width: 0; }
+  [data-sc-act="pan"] .rail { width: max-content; }
+
+  /* ── 2 · Mâinile ──────────────────────────────────────────────────────── */
+  .hands { max-width: 52rem; margin-inline: auto; padding-inline: 1rem; }
+  .hands p {
+    font-family: var(--sc-font-display); font-weight: 400;
+    font-size: clamp(1.4rem, 4.2vw, 2.6rem); line-height: 1.24;
+    margin: 0 0 1.1rem; text-wrap: pretty;
+  }
+  .hands p:last-of-type { color: var(--sc-ink-soft); }
+  .hands .src { font-family: var(--sc-font-text); font-size: .82rem; color: var(--sc-ink-soft); }
+  .hands .src a { color: inherit; }
+
+  /* ── 3 · Cafeneaua ────────────────────────────────────────────────────── */
+  .split { display: grid; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+  @media (min-width: 900px) { .split { grid-template-columns: 1fr 1fr; } }
+  .cups { display: grid; gap: .4rem; }
+  .cup {
+    display: flex; align-items: baseline; gap: .9rem;
+    padding: .95rem 0; border-bottom: 1px solid color-mix(in srgb, var(--sc-ink) 10%, transparent);
+  }
+  .cup__n { font-family: var(--sc-font-display); font-size: 1.15rem; color: var(--tint); min-width: 1.6rem; }
+  .cup__b { flex: 1; min-width: 0; }
+  .cup__b strong { display: block; font-weight: 500; font-size: 1.02rem; }
+  .cup__b span { font-size: .86rem; color: var(--sc-ink-soft); }
+  .star {
+    display: inline-block; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--tint); border: 1px solid currentColor; border-radius: 999px;
+    padding: .18rem .6rem; margin-top: .45rem;
+  }
+
+  /* ── 4 · Florăria ─────────────────────────────────────────────────────── */
+  .rail {
+    display: flex; gap: clamp(1rem, 2.5vw, 1.8rem); align-items: stretch;
+    padding-inline: clamp(1rem, 4vw, 3.5rem);
+  }
+  .occ {
+    flex: 0 0 clamp(200px, 24vw, 280px);
+    background: var(--sc-canvas); border: 1px solid color-mix(in srgb, var(--sc-ink) 11%, transparent);
+    border-radius: 3px; padding: 1.5rem 1.35rem; display: flex; flex-direction: column; gap: .7rem;
+    transition: transform .5s cubic-bezier(.22,.61,.36,1), border-color .5s;
+  }
+  .occ:hover { transform: translateY(-6px); border-color: var(--tint); }
+  .occ svg { width: 42px; height: 42px; color: var(--tint); }
+  .occ h3 { font-family: var(--sc-font-display); font-weight: 400; font-size: 1.5rem; margin: 0; }
+  .occ p { font-size: .87rem; color: var(--sc-ink-soft); margin: 0; }
+
+  /* ── 5 · Almanahul ────────────────────────────────────────────────────── */
+  .almanah { display: grid; gap: 1.6rem; }
+  @media (min-width: 820px) { .almanah { grid-template-columns: 1fr 1.15fr; align-items: start; } }
+  .months { display: flex; flex-wrap: wrap; gap: .35rem; }
+  .months button {
+    font: inherit; font-size: .78rem; letter-spacing: .04em;
+    background: transparent; color: var(--sc-ink-soft); cursor: pointer;
+    border: 1px solid color-mix(in srgb, var(--sc-ink) 12%, transparent);
+    border-radius: 999px; padding: .38rem .78rem; transition: all .3s;
+  }
+  .months button:hover { color: var(--sc-ink); }
+  .months button[aria-pressed="true"] {
+    background: var(--tint); border-color: var(--tint); color: var(--sc-ink);
+  }
+  .season { border-left: 2px solid var(--tint); padding-left: 1.4rem; min-height: 8.5rem; }
+  .season h3 {
+    font-family: var(--sc-font-display); font-weight: 400; font-size: clamp(1.7rem, 4vw, 2.5rem);
+    margin: 0 0 .5rem;
+  }
+  .season p { margin: 0; color: var(--sc-ink-soft); max-width: 42ch; }
+  .season .now {
+    display: inline-block; margin-top: .9rem; font-size: .72rem; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--sc-ink-soft);
+  }
+
+  /* ── 6 · Perechea — signature move ────────────────────────────────────── */
+  .pair { display: grid; gap: clamp(1.4rem, 4vw, 3rem); align-items: center; width: 100%; }
+  @media (min-width: 900px) { .pair { grid-template-columns: 1fr auto 1fr; } }
+  .pair__col { display: grid; gap: .5rem; }
+  .pair__col h3 {
+    font-size: .74rem; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--sc-ink-soft); margin: 0 0 .5rem; font-family: var(--sc-font-text); font-weight: 600;
+  }
+  .chip {
+    font: inherit; text-align: left; cursor: pointer;
+    background: transparent; color: var(--sc-ink);
+    border: 1px solid color-mix(in srgb, var(--sc-ink) 13%, transparent);
+    border-radius: 3px; padding: .72rem 1rem;
+    transition: background .35s, border-color .35s, transform .35s cubic-bezier(.22,.61,.36,1);
+  }
+  .chip:hover { transform: translateX(3px); border-color: var(--tint); }
+  .chip[aria-pressed="true"] {
+    background: var(--tint); border-color: var(--tint);
+    color: #fff; transform: translateX(6px);
+  }
+  .pair__mid { text-align: center; }
+  .pair__glyph {
+    width: clamp(90px, 22vw, 140px); height: auto; color: var(--tint);
+    transition: transform .6s cubic-bezier(.22,.61,.36,1), opacity .35s;
+  }
+  .pair__mid.is-swapping .pair__glyph { opacity: 0; transform: scale(.9) rotate(-6deg); }
+  .pair__why {
+    margin: 1rem auto 0; max-width: 30ch; font-size: .92rem; color: var(--sc-ink-soft);
+    min-height: 3.4rem; transition: opacity .35s;
+  }
+  .pair__mid.is-swapping .pair__why { opacity: 0; }
+  .pair__out { font-family: var(--sc-font-display); font-size: clamp(1.5rem, 4vw, 2.2rem); }
+
+  /* ── 7 · Recenzii ─────────────────────────────────────────────────────── */
+  .score { display: flex; align-items: baseline; gap: .9rem; flex-wrap: wrap; margin-bottom: 2.2rem; }
+  .score b { font-family: var(--sc-font-display); font-weight: 400; font-size: clamp(3rem, 9vw, 4.6rem); line-height: 1; }
+  .score span { color: var(--sc-ink-soft); font-size: .92rem; }
+  .score a { color: var(--sc-ink-soft); }
+  .revs { display: grid; gap: 1.1rem; }
+  @media (min-width: 860px) { .revs { grid-template-columns: repeat(3, 1fr); } }
+  .rev {
+    border-top: 2px solid var(--tint); padding-top: 1.1rem;
+    display: flex; flex-direction: column; gap: .7rem;
+  }
+  .rev blockquote { margin: 0; font-size: 1rem; line-height: 1.55; }
+  .rev figcaption { font-size: .8rem; color: var(--sc-ink-soft); margin-top: auto; }
+  .rev figcaption b { font-weight: 600; color: var(--sc-ink); display: block; }
+
+  /* ── 8 · Vino la noi ──────────────────────────────────────────────────── */
+  .close__in { width: min(1180px, 100% - clamp(2rem, 8vw, 7rem)); margin-inline: auto; }
+  .close__h {
+    font-family: var(--sc-font-display); font-weight: 400;
+    font-size: clamp(1.9rem, 5vw, 3.2rem); line-height: 1.04; margin: 0 0 1.4rem;
+    text-align: center;
+  }
+  .close__h em { font-style: italic; }
+  .spots { display: grid; gap: 1.1rem; }
+  @media (min-width: 760px) { .spots { grid-template-columns: 1fr 1fr; } }
+  .spot {
+    border: 1px solid color-mix(in srgb, var(--sc-ink) 12%, transparent);
+    border-radius: 3px; padding: 1.15rem 1.3rem;
+  }
+  .spot h3 { font-family: var(--sc-font-display); font-weight: 400; font-size: 1.45rem; margin: 0 0 .5rem; }
+  .spot a { color: var(--sc-ink); }
+  .spot .maps { font-size: .84rem; color: var(--sc-ink-soft); display: inline-block; margin-top: .6rem; }
+  .lines { list-style: none; margin: 0; padding: 0; display: grid; gap: .3rem; font-size: .93rem; }
+  .socials { display: flex; gap: .7rem; flex-wrap: wrap; margin-top: 1.4rem; justify-content: center; }
+  .socials a {
+    display: inline-flex; align-items: center; gap: .5rem;
+    font-size: .88rem; text-decoration: none; color: var(--sc-ink);
+    border: 1px solid color-mix(in srgb, var(--sc-ink) 14%, transparent);
+    border-radius: 999px; padding: .55rem 1.1rem;
+    transition: background .35s, color .35s, border-color .35s;
+  }
+  .socials a:hover, .socials a:focus-visible { background: var(--sc-ink); color: var(--sc-canvas); border-color: var(--sc-ink); }
+  .socials svg { width: 17px; height: 17px; }
+  .note {
+    margin-top: 1.5rem; padding-top: 1.2rem; font-size: .78rem; color: var(--sc-ink-soft);
+    border-top: 1px solid color-mix(in srgb, var(--sc-ink) 10%, transparent);
+  }
+  .note a { color: inherit; }
+
+  /* Buchetul de final: tulpinile cresc când actul intră. */
+  .bouquet { display: block; width: min(250px, 56vw); height: auto; margin: 0 auto 1rem; color: var(--tint); }
+  .bouquet [data-stem] {
+    stroke-dasharray: var(--len, 200); stroke-dashoffset: var(--len, 200);
+    transition: stroke-dashoffset 1.5s cubic-bezier(.22,.61,.36,1);
+  }
+  .bouquet.is-open [data-stem] { stroke-dashoffset: 0; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bouquet [data-stem] { stroke-dashoffset: 0; transition: none; }
+    .chip, .occ, .pair__glyph, .pair__why { transition: none; }
+  }
+
+  /* Art direction pe telefon: pe desktop cele doua desene sunt subiectul; pe
+     ecran ingust devin textura, pentru ca titlul cade peste ele si contrastul
+     masurat scadea la 3,96:1 — sub prag pentru text mic.
+     Blocul asta sta DUPA regula de baza .diptic__panel svg{opacity:.9},
+     altfel are aceeasi specificitate si pierde, oricat de ingust ar fi ecranul. */
+  @media (max-width: 720px) {
+    /* Dipticul se intoarce pe verticala: cana sus, floarea jos, numele intre
+       ele. Pe latime mica cele doua panouri alaturate lasau desenele fix sub
+       titlu, iar contrastul cadea la 3,96:1. Estompate pana la lizibilitate
+       heroul ramanea gol, deci se MUTA, nu se sting. */
+    .diptic__panel { width: 100%; height: 50%; }
+    .diptic__panel--l { top: 0; bottom: auto; left: 0; align-content: start; padding-top: 12%; }
+    .diptic__panel--r { top: auto; bottom: 0; right: 0; align-content: end; padding-bottom: 12%; }
+    .diptic__panel svg { width: min(30vw, 120px); opacity: .8; }
+    .diptic__seam {
+      top: 50%; bottom: auto; left: 0; right: 0;
+      width: auto; height: 1px;
+    }
+  }
+
+  /* Sub 400px: totul se strânge, nimic nu iese din ecran. */
+  @media (max-width: 400px) {
+    .rail { gap: .8rem; }
+    .occ { flex-basis: 78vw; padding: 1.2rem 1rem; }
+    .season { padding-left: 1rem; }
+    .diptic__panel svg { width: 42vw; }
+    /* „Cafeneaua" e un cuvant care nu se rupe. La 2,4rem masoara 288px si, cu
+       padding, blocul iesea la 324px pe un ecran de 320: scrollWidth ramanea
+       320 (stage-ul taie), deci un test numeric l-ar fi declarat curat, dar
+       litera de la capat era retezata de margine. Se vede doar in captura. */
+    .diptic__mid { padding: .6rem; }
+    .diptic__mid h1 { font-size: clamp(1.75rem, 9.6vw, 2.4rem); letter-spacing: -.005em; }
+    .diptic__mid p { font-size: .84rem; }
+  }
+</style>
+</head>
+<body>
+
+<span data-sc-progress></span>
+
+<header class="bar">
+  <a class="bar__mark" href="#top">Cafeneaua <em>cu Flori</em></a>
+  <nav class="bar__links" aria-label="Secțiuni">
+    <a href="#cafea">cafea</a>
+    <a href="#flori">flori</a>
+    <a href="#perechea">perechea</a>
+    <a href="#vino">unde ne găsești</a>
+  </nav>
+  <a class="bar__cta" href="tel:+40773790024">0773 790 024</a>
+</header>
+
+<main id="top">
+
+  <!-- 1 · DIPTICUL — act "pin", device parallax ---------------------------
+       Tipurile de act sunt scrub|pin|pan|flow. "parallax" e un ATRIBUT de
+       plan (data-sc-parallax), nu un tip: scris ca tip, actul cadea pe flow,
+       scena nu primea clasa .sc-stage si deci nici height:100svh — heroul
+       iesea turtit pe jumatate de ecran, cu titlul sub bara. -->
+  <section data-sc-act="pin" data-sc-span="1.6" data-sc-drift="#FAF7F2" style="--tint: var(--salvie)">
+    <div data-sc-stage>
+      <div class="diptic">
+        <div class="diptic__panel diptic__panel--l" data-sc-parallax="0.16" aria-hidden="true">
+          <svg viewBox="0 0 120 120" fill="none" stroke="#2A2622" stroke-width="1.4" stroke-linecap="round">
+            <path d="M34 54h44a4 4 0 0 1 4 4v14a22 22 0 0 1-22 22H52a22 22 0 0 1-22-22V58a4 4 0 0 1 4-4Z"/>
+            <path d="M82 60h7a11 11 0 0 1 0 22h-3"/>
+            <path d="M46 40c0-6 3-9 3-13M58 38c0-7 4-10 4-15M70 40c0-6 3-9 3-13" opacity=".55"/>
+            <path d="M26 100h68" opacity=".4"/>
+          </svg>
+        </div>
+        <div class="diptic__panel diptic__panel--r" data-sc-parallax="-0.16" aria-hidden="true">
+          <svg viewBox="0 0 120 120" fill="none" stroke="#2A2622" stroke-width="1.4" stroke-linecap="round">
+            <circle cx="60" cy="40" r="9"/>
+            <path d="M60 40c0-12 7-19 15-19 0 11-6 19-15 19ZM60 40c0-12-7-19-15-19 0 11 6 19 15 19Z"/>
+            <path d="M60 40c10-5 19-2 23 5-9 5-18 3-23-5ZM60 40c-10-5-19-2-23 5 9 5 18 3 23-5Z"/>
+            <path d="M60 49v53" />
+            <path d="M60 68c-7-3-12-9-12-16 8 0 13 6 12 16ZM60 82c7-3 12-9 12-16-8 0-13 6-12 16Z" opacity=".65"/>
+          </svg>
+        </div>
+        <div class="diptic__seam" aria-hidden="true"></div>
+        <!-- "0 1 0 0": apare instant la aterizare si NU se stinge niciodata.
+             Cu rampOut implicit (0.3) titlul paginii se estompa inainte de
+             finalul actului si nu atingea niciodata opacitatea plina. -->
+        <!-- Fara clasa .sc-copy: aceea e absolute cu inset-inline:gutter, iar
+             .diptic__mid e relative, deci cele doua se bat si blocul se muta cu
+             exact latimea gutterului (20px la 320). Cue-ul citeste atributul,
+             nu clasa, deci nu se pierde nimic. -->
+        <div class="diptic__mid" data-sc-cue="0 1 0 0">
+          <h1>Cafeneaua<br><em>cu Flori</em></h1>
+          <p>O cafenea și o florărie în același spațiu. Aceeași persoană îți face cafeaua și buchetul.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 · MÂINILE — flow + stagger ----------------------------------------
+       Flow, nu pin, ca sa nu urmeze doua acte fixate unul dupa altul. -->
+  <section class="sc-section" data-sc-drift="#F2EDE5" style="--tint: var(--salvie)">
+    <div class="hands" data-sc-in data-sc-stagger="150">
+      <p>Barista care îți face cafeaua</p>
+      <p>este și florăreasa care îți leagă buchetul.</p>
+      <p>Nu sunt două afaceri care împart o chirie. E o singură meserie, făcută cu două mâini.</p>
+      <p class="src">
+        „Welcoming barista-host which is also a floral designer 🌺, cozy atmosphere between all the
+        decorations and flowers.” — <b>Danny Mike</b>, Local Guide, 362 de recenzii ·
+        <a href="https://www.google.com/maps/place/Cafeneaua+cu+Flori/@44.4009855,26.1000569,17z" target="_blank" rel="noopener">pe Google</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- 3 · CAFENEAUA — pin: ceștile urcă una câte una cât cadrul stă ------- -->
+  <section id="cafea" data-sc-act="pin" data-sc-span="1.6" data-sc-drift="#FAF7F2" style="--tint: var(--piersica)">
+    <div data-sc-stage class="stage-pad">
+    <div class="wrap split">
+      <div data-sc-cue="0 1 0 0">
+        <p class="eyebrow">Coffee &amp; more</p>
+        <h2 class="title">Stai jos. <em>Florile pot aștepta.</em></h2>
+        <p class="lede">
+          Din cele 37 de recenzii de pe Google, un singur produs e numit pe nume de mai multe ori:
+          ciocolata caldă. Așa că începem cu ea.
+        </p>
+      </div>
+      <div class="cups">
+        <div class="cup" data-sc-cue="0.12 1 0.18 0">
+          <span class="cup__n">01</span>
+          <span class="cup__b">
+            <strong>Ciocolată caldă</strong>
+            <span>Densă, nu dulceagă. Cea pe care o pomenește lumea în recenzii.</span>
+            <span class="star">numită de 3 ori pe Google</span>
+          </span>
+        </div>
+        <div class="cup" data-sc-cue="0.3 1 0.18 0"><span class="cup__n">02</span><span class="cup__b"><strong>Espresso</strong><span>Scurt, băut în picioare, lângă găleata cu lalele.</span></span></div>
+        <div class="cup" data-sc-cue="0.46 1 0.18 0"><span class="cup__n">03</span><span class="cup__b"><strong>Cappuccino</strong><span>Pentru dimineața în care ai venit doar să te uiți.</span></span></div>
+        <div class="cup" data-sc-cue="0.62 1 0.18 0"><span class="cup__n">04</span><span class="cup__b"><strong>Ceai de plante</strong><span>Când aștepți să se lege buchetul.</span></span></div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- 4 · FLORĂRIA — pan --------------------------------------------------- -->
+  <section id="flori" data-sc-act="pan" data-sc-span="1.4" data-sc-drift="#F2EDE5" style="--tint: var(--prune)">
+    <div data-sc-stage class="stage-pad">
+      <div class="wrap" data-sc-cue="0 1 0 0" style="margin-bottom:clamp(1.2rem,3vw,2rem)">
+        <p class="eyebrow">Florăria</p>
+        <h2 class="title">Pentru ce ai <em>venit</em>.</h2>
+      </div>
+      <div class="rail" data-sc-pan="0.55">
+        <article class="occ">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="24" cy="16" r="6"/><path d="M24 16c0-8 5-12 10-12 0 7-4 12-10 12ZM24 16c0-8-5-12-10-12 0 7 4 12 10 12Z"/><path d="M24 22v22"/></svg>
+          <h3>Buchete</h3>
+          <p>Cea mai des pomenită treabă a lor în recenziile de pe Google.</p>
+        </article>
+        <article class="occ">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M12 40V22l12-8 12 8v18z"/><path d="M19 40V29h10v11"/><circle cx="24" cy="10" r="3"/></svg>
+          <h3>Aranjamente</h3>
+          <p>Pentru masă, pentru vitrină, pentru un birou care are nevoie de ceva viu.</p>
+        </article>
+        <article class="occ">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M10 34c0-9 6-16 14-16s14 7 14 16"/><path d="M24 18V8M18 12l6-4 6 4"/><path d="M10 34h28"/></svg>
+          <h3>Evenimente</h3>
+          <p>Nunți, botezuri, aniversări. Se discută din timp, nu în ziua de dinainte.</p>
+        </article>
+        <article class="occ">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="24" cy="24" r="13"/><path d="M24 11v26M11 24h26" opacity=".45"/></svg>
+          <h3>Coroane funerare</h3>
+          <p>Se fac în aceeași zi. Sunați, nu scrieți — la asta se răspunde repede.</p>
+        </article>
+        <article class="occ">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M8 38h32M14 38V22M24 38V14M34 38V26"/><circle cx="14" cy="18" r="3"/><circle cx="24" cy="10" r="3"/><circle cx="34" cy="22" r="3"/></svg>
+          <h3>Workshopuri</h3>
+          <p>Înveți să legi tu buchetul. Cu o cafea în față, că tot ești acolo.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · ALMANAHUL — sequence. Liniștea dinaintea vârfului. --------------- -->
+  <section class="sc-section" data-sc-drift="#FAF7F2" style="--tint: var(--mustar)">
+      <div class="wrap almanah" data-sc-in data-sc-stagger="120">
+        <div>
+          <p class="eyebrow">Almanahul</p>
+          <h2 class="title">Ce e <em>acum</em>.</h2>
+          <p class="lede" style="margin-bottom:1.4rem">
+            Florile au sezon, chiar dacă magazinele se poartă ca și cum n-ar avea. Alege o lună.
+          </p>
+          <div class="months" id="months" role="group" aria-label="Alege luna"></div>
+        </div>
+        <div class="season">
+          <h3 id="season-name">—</h3>
+          <p id="season-text">—</p>
+          <span class="now" id="season-now" hidden>luna aceasta</span>
+        </div>
+      </div>
+  </section>
+
+  <!-- 6 · PERECHEA — pin + pointer. VÂRFUL, cel mai mare span. ------------- -->
+  <section id="perechea" data-sc-act="pin" data-sc-span="2.4" data-sc-drift="#F2EDE5" style="--tint: var(--caramida)">
+    <div data-sc-stage class="stage-pad">
+      <div class="wrap" style="width:min(1180px,100% - clamp(1.5rem,7vw,6rem))">
+        <div data-sc-cue="0 1 0 0" style="text-align:center;margin-bottom:clamp(1.5rem,4vw,2.6rem)">
+          <p class="eyebrow">Perechea</p>
+          <h2 class="title" style="margin-bottom:.4rem">Alege o cafea.<br><em>Îți spunem ce floare merge cu ea.</em></h2>
+        </div>
+        <div class="pair" data-sc-cue="0.1 1 0.12 0">
+          <div class="pair__col">
+            <h3>Băutura</h3>
+            <button class="chip" data-drink="0" aria-pressed="true">Ciocolată caldă</button>
+            <button class="chip" data-drink="1" aria-pressed="false">Espresso</button>
+            <button class="chip" data-drink="2" aria-pressed="false">Cappuccino</button>
+            <button class="chip" data-drink="3" aria-pressed="false">Ceai de plante</button>
+          </div>
+          <div class="pair__mid" id="pair-mid">
+            <svg class="pair__glyph" id="pair-glyph" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"></svg>
+            <p class="pair__why"><span class="pair__out" id="pair-flower">—</span><br><span id="pair-why">—</span></p>
+          </div>
+          <div class="pair__col" style="text-align:right">
+            <h3>Floarea</h3>
+            <button class="chip" data-flower="0" aria-pressed="true">Bujor</button>
+            <button class="chip" data-flower="1" aria-pressed="false">Garoafă</button>
+            <button class="chip" data-flower="2" aria-pressed="false">Frezie</button>
+            <button class="chip" data-flower="3" aria-pressed="false">Lavandă</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · RECENZIILE — flow + stagger -------------------------------------- -->
+  <section class="sc-section" data-sc-drift="#FAF7F2" style="--tint: var(--salvie)">
+    <div class="wrap">
+      <div data-sc-in data-sc-stagger="80">
+        <p class="eyebrow">Ce zice lumea</p>
+        <div class="score">
+          <b>4,7</b>
+          <span>din 37 de recenzii pe Google ·
+            <a href="https://www.google.com/maps/place/Cafeneaua+cu+Flori/@44.4009855,26.1000569,17z" target="_blank" rel="noopener">vezi-le pe toate</a>
+          </span>
+        </div>
+      </div>
+      <div class="revs" data-sc-in data-sc-stagger="110">
+        <figure class="rev">
+          <blockquote>„Welcoming barista-host which is also a floral designer 🌺, cozy atmosphere between all the decorations and flowers.”</blockquote>
+          <figcaption><b>Danny Mike</b>Local Guide · 362 de recenzii</figcaption>
+        </figure>
+        <figure class="rev">
+          <blockquote>„Super.”</blockquote>
+          <figcaption><b>Maria Luminița Ciocan</b>Recenzie pe Google</figcaption>
+        </figure>
+        <figure class="rev">
+          <blockquote>„Just Nice!”</blockquote>
+          <figcaption><b>Frankie Wilde</b>Local Guide · 133 de recenzii</figcaption>
+        </figure>
+      </div>
+      <p class="note" style="border:0;padding-top:1.4rem">
+        Recenzii publice, citate integral, cu numele autorului.
+        La fiecare dintre ele proprietarul a răspuns personal.
+      </p>
+    </div>
+  </section>
+
+  <!-- 8 · VINO LA NOI — pin. Se închide pe loc. ---------------------------- -->
+  <section id="vino" data-sc-act="pin" data-sc-span="1.2" data-sc-drift="#F2EDE5" style="--tint: var(--prune)">
+    <div data-sc-stage class="stage-pad">
+      <div class="close__in">
+        <svg class="bouquet" id="bouquet" viewBox="0 0 300 150" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+          <path data-stem style="--len:130" d="M150 150V40"/>
+          <path data-stem style="--len:120" d="M150 150C130 110 106 92 78 84"/>
+          <path data-stem style="--len:120" d="M150 150c20-40 44-58 72-66"/>
+          <path data-stem style="--len:95"  d="M150 150c-10-46-26-66-48-80"/>
+          <path data-stem style="--len:95"  d="M150 150c10-46 26-66 48-80"/>
+          <circle cx="150" cy="34" r="7"/>
+          <circle cx="72" cy="80" r="6"/>
+          <circle cx="228" cy="80" r="6"/>
+          <circle cx="98" cy="66" r="5"/>
+          <circle cx="202" cy="66" r="5"/>
+        </svg>
+
+        <h2 class="close__h" data-sc-cue="0 1 0 0">Două adrese. <em>Aceleași mâini.</em></h2>
+
+        <div class="spots" data-sc-cue="0.1 1 0.15 0">
+          <div class="spot">
+            <h3>Drumul Sării 2</h3>
+            <ul class="lines">
+              <li>București, sector 6</li>
+              <li><a href="tel:+40773790024">0773 790 024</a></li>
+            </ul>
+            <a class="maps" href="https://www.google.com/maps/search/Cafeneaua+cu+Flori+Drumul+Sarii+2+Bucuresti" target="_blank" rel="noopener">Deschide în Google Maps →</a>
+          </div>
+          <div class="spot">
+            <h3>Șoseaua Olteniței 8</h3>
+            <ul class="lines">
+              <li>București, 041312</li>
+              <li><a href="tel:+40773790024">0773 790 024</a></li>
+            </ul>
+            <a class="maps" href="https://www.google.com/maps/place/Cafeneaua+cu+Flori/@44.4009855,26.1000569,17z" target="_blank" rel="noopener">Deschide în Google Maps →</a>
+          </div>
+        </div>
+
+        <div class="socials" data-sc-cue="0.2 1 0.15 0">
+          <a href="https://www.instagram.com/cafeneaua_cu_flori_/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            Instagram · 891 de urmăritori
+          </a>
+          <a href="https://www.facebook.com/p/Cafeneaua-Cu-Flori-100094623249129/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 3h-2.5A4.5 4.5 0 0 0 8 7.5V10H5.5v4H8v7h4v-7h3l1-4h-4V7.5A.5.5 0 0 1 12.5 7H15z"/></svg>
+            Facebook
+          </a>
+          <a href="tel:+40773790024">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 12l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2Z"/></svg>
+            0773 790 024
+          </a>
+        </div>
+
+        <p class="note">
+          Program: <b>deschis până la 18:30</b>. Programul complet pe zile se confirmă cu ei.
+          Datele de mai sus sunt publice, de pe
+          <a href="https://www.google.com/maps/place/Cafeneaua+cu+Flori/@44.4009855,26.1000569,17z" target="_blank" rel="noopener">fișa Google</a>
+          și de pe <a href="https://www.instagram.com/cafeneaua_cu_flori_/" target="_blank" rel="noopener">Instagram</a>,
+          culese pe 17.09.2026.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="scrollcraft.js"></script>
+<script>ScrollCraft.mount(document.body);</script>
+<script>
+(function () {
+  'use strict';
+
+  /* ── Bara ia culoarea secțiunii în care ești ────────────────────────────
+     Nav treatment-ul paginii. Citește --tint de pe secțiune, nu o listă
+     paralelă de culori care s-ar desincroniza de CSS la prima editare. */
+  var bar = document.querySelector('.bar');
+  var acts = [].slice.call(document.querySelectorAll('main > section'));
+  if (bar && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var tint = getComputedStyle(e.target).getPropertyValue('--tint').trim();
+        if (tint) bar.style.setProperty('--tint', tint);
+      });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    acts.forEach(function (s) { io.observe(s); });
+  }
+
+  /* ── 5 · Almanahul ──────────────────────────────────────────────────────
+     Sezonalitate botanică reală, nu inventată: ce se găsește la florarii din
+     România în luna respectivă. */
+  var SEASONS = [
+    ['Ianuarie',  'Lalele de seră, zambile, frezii. Lună de culori mici, aduse în casă împotriva cenușiului de afară.'],
+    ['Februarie', 'Lalele, narcise, mimoze. Mimoza e floarea lunii, chiar dacă ține doar câteva zile.'],
+    ['Martie',    'Zambile, narcise, ghiocei, mărțișoare. Cea mai aglomerată lună din an pentru orice florărie.'],
+    ['Aprilie',   'Lalele de câmp, liliac, ranunculus. Liliacul se vinde pe zile, nu pe săptămâni.'],
+    ['Mai',       'Bujori. Luna bujorilor, și oricine lucrează cu flori o știe. Plus lăcrămioare.'],
+    ['Iunie',     'Bujori târzii, trandafiri de grădină, garoafe. Începe sezonul de nunți.'],
+    ['Iulie',     'Floarea-soarelui, hortensii, lavandă. Buchete care suportă căldura.'],
+    ['August',    'Hortensii, dalii, lavandă uscată. Luna aranjamentelor care țin.'],
+    ['Septembrie','Dalii, crizanteme timpurii, trandafiri de toamnă. Culorile se închid.'],
+    ['Octombrie', 'Crizanteme, dalii târzii, frunze și ramuri. Lună de aranjamente, nu de buchete.'],
+    ['Noiembrie', 'Crizanteme. Luna coroanelor și a comemorărilor.'],
+    ['Decembrie', 'Crăciunițe, brad, vâsc, scoarță și conuri. Aranjamente, nu tulpini.']
+  ];
+  var monthsBox = document.getElementById('months');
+  var sName = document.getElementById('season-name');
+  var sText = document.getElementById('season-text');
+  var sNow  = document.getElementById('season-now');
+  var current = new Date().getMonth();
+
+  function showMonth(i) {
+    sName.textContent = SEASONS[i][0];
+    sText.textContent = SEASONS[i][1];
+    sNow.hidden = (i !== current);
+    [].forEach.call(monthsBox.children, function (b, n) {
+      b.setAttribute('aria-pressed', n === i ? 'true' : 'false');
+    });
+  }
+  if (monthsBox) {
+    SEASONS.forEach(function (m, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = m[0].slice(0, 3);
+      b.setAttribute('aria-label', m[0]);
+      b.setAttribute('aria-pressed', 'false');
+      b.addEventListener('click', function () { showMonth(i); });
+      monthsBox.appendChild(b);
+    });
+    showMonth(current);   /* se deschide pe luna reală */
+  }
+
+  /* ── 6 · Perechea — signature move ──────────────────────────────────────
+     Merge în ambele sensuri: alegi băutura și primești floarea, sau alegi
+     floarea și primești băutura. Perechile sunt 1:1, deci un singur tabel. */
+  var PAIRS = [
+    { drink: 'Ciocolată caldă', flower: 'Bujor',   why: 'Amândouă sunt dense și scurte ca sezon. Le bei și le ții cât durează.' },
+    { drink: 'Espresso',        flower: 'Garoafă', why: 'Mic, tare, subestimat. Garoafa ține două săptămâni; espresso-ul, două minute.' },
+    { drink: 'Cappuccino',      flower: 'Frezie',  why: 'Dulce fără să fie dulceag. Freziile miros a cappuccino de dimineață.' },
+    { drink: 'Ceai de plante',  flower: 'Lavandă', why: 'Aceeași plantă poate ajunge în ceașcă sau în buchet. Alegi tu.' }
+  ];
+  var GLYPHS = [
+    '<circle cx="60" cy="52" r="15"/><path d="M60 37c0-14 9-22 19-22 0 13-8 22-19 22ZM60 37c0-14-9-22-19-22 0 13 8 22 19 22Z"/><path d="M60 67v45"/>',
+    '<path d="M60 34c8 0 14 6 14 14 0 10-6 16-14 20-8-4-14-10-14-20 0-8 6-14 14-14Z"/><path d="M48 44c-4-4-4-10 0-12M72 44c4-4 4-10 0-12"/><path d="M60 68v44"/>',
+    '<path d="M60 30c6 4 9 10 9 17s-3 13-9 17c-6-4-9-10-9-17s3-13 9-17Z"/><circle cx="60" cy="47" r="4"/><path d="M60 64v48"/><path d="M60 88c-8-2-13-8-13-15 8 0 14 6 13 15Z"/>',
+    '<path d="M60 26v86"/><path d="M60 38c-5-2-8-6-8-11 6 0 9 4 8 11ZM60 38c5-2 8-6 8-11-6 0-9 4-8 11ZM60 52c-5-2-8-6-8-11 6 0 9 4 8 11ZM60 52c5-2 8-6 8-11-6 0-9 4-8 11ZM60 66c-5-2-8-6-8-11 6 0 9 4 8 11ZM60 66c5-2 8-6 8-11-6 0-9 4-8 11Z"/>'
+  ];
+  var mid = document.getElementById('pair-mid');
+  var glyph = document.getElementById('pair-glyph');
+  var outFlower = document.getElementById('pair-flower');
+  var outWhy = document.getElementById('pair-why');
+  var drinkBtns = [].slice.call(document.querySelectorAll('[data-drink]'));
+  var flowerBtns = [].slice.call(document.querySelectorAll('[data-flower]'));
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function pick(i, fromFlower) {
+    var p = PAIRS[i];
+    drinkBtns.forEach(function (b, n) { b.setAttribute('aria-pressed', n === i ? 'true' : 'false'); });
+    flowerBtns.forEach(function (b, n) { b.setAttribute('aria-pressed', n === i ? 'true' : 'false'); });
+    var write = function () {
+      glyph.innerHTML = GLYPHS[i];
+      /* Dacă ai pornit de la floare, răspunsul e băutura. În ambele sensuri. */
+      outFlower.textContent = fromFlower ? p.drink : p.flower;
+      outWhy.textContent = p.why;
+      if (mid) mid.classList.remove('is-swapping');
+    };
+    if (reduced || !mid) { write(); return; }
+    mid.classList.add('is-swapping');
+    setTimeout(write, 240);
+  }
+  drinkBtns.forEach(function (b, i) { b.addEventListener('click', function () { pick(i, false); }); });
+  flowerBtns.forEach(function (b, i) { b.addEventListener('click', function () { pick(i, true); }); });
+  if (drinkBtns.length) pick(0, false);
+
+  /* ── 8 · Buchetul care se compune ───────────────────────────────────── */
+  var bq = document.getElementById('bouquet');
+  if (bq && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (es, obs) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { bq.classList.add('is-open'); obs.disconnect(); }
+      });
+    }, { threshold: 0.3 }).observe(bq);
+  } else if (bq) {
+    bq.classList.add('is-open');
+  }
+})();
+</script>
+</body>
+</html>
