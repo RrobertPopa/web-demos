@@ -1,0 +1,374 @@
+/* Cafeneaua cu Flori — stil propriu. Fara framework, fara engine extern.
+   Parallaxul si dezvaluirile sunt in assets/site.js, ~120 de linii. */
+
+:root {
+  --hartie:   #FAF7F2;
+  --creta:    #F3EEE6;
+  --cerneala: #24211E;
+  --sepia:    #6B6259;
+
+  /* Accentele. Fiecare apare O SINGURA DATA pe pagina, deci nicio culoare
+     nu domina. Verdele e salvie pastel, nu accentuat. */
+  --salvie:   #A9BDA4;
+  --piersica: #E0AE8C;
+  --prune:    #A98BA0;
+  --mustar:   #D2B570;
+  --caramida: #BE6C58;
+  --cer:      #9FB2BE;
+
+  --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --sans:  "Karla", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --ease: cubic-bezier(.22, .61, .36, 1);
+  --gutter: clamp(1.15rem, 5vw, 4rem);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--hartie); color: var(--cerneala);
+  font-family: var(--sans); font-size: 17px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;   /* plasele de parallax nu au voie sa dea scroll lateral */
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+.wrap { width: min(1180px, 100% - var(--gutter) * 2); margin-inline: auto; }
+.sect { padding-block: clamp(4.5rem, 13vh, 9rem); position: relative; }
+
+/* ── Tipografie ───────────────────────────────────────────────────────── */
+.eyebrow {
+  font-size: .7rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--sepia); margin: 0 0 1rem;
+}
+.title {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(2rem, 5.6vw, 3.9rem); line-height: 1.04; letter-spacing: -.01em;
+  margin: 0 0 1.1rem; text-wrap: balance;
+}
+.title em { font-style: italic; color: var(--tint, inherit); }
+.lede { font-size: clamp(1rem, 1.5vw, 1.15rem); color: var(--sepia); max-width: 48ch; margin: 0; }
+
+/* ── Bara ─────────────────────────────────────────────────────────────── */
+.bar {
+  position: fixed; inset: 0 0 auto 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: .7rem var(--gutter);
+  background: color-mix(in srgb, var(--hartie) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid color-mix(in srgb, var(--cerneala) 8%, transparent);
+}
+.bar::after {
+  content: ""; position: absolute; inset: auto 0 -1px 0; height: 2px;
+  background: var(--tint, transparent); transition: background .8s var(--ease);
+}
+.bar__logo { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
+.bar__logo img { width: 34px; height: 34px; object-fit: contain; mix-blend-mode: multiply; }
+.bar__logo span { font-family: var(--serif); font-size: 1.08rem; white-space: nowrap; }
+.bar nav { display: flex; gap: 1.3rem; }
+.bar nav a {
+  font-size: .79rem; letter-spacing: .05em; color: var(--sepia);
+  text-decoration: none; transition: color .3s;
+}
+.bar nav a:hover, .bar nav a:focus-visible { color: var(--cerneala); }
+.bar__tel {
+  font-size: .79rem; text-decoration: none; white-space: nowrap;
+  border: 1px solid color-mix(in srgb, var(--cerneala) 22%, transparent);
+  border-radius: 99px; padding: .42rem .95rem; transition: background .3s, color .3s;
+}
+.bar__tel:hover, .bar__tel:focus-visible { background: var(--cerneala); color: var(--hartie); }
+@media (max-width: 860px) { .bar nav { display: none; } .bar__logo span { display: none; } }
+
+/* ── 1 · Hero cu adancime reala ───────────────────────────────────────────
+   Patru planuri care se misca la rate diferite. Adancimea vine din diferenta
+   de viteza si din ocluzie, nu dintr-un singur fundal care se estompeaza. */
+.hero {
+  position: relative; min-height: 100svh;
+  display: grid; place-items: center;
+  padding: clamp(5rem, 12vh, 7rem) var(--gutter) clamp(3rem, 8vh, 5rem);
+  overflow: hidden;
+  background:
+    radial-gradient(120% 85% at 50% -10%, #FFFDFA 0%, var(--hartie) 55%, var(--creta) 100%);
+}
+.plan { position: absolute; inset: 0; pointer-events: none; }
+.plan svg { position: absolute; color: var(--cerneala); }
+
+/* planul cel mai adanc: forme mari, foarte stinse, se misca aproape deloc */
+.plan--departe svg { opacity: .07; }
+.plan--departe .f1 { width: min(46vw, 460px); top: 4%;  left: -9%; }
+.plan--departe .f2 { width: min(40vw, 400px); top: 46%; right: -8%; }
+
+/* planul mijlociu: ramurile care incadreaza */
+.plan--mijloc svg { opacity: .17; }
+.plan--mijloc .f3 { width: min(27vw, 250px); top: 12%; right: 6%; }
+.plan--mijloc .f4 { width: min(24vw, 215px); bottom: 8%; left: 4%; }
+
+/* planul din fata: mic, mai opac, trece PESTE margine ca sa se vada ocluzia */
+.plan--fata svg { opacity: .3; }
+.plan--fata .f5 { width: min(15vw, 120px); bottom: 14%; right: 12%; }
+.plan--fata .f6 { width: min(12vw, 96px);  top: 17%;   left: 11%; }
+
+.hero__in { position: relative; text-align: center; max-width: 42rem; }
+.hero__logo {
+  width: clamp(120px, 20vw, 178px); height: auto;   /* height:auto, altfel
+     atributul height=591 din HTML ramane si logoul iese alungit */
+  margin: 0 auto clamp(1rem, 2.6vh, 1.6rem);
+  mix-blend-mode: multiply;
+}
+.hero h1 {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(1.6rem, 4.4vw, 2.9rem); line-height: 1.12; margin: 0 0 .9rem;
+  letter-spacing: -.008em; text-wrap: balance;
+}
+.hero h1 em { font-style: italic; }
+.hero p {
+  margin: 0 auto; max-width: 40ch; color: var(--sepia);
+  font-size: clamp(.94rem, 1.9vw, 1.08rem);
+}
+.hero__meta {
+  display: flex; gap: .5rem .9rem; flex-wrap: wrap; justify-content: center;
+  margin-top: clamp(1.4rem, 3.5vh, 2.2rem);
+  font-size: .8rem; color: var(--sepia);
+}
+.hero__meta b { font-weight: 600; color: var(--cerneala); }
+.hero__meta span { display: inline-flex; align-items: center; gap: .38rem; }
+
+/* ── 2 · Cele doua meserii ────────────────────────────────────────────── */
+.duo { display: grid; gap: clamp(1rem, 2.5vw, 1.6rem); }
+@media (min-width: 800px) { .duo { grid-template-columns: 1fr 1fr; } }
+.duo__card {
+  background: var(--creta); border-radius: 4px;
+  padding: clamp(1.6rem, 3.5vw, 2.6rem);
+  display: flex; flex-direction: column; gap: .8rem;
+}
+.duo__card svg { width: 46px; height: 46px; color: var(--tint); }
+.duo__card h3 { font-family: var(--serif); font-weight: 400; font-size: 1.75rem; margin: 0; }
+.duo__card p { margin: 0; color: var(--sepia); font-size: .95rem; }
+.quote {
+  margin: clamp(2.2rem, 6vh, 3.5rem) auto 0; max-width: 46rem; text-align: center;
+}
+.quote blockquote {
+  font-family: var(--serif); font-size: clamp(1.25rem, 3.2vw, 2rem);
+  line-height: 1.3; margin: 0 0 .9rem; text-wrap: pretty;
+}
+.quote cite { font-style: normal; font-size: .82rem; color: var(--sepia); }
+
+/* ── 3 · Cafeaua (to go) ──────────────────────────────────────────────── */
+.split { display: grid; gap: clamp(2rem, 5vw, 3.6rem); align-items: start; }
+@media (min-width: 900px) { .split { grid-template-columns: .9fr 1.1fr; } }
+.togo {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-size: .74rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--tint); border: 1px solid currentColor; border-radius: 99px;
+  padding: .32rem .85rem; margin-bottom: 1rem;
+}
+.cups { display: grid; gap: 0; }
+.cup {
+  display: flex; align-items: baseline; gap: 1rem; padding: 1rem 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--cerneala) 9%, transparent);
+}
+.cup__n { font-family: var(--serif); font-size: 1.1rem; color: var(--tint); min-width: 1.5rem; }
+.cup__b { flex: 1; min-width: 0; }
+.cup__b strong { display: block; font-weight: 600; font-size: 1rem; }
+.cup__b span { font-size: .875rem; color: var(--sepia); }
+.tag {
+  display: inline-block; margin-top: .4rem; font-size: .68rem;
+  letter-spacing: .07em; text-transform: uppercase; color: var(--tint);
+  border: 1px solid currentColor; border-radius: 99px; padding: .15rem .55rem;
+}
+
+/* ── 4 · Florăria ─────────────────────────────────────────────────────── */
+.grid3 { display: grid; gap: clamp(.9rem, 2vw, 1.4rem); grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+.serv {
+  border: 1px solid color-mix(in srgb, var(--cerneala) 11%, transparent);
+  border-radius: 4px; padding: 1.5rem 1.35rem;
+  display: flex; flex-direction: column; gap: .6rem;
+  transition: transform .45s var(--ease), border-color .45s, background .45s;
+}
+.serv:hover { transform: translateY(-5px); border-color: var(--tint); background: var(--creta); }
+.serv svg { width: 38px; height: 38px; color: var(--tint); }
+.serv h3 { font-family: var(--serif); font-weight: 400; font-size: 1.4rem; margin: 0; }
+.serv p { margin: 0; font-size: .87rem; color: var(--sepia); }
+
+/* ── 5 · Vitrina (galeria) ────────────────────────────────────────────── */
+.vitrina { display: grid; gap: clamp(.7rem, 1.6vw, 1.1rem); grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 760px) { .vitrina { grid-template-columns: repeat(4, 1fr); } }
+.vt {
+  position: relative; aspect-ratio: 3 / 4; border-radius: 4px; overflow: hidden;
+  display: grid; place-items: center; isolation: isolate;
+  background: var(--vt-bg, var(--creta));
+}
+.vt--lat { grid-column: span 2; aspect-ratio: 3 / 2; }
+@media (max-width: 759px) { .vt--lat { aspect-ratio: 3 / 2; } }
+.vt svg { width: 60%; height: auto; color: var(--vt-ink, var(--cerneala)); opacity: .68; }
+.vt figcaption {
+  position: absolute; inset: auto 0 0 0; padding: .8rem .9rem;
+  font-size: .8rem; letter-spacing: .02em;
+  background: linear-gradient(to top, color-mix(in srgb, var(--hartie) 92%, transparent), transparent);
+}
+.vt figcaption b { display: block; font-family: var(--serif); font-size: 1.05rem; font-weight: 400; }
+.vitrina-note {
+  margin-top: 1.2rem; font-size: .78rem; color: var(--sepia);
+}
+
+/* ── 6 · Perechea ─────────────────────────────────────────────────────── */
+.pereche { max-width: 52rem; margin-inline: auto; }
+.pereche__card {
+  background: var(--creta); border-radius: 6px; text-align: center;
+  padding: clamp(1.8rem, 5vw, 3rem) clamp(1.2rem, 4vw, 2.4rem);
+}
+.pereche__glyph {
+  width: clamp(76px, 16vw, 112px); height: auto; color: var(--caramida);
+  margin: 0 auto .9rem;
+  transition: opacity .3s, transform .5s var(--ease);
+}
+.pereche__card.swap .pereche__glyph { opacity: 0; transform: translateY(6px) scale(.94); }
+.pereche__out {
+  font-family: var(--serif); font-size: clamp(1.7rem, 5.5vw, 2.7rem);
+  line-height: 1.1; margin: 0 0 .5rem;
+  transition: opacity .3s;
+}
+.pereche__why {
+  margin: 0 auto; max-width: 34ch; color: var(--sepia); font-size: .93rem;
+  min-height: 3.2em; transition: opacity .3s;
+}
+.pereche__card.swap .pereche__out, .pereche__card.swap .pereche__why { opacity: 0; }
+
+.pereche__ctrl { margin-top: clamp(1.2rem, 3vw, 1.8rem); }
+.pereche__lbl {
+  display: flex; align-items: center; justify-content: space-between; gap: .7rem;
+  flex-wrap: wrap;
+  font-size: .7rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--sepia); margin-bottom: .6rem;
+}
+.swapbtn {
+  font: inherit; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+  background: none; border: 0; color: var(--sepia); cursor: pointer;
+  display: inline-flex; align-items: center; gap: .4rem; padding: .2rem 0;
+}
+.swapbtn:hover { color: var(--cerneala); }
+.swapbtn svg { width: 15px; height: 15px; flex: 0 0 auto; transition: transform .5s var(--ease); }
+/* Sub 400px "schimba sensul" atingea marginea dreapta. Icoana spune restul. */
+@media (max-width: 400px) { .swapbtn .lung { display: none; } }
+.swapbtn.on svg { transform: rotate(180deg); }
+/* Pe telefon: un rand orizontal care se trage cu degetul, nu doua coloane
+   inghesuite una langa alta. */
+.chips { display: flex; gap: .5rem; overflow-x: auto; padding-bottom: .3rem; scrollbar-width: none; }
+.chips::-webkit-scrollbar { display: none; }
+.chip {
+  font: inherit; font-size: .9rem; cursor: pointer; white-space: nowrap;
+  background: transparent; color: var(--cerneala); flex: 1 0 auto;
+  border: 1px solid color-mix(in srgb, var(--cerneala) 15%, transparent);
+  border-radius: 99px; padding: .6rem 1.1rem;
+  transition: background .3s, border-color .3s, color .3s;
+}
+.chip:hover { border-color: var(--caramida); }
+.chip[aria-pressed="true"] { background: var(--caramida); border-color: var(--caramida); color: #fff; }
+@media (min-width: 620px) { .chips { justify-content: center; } .chip { flex: 0 0 auto; } }
+
+/* ── 7 · Almanahul ────────────────────────────────────────────────────── */
+.almanah { display: grid; gap: clamp(1.4rem, 3vw, 2.4rem); }
+@media (min-width: 820px) { .almanah { grid-template-columns: 1fr 1.1fr; align-items: start; } }
+.luni { display: flex; flex-wrap: wrap; gap: .3rem; }
+.luni button {
+  font: inherit; font-size: .76rem; cursor: pointer;
+  background: transparent; color: var(--sepia);
+  border: 1px solid color-mix(in srgb, var(--cerneala) 11%, transparent);
+  border-radius: 99px; padding: .34rem .7rem; transition: all .3s;
+}
+.luni button:hover { color: var(--cerneala); }
+.luni button[aria-pressed="true"] { background: var(--mustar); border-color: var(--mustar); color: var(--cerneala); }
+.sezon { border-left: 2px solid var(--mustar); padding-left: clamp(1rem, 2.5vw, 1.5rem); }
+.sezon h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.6rem, 4vw, 2.3rem); margin: 0 0 .4rem; }
+.sezon p { margin: 0; color: var(--sepia); max-width: 40ch; }
+.sezon .acum {
+  display: inline-block; margin-top: .8rem; font-size: .68rem;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--sepia);
+}
+
+/* ── 8 · Recenzii ─────────────────────────────────────────────────────── */
+.scor { display: grid; gap: clamp(1.4rem, 4vw, 3rem); align-items: center; margin-bottom: clamp(2rem, 5vh, 3rem); }
+@media (min-width: 780px) { .scor { grid-template-columns: auto minmax(160px, 260px) 1fr; } }
+.scor__n { display: flex; align-items: baseline; gap: .8rem; }
+.scor__n b { font-family: var(--serif); font-weight: 400; font-size: clamp(3rem, 9vw, 4.4rem); line-height: 1; }
+.scor__n span { color: var(--sepia); font-size: .88rem; }
+.bars { display: grid; gap: .28rem; min-width: 0; }
+.barrow { display: grid; grid-template-columns: 1ch 1fr; gap: .6rem; align-items: center; font-size: .76rem; color: var(--sepia); }
+.barrow i { display: block; height: 6px; width: 100%; border-radius: 99px; background: color-mix(in srgb, var(--cerneala) 9%, transparent); }
+.barrow i span { display: block; height: 100%; border-radius: 99px; background: var(--mustar); }
+.teme { display: flex; flex-wrap: wrap; gap: .34rem; }
+.tema {
+  font-size: .74rem; color: var(--sepia);
+  border: 1px solid color-mix(in srgb, var(--cerneala) 11%, transparent);
+  border-radius: 99px; padding: .26rem .66rem;
+}
+.tema b { color: var(--cerneala); font-weight: 600; }
+
+.revs { columns: 1; column-gap: clamp(.9rem, 2vw, 1.4rem); }
+@media (min-width: 720px) { .revs { columns: 2; } }
+@media (min-width: 1040px) { .revs { columns: 3; } }
+.rev {
+  break-inside: avoid; margin: 0 0 clamp(.9rem, 2vw, 1.4rem);
+  border: 1px solid color-mix(in srgb, var(--cerneala) 10%, transparent);
+  border-radius: 4px; padding: 1.2rem 1.25rem;
+  display: flex; flex-direction: column; gap: .7rem;
+}
+.rev--critic { background: var(--creta); }
+.stele { color: var(--mustar); font-size: .82rem; letter-spacing: .12em; }
+.stele i { color: color-mix(in srgb, var(--cerneala) 18%, transparent); font-style: normal; }
+.rev blockquote { margin: 0; font-size: .95rem; line-height: 1.55; }
+.rev figcaption { font-size: .78rem; color: var(--sepia); }
+.rev figcaption b { display: block; color: var(--cerneala); font-weight: 600; font-size: .84rem; }
+.raspuns {
+  border-left: 2px solid var(--salvie); padding-left: .8rem;
+  font-size: .82rem; color: var(--sepia);
+}
+.raspuns b { display: block; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--cerneala); margin-bottom: .25rem; }
+.revs-link { margin-top: .4rem; font-size: .85rem; }
+
+/* ── 9 · Vino la noi ──────────────────────────────────────────────────── */
+.final { background: var(--creta); }
+.adrese { display: grid; gap: 1rem; margin-bottom: 1.6rem; }
+@media (min-width: 720px) { .adrese { grid-template-columns: 1fr 1fr; } }
+.adr {
+  background: var(--hartie); border-radius: 4px; padding: 1.3rem 1.4rem;
+}
+.adr h3 { font-family: var(--serif); font-weight: 400; font-size: 1.45rem; margin: 0 0 .4rem; }
+.adr ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .2rem; font-size: .93rem; }
+.adr .harta { display: inline-block; margin-top: .7rem; font-size: .83rem; color: var(--sepia); }
+.orar {
+  display: flex; align-items: baseline; gap: .7rem; flex-wrap: wrap;
+  font-size: .95rem; margin-bottom: 1.6rem;
+}
+.orar b { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; }
+.social { display: flex; gap: .55rem; flex-wrap: wrap; }
+.social a {
+  display: inline-flex; align-items: center; gap: .5rem; text-decoration: none;
+  font-size: .87rem; background: var(--hartie);
+  border: 1px solid color-mix(in srgb, var(--cerneala) 12%, transparent);
+  border-radius: 99px; padding: .55rem 1.05rem;
+  transition: background .35s, color .35s, border-color .35s;
+}
+.social a:hover, .social a:focus-visible { background: var(--cerneala); color: var(--hartie); border-color: var(--cerneala); }
+.social svg { width: 16px; height: 16px; }
+.subsol {
+  margin-top: 2.2rem; padding-top: 1.1rem; font-size: .76rem; color: var(--sepia);
+  border-top: 1px solid color-mix(in srgb, var(--cerneala) 10%, transparent);
+}
+
+/* ── Dezvaluiri la intrare ────────────────────────────────────────────── */
+[data-rise] { opacity: 0; transform: translate3d(0, 20px, 0); }
+[data-rise].seen {
+  opacity: 1; transform: none;
+  transition: opacity .8s var(--ease), transform .8s var(--ease);
+  transition-delay: var(--d, 0ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  [data-rise] { opacity: 1; transform: none; transition: none; }
+  .plan { transform: none !important; }
+  .serv:hover { transform: none; }
+  * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

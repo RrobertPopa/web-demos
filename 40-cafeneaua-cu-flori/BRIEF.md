@@ -1,5 +1,11 @@
 # BRIEF — Cafeneaua cu Flori, București
 
+> **Revizia 2 — 17.09.2026.** Robert a cerut, după prima versiune: fără skill-ul `scroll-craft`,
+> parallax reușit (primul „se vedea urât"), o secțiune cu poze, recenzii mai stufoase, logoul lor
+> real, „Perechea" refăcută estetic (arăta prost pe telefon), și fără formulările cu „vezi-le".
+> Toate sunt făcute. `scroll-craft` a fost scos complet: motorul paginii e acum `assets/site.js`,
+> ~170 de linii scrise de mână.
+
 > **Self-authored under explicit creative delegation.** Clientul nu a fost încă contactat direct:
 > demoul e materialul de prospectare care însoțește primul mesaj pe Instagram. Robert a vorbit cu
 > ei și așteaptă mesajul. Robert a delegat direcția vizuală explicit: *„fă tu un site frumos și
@@ -18,6 +24,15 @@ Google îi clasifică drept **Florist**. Instagramul confirmă: `Florist`.
 **Două locații** (de pe Instagram — Google listează doar a doua):
 - Drumul Sării nr. 2, București
 - Șoseaua Olteniței nr. 8, București
+
+**Program: 08:00–18:30, zilnic.** Nu apare în fișa Google ca program. A fost găsit în **răspunsul
+public al proprietarului** la o recenzie negativă: *„locația funcționează, este deschis de la 08:00
+la 18:30"*. Sursă publică, verificabilă, deci se poate publica.
+
+**⚠️ E o cafenea TO GO.** Nu ai unde să stai. Tot din răspunsurile proprietarului, la o altă
+reclamație: *„suntem o cafenea to go, adică îți iei cafeaua și pleci. Scrie foarte clar pe hartă."*
+**Prima versiune a site-ului spunea „Stai jos. Florile pot aștepta." — factual greșit**, exact
+genul de frază care arată clientului că nu i-ai citit locul. Corectat în revizia 2.
 
 `0773 790 024` · [Instagram](https://www.instagram.com/cafeneaua_cu_flori_/) · [Facebook](https://www.facebook.com/p/Cafeneaua-Cu-Flori-100094623249129/)
 **4.7★ din 37 de recenzii** pe Google. **292 postări, 891 urmăritori** pe Instagram.
@@ -94,9 +109,18 @@ cafenea nu e un zbor continuu printr-un peisaj; e o serie de momente separate.
 
 **9. Ce assets există.** *(al nouălea, pentru că răspunsul e neobișnuit)*
 
-**Niciunul utilizabil.** Cele 292 de postări de pe Instagram sunt aproape în întregime **reels
-verticale cu text scris peste imagine** — inutilizabile ca fotografie de site. Cheia `KIE_AI_API_KEY`
-nu e setată, deci generarea foto-real nu e disponibilă, iar `ffmpeg` lipsește, deci video e exclus.
+**Logoul lor, da.** Descărcat din profilul de Instagram: o femeie cu bob și o floare în păr, bând
+dintr-o ceașcă, plus wordmark — line art alb-negru, exact registrul paginii. Fiind negru pe alb,
+se așază pe hârtie cu `mix-blend-mode: multiply`, fără să fie nevoie de un PNG cu transparență.
+
+**Fotografii, nu.** Cele 292 de postări de pe Instagram sunt aproape în întregime **reels verticale
+cu text scris peste imagine** — inutilizabile ca fotografie de site. Google Maps nu servește pozele
+localului prin niciun canal accesibil. `KIE_AI_API_KEY` nu e setată, deci generarea foto-real nu e
+disponibilă, iar `ffmpeg` lipsește, deci video e exclus.
+
+Secțiunea **Vitrina** cerută de Robert e construită cu ilustrații vectoriale în casete care au deja
+**formatul final**, deci fotografiile reale se pun una la una când vin de la client. Pagina o spune
+deschis, sub galerie, în loc să pretindă că alea sunt poze.
 
 **Deci pagina e construită pe tipografie, culoare și ilustrație florală vectorială desenată în
 pagină.** Nu e o soluție de avarie: e exact ce a cerut Robert („minimalist, poți adăuga elemente
@@ -116,41 +140,43 @@ cromatic după secțiune. Nu e galerie (basillik) și nu e registru editorial (s
 
 **Poarta, față de fiecare rând din `scrollcraft/FINGERPRINTS.md`:**
 
+*(Registrul e al skill-ului `scroll-craft`, care nu mai e folosit aici. Comparația rămâne pentru că
+demo-urile trebuie în continuare să nu semene între ele.)*
+
 | Dimensiune | basillik-brasov | sferic-optic | Cafeneaua cu Flori | dif. |
 |---|---|---|---|---|
 | Grammar | Gallery / catalog | Editorial ledger | **Almanah / perechi** | ✓✓ |
 | Nav | Index de obiecte, sare | Fără nav | **Bară cu accent cromatic pe secțiune** | ✓✓ |
-| Hero | Vitrină, 5 planuri parallax | Tipografic, o propoziție | **Diptic care se desface** | ✓✓ |
-| Act-sequence | 8 acte · 17,6vh | 5 acte · 9,2vh | **8 acte · ~11,8vh** | ✓✓ |
-| Close | Placă tipografiată, eticheta de muzeu | Orar viu + buton de sunat | **Buchetul care se compune** | ✓✓ |
+| Hero | Vitrină, 5 planuri parallax | Tipografic, o propoziție | **Logoul lor între patru planuri florale, la patru viteze** | ✓✓ |
+| Structură | 8 acte · 17,6vh | 5 acte · 9,2vh | **9 secțiuni, pagină normală, fără acte fixate** | ✓✓ |
+| Close | Placă tipografiată, eticheta de muzeu | Orar viu + buton de sunat | **Orarul real, două adrese, social** | ✓✓ |
 | Signature | „Felia" prin Medovik | „Devizul" | **„Perechea"** | ✓✓ |
 
 **6 din 6 față de amândouă.** Paleta evită deliberat verde-pădure/os/miere, deja luată de basillik
 pe un demo de food.
 
-## Scorul
+## Cum e construită pagina
 
-| Act | Tip | Device | De ce ăsta |
-|---|---|---|---|
-| 1 Dipticul | `pin` | planuri parallax | Două planuri care se mișcă diferit **sunt** afirmația: două afaceri, un spațiu |
-| 2 Mâinile | `flow` | stagger la intrare | Citatul intră frază cu frază, fără să fixeze cadrul |
-| 3 Cafeneaua | `pin` | cascadă de cue-uri | Ceștile urcă una câte una cât cadrul stă pe loc |
-| 4 Florăria | `pan` | rail lateral | Deplasarea laterală se citește ca „opțiuni"; verticala s-ar citi ca „argument" |
-| 5 Almanahul | `flow` | selector de lună | Liniștea dinaintea vârfului. Nimic nu se mișcă la scroll |
-| 6 **Perechea** | `pin` | pointer, bidirecțional | Pagina se oprește din mișcat și începe să răspundă |
-| 7 Recenziile | `flow` | stagger | Vocile intră una câte una, nu toate odată |
-| 8 Vino la noi | `pin` | buchet care se desenează | Se închide pe loc, nu se stinge într-un footer |
+Fără engine extern. `assets/site.css` + `assets/site.js` (~170 de linii), scrise pentru pagina asta.
 
-Ordinea tipurilor: pin · flow · pin · pan · flow · pin · flow · pin — **niciun tip de două ori
-la rând**. 6 device-uri distincte. Zero acte `scrub`: nu există video și nici ffmpeg ca să-l encodeze.
+**Parallaxul.** Patru planuri în hero, fiecare cu rata lui: `0` (conținutul), `0.10` (formele mari,
+foarte stinse), `0.24` (ramurile care încadrează), `0.46` (elementele mici din față, care ies peste
+margine ca să se vadă ocluzia). **Adâncimea e diferența dintre viteze**, nu un fundal care se
+estompează. O singură buclă `requestAnimationFrame`, valoarea interpolată spre țintă (`0.11`) ca să
+nu sară la scroll brusc, `translate3d` ca să rămână pe compositor, și bucla se oprește complet când
+heroul iese din ecran.
 
-### Ce s-a rupt pe drum, și de ce contează
-Prima versiune scria `data-sc-act="parallax"` și `data-sc-act="sequence"`. **Niciunul nu e tip de
-act valid** — engine-ul acceptă doar `scrub|pin|pan|flow`, iar `parallax` e un atribut de plan.
-Actele au căzut pe `flow`, scena n-a mai primit clasa `.sc-stage` și deci nici `height:100svh`:
-heroul ieșea turtit pe jumătate de ecran, cu titlul tăiat de bară. **Harnessul a raportat verde
-la toate cele patru treceri** — fără dead scroll, contrast trecut — pentru că el verifică mișcarea
-și lizibilitatea, nu compoziția. S-a văzut doar uitându-mă la captură.
+De ce prima versiune arăta rău: erau **două panouri care se despărțeau lateral** — o mișcare mare,
+vizibilă, care atrăgea atenția asupra ei înseși. Acum mișcarea e mică și continuă, iar ce se observă
+e adâncimea, nu efectul.
+
+**Dezvăluirile.** `IntersectionObserver`, o singură dată la intrare, cu decalaj între frați.
+Conținut care se re-ascunde la scroll în sus e un defect, nu un efect.
+
+**Perechea, refăcută.** Prima versiune avea trei coloane (băuturi | rezultat | flori) — pe telefon
+se înghesuiau una lângă alta și arăta prost. Acum e **o singură coloană**: cardul cu răspunsul sus,
+selectorul dedesubt, iar pe ecran îngust rândul de opțiuni se trage cu degetul. Butonul „schimbă
+sensul" inversează direcția, deci mecanica bidirecțională s-a păstrat fără a doua coloană.
 
 ## Paleta
 

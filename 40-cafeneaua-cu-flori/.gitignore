@@ -1,8 +1,5 @@
 node_modules/
 
-# Capturile raman pe disc (17 MB, 134 PNG) ca dovada vizuala, dar nu in repo:
-# nu sunt servite de site si ar umfla clonele degeaba.
-lab/shots/
+# Capturile raman pe disc ca dovada vizuala, nu in repo.
+lab/d/
 lab/m320/
-lab/m390/
-lab/reduced/
