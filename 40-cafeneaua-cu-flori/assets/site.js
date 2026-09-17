@@ -1,6 +1,6 @@
 /* Cafeneaua cu Flori — comportamentul paginii. Vanilla, fara dependinte.
-   Trei lucruri: parallaxul din hero, dezvaluirile la intrare, si cele doua
-   piese interactive (almanahul si perechea). */
+   Parallaxul din hero, dezvaluirile la intrare, meniul de telefon si
+   Perechea. */
 (function () {
   'use strict';
 
@@ -141,50 +141,7 @@
     else if (lat.addListener) lat.addListener(laLatime);
   }
 
-  /* ── 4 · Almanahul ────────────────────────────────────────────────────
-     Sezonalitate reala de florarie din Romania. Se deschide pe luna curenta. */
-  var SEZON = [
-    ['Ianuarie',  'Lalele de seră, zambile, frezii. Lună de culori mici, aduse în casă împotriva cenușiului de afară.'],
-    ['Februarie', 'Lalele, narcise, mimoze. Mimoza e floarea lunii, chiar dacă ține doar câteva zile.'],
-    ['Martie',    'Zambile, narcise, ghiocei, mărțișoare. Cea mai aglomerată lună din an pentru orice florărie.'],
-    ['Aprilie',   'Lalele de câmp, liliac, ranunculus. Liliacul se vinde pe zile, nu pe săptămâni.'],
-    ['Mai',       'Bujori. Luna bujorilor, și oricine lucrează cu flori o știe. Plus lăcrămioare.'],
-    ['Iunie',     'Bujori târzii, trandafiri de grădină, garoafe. Începe sezonul de nunți.'],
-    ['Iulie',     'Floarea-soarelui, hortensii, lavandă. Buchete care suportă căldura.'],
-    ['August',    'Hortensii, dalii, lavandă uscată. Luna aranjamentelor care țin.'],
-    ['Septembrie','Dalii, crizanteme timpurii, trandafiri de toamnă. Culorile se închid.'],
-    ['Octombrie', 'Crizanteme, dalii târzii, frunze și ramuri. Lună de aranjamente, nu de buchete.'],
-    ['Noiembrie', 'Crizanteme. Luna coroanelor și a comemorărilor.'],
-    ['Decembrie', 'Crăciunițe, brad, vâsc, scoarță și conuri. Aranjamente, nu tulpini.']
-  ];
-  var cutiaLuni = document.getElementById('luni');
-  var numeLuna  = document.getElementById('sezon-nume');
-  var textLuna  = document.getElementById('sezon-text');
-  var acum      = document.getElementById('sezon-acum');
-  var lunaAzi   = new Date().getMonth();
-
-  function arataLuna(i) {
-    numeLuna.textContent = SEZON[i][0];
-    textLuna.textContent = SEZON[i][1];
-    acum.hidden = (i !== lunaAzi);
-    [].forEach.call(cutiaLuni.children, function (b, n) {
-      b.setAttribute('aria-pressed', n === i ? 'true' : 'false');
-    });
-  }
-  if (cutiaLuni) {
-    SEZON.forEach(function (m, i) {
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.textContent = m[0].slice(0, 3);
-      b.setAttribute('aria-label', m[0]);
-      b.setAttribute('aria-pressed', 'false');
-      b.addEventListener('click', function () { arataLuna(i); });
-      cutiaLuni.appendChild(b);
-    });
-    arataLuna(lunaAzi);
-  }
-
-  /* ── 5 · Perechea ─────────────────────────────────────────────────────
+  /* ── 4 · Perechea ─────────────────────────────────────────────────────
      O singura coloana: cardul cu raspunsul sus, selectorul dedesubt. Pe
      telefon randul de optiuni se trage cu degetul. Butonul de sens schimba
      directia: bautura -> floare, sau floare -> bautura. */

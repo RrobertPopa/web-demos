@@ -323,26 +323,6 @@ body.blocat { overflow: hidden; }
 .chip[aria-pressed="true"] { background: var(--caramida); border-color: var(--caramida); color: #fff; }
 @media (min-width: 620px) { .chips { justify-content: center; } .chip { flex: 0 0 auto; } }
 
-/* ── 7 · Almanahul ────────────────────────────────────────────────────── */
-.almanah { display: grid; gap: clamp(1.4rem, 3vw, 2.4rem); }
-@media (min-width: 820px) { .almanah { grid-template-columns: 1fr 1.1fr; align-items: start; } }
-.luni { display: flex; flex-wrap: wrap; gap: .3rem; }
-.luni button {
-  font: inherit; font-size: .76rem; cursor: pointer;
-  background: transparent; color: var(--sepia);
-  border: 1px solid color-mix(in srgb, var(--cerneala) 11%, transparent);
-  border-radius: 99px; padding: .34rem .7rem; transition: all .3s;
-}
-.luni button:hover { color: var(--cerneala); }
-.luni button[aria-pressed="true"] { background: var(--mustar); border-color: var(--mustar); color: var(--cerneala); }
-.sezon { border-left: 2px solid var(--mustar); padding-left: clamp(1rem, 2.5vw, 1.5rem); }
-.sezon h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.6rem, 4vw, 2.3rem); margin: 0 0 .4rem; }
-.sezon p { margin: 0; color: var(--sepia); max-width: 40ch; }
-.sezon .acum {
-  display: inline-block; margin-top: .8rem; font-size: .68rem;
-  letter-spacing: .12em; text-transform: uppercase; color: var(--sepia);
-}
-
 /* ── 8 · Recenzii ─────────────────────────────────────────────────────── */
 .scor { display: grid; gap: clamp(1.4rem, 4vw, 3rem); align-items: center; margin-bottom: clamp(2rem, 5vh, 3rem); }
 @media (min-width: 780px) { .scor { grid-template-columns: auto minmax(160px, 260px) 1fr; } }

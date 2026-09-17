@@ -66,9 +66,20 @@ Sunt **două meserii în aceleași mâini** — decizia lui Robert: 50-50, greut
 eticheta scrisă de mână, un carnet de florar cu prețuri trecute cu creionul, lumina de dimineață pe
 o masă de lemn. **Nu** floristică-de-nuntă cu auriu și marmură.
 
-**2. Jurnalul de scroll.** Dipticul care spune din prima că sunt două lucruri deodată → omul din
-spatele tejghelei → cafeaua → florile → ce e de sezon acum → **perechea** → ce zice lumea → unde ne
-găsești. Ordinea pune amândouă meseriile înainte de orice vânzare.
+**2. Jurnalul de scroll.** Heroul care spune din prima că sunt două lucruri deodată → omul din
+spatele tejghelei → cafeaua → florile → vitrina → **perechea** → ce zice lumea → unde ne găsești.
+Ordinea pune amândouă meseriile înainte de orice vânzare.
+
+⚠️ **Almanahul florilor a fost scos (revizia 5).** Era singura secțiune cu conținut care nu venea
+dintr-o sursă a lor, iar prima ei frază — *„Florile au sezon, chiar dacă magazinele se poartă ca și
+cum n-ar avea"* — era o săgeată către florării, trimisă chiar unei florării. Robert a semnalat riscul
+(*„mă gândesc că poate se vor ataca cu chestia aia"*) și a avut dreptate.
+
+**Regula care rezultă: pe un demo de prospectare nu se scriu afirmații despre MESERIA clientului.**
+Datele lui publice, da. Judecăți despre cum ar trebui să meargă breasla lui, nu. În aceeași trecere
+au fost înmuiate și cinci formulări care promiteau lucruri în numele lor: „se fac în aceeași zi",
+„sunați, nu scrieți", „se vorbește din timp, nu cu o zi înainte", „din ciocolată adevărată",
+„lapte bine aburit". Niciuna nu era verificată.
 
 **3. Curba de energie.** Începe curios, se încălzește la mijloc, **se liniștește deliberat** la
 almanah, apoi urcă în vârf la Perechea, și se așază la final. Tăcerea de dinainte de vârf e

@@ -2,7 +2,7 @@ import { chromium } from 'playwright-core';
 import { mkdirSync } from 'node:fs';
 const CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const b = await chromium.launch({ executablePath: CHROME });
-const sects = ['hero', 'duo', 'cafea', 'flori', 'vitrina', 'perechea', 'almanah', 'recenzii', 'gasesti'];
+const sects = ["hero","duo","cafea","flori","vitrina","perechea","recenzii","gasesti"];
 for (const [dir, w, h] of [['d', 1440, 900], ['m320', 320, 720]]) {
   mkdirSync('lab/' + dir, { recursive: true });
   const p = await b.newPage({ viewport: { width: w, height: h }, deviceScaleFactor: 1 });
