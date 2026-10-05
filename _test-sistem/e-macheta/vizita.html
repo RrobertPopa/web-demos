@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ro"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Programează o vizită — Frunzei 9</title>
+<meta name="description" content="Alege ziua si ora. La ora aleasa vezi apartamentul exact cu lumina de atunci.">
+<meta name="theme-color" content="#f2efe7">
+<link rel="stylesheet" href="stil.css">
+<style>
+.cap{padding-block:clamp(26px,3.6vw,44px) 0}
+h1.afis{font-size:clamp(46px,7.6vw,104px);max-width:14ch}
+.intro{margin-top:var(--s5);max-width:48ch;color:var(--cerneala2)}
+.doi{padding-block:clamp(28px,3.6vw,48px);display:grid;gap:clamp(28px,3.6vw,56px);align-items:start}
+@media(min-width:1000px){.doi{grid-template-columns:minmax(0,1.3fr) minmax(310px,.7fr)}}
+.pas{border-top:1px solid var(--linie);padding-top:var(--s5);margin-top:var(--s6)}
+.pas:first-child{margin-top:0}
+.pas>.et{display:flex;align-items:center;gap:var(--s3)}
+.pas h3{margin-top:var(--s3)}
+.grila{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s5)}
+.zi,.ora{min-height:54px;min-width:64px;padding:0 var(--s4);border-radius:4px;cursor:pointer;
+ border:1.5px solid var(--linie);background:#fbf9f4;display:flex;flex-direction:column;
+ align-items:center;justify-content:center;line-height:1.15;transition:all 170ms var(--arc)}
+.zi small{font-family:Cifre;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--sters)}
+.zi b{font-family:Afis;font-weight:400;font-size:21px}
+.ora{font-family:Cifre;font-size:15px;min-width:78px}
+.zi:hover,.ora:hover{border-color:var(--linie2)}
+.zi[aria-pressed=true],.ora[aria-pressed=true]{background:var(--cobalt);border-color:var(--cobalt);color:#fff}
+.zi[aria-pressed=true] small{color:rgba(255,255,255,.72)}
+.ora[disabled]{opacity:.34;cursor:not-allowed}
+.campuri{display:grid;gap:var(--s4);margin-top:var(--s5)}
+@media(min-width:620px){.campuri{grid-template-columns:1fr 1fr}}
+label{display:block}
+label span{display:block;font-family:Cifre;font-size:10.5px;letter-spacing:.18em;
+ text-transform:uppercase;color:var(--sters);margin-bottom:8px}
+input{width:100%;font-size:16px;min-height:54px;padding:0 var(--s4);border-radius:4px;
+ border:1.5px solid var(--linie);background:#fbf9f4;transition:border-color 170ms var(--arc)}
+input:focus{border-color:var(--cobalt);outline:none}
+input[aria-invalid=true]{border-color:#c0392b}
+.eroare{margin-top:7px;font-size:13px;color:#c0392b;min-height:18px}
+
+.rezumat{border:1px solid var(--linie);border-radius:4px;background:#fbf9f4;padding:var(--s5);
+ position:sticky;top:78px}
+.rezumat .stadiu{background:linear-gradient(180deg,#f6f3ec,#ece7da);border:1px solid var(--linie);
+ border-radius:3px;margin-bottom:var(--s5)}
+#cv{width:100%;height:230px;pointer-events:none}
+.rezumat .l{display:flex;justify-content:space-between;gap:var(--s4);padding-block:11px;
+ border-bottom:1px solid var(--linie);font-size:15px}
+.rezumat .l b{font-family:Cifre;font-weight:400;text-align:right}
+.rezumat .l.gol b{color:var(--sters)}
+.rezumat .btn{width:100%;margin-top:var(--s5)}
+.rezumat .mic{margin-top:var(--s3);font-size:12.5px;color:var(--sters);text-align:center}
+.lumina-zi{margin-top:var(--s4);font-size:14px;color:var(--cerneala2);
+ border-left:2px solid var(--soare);padding-left:var(--s4)}
+</style></head><body>
+
+<div class="bara"></div>
+
+<section class="cap"><div class="wrap">
+  <h1 class="afis">Vino <i>la ora</i> la care ești de obicei acasă.</h1>
+  <p class="intro">Un apartament arată altfel la 9 dimineața și altfel la 6 seara. Alege ora la care
+    ai fi tu acolo — o să vezi exact lumina aia, nu una aranjată pentru poze.</p>
+</div></section>
+
+<div class="wrap"><div class="doi">
+
+  <form id="form" novalidate>
+    <div class="pas">
+      <p class="et">Pasul 1 — ziua</p>
+      <h3>Când poți veni?</h3>
+      <div class="grila" id="zile"></div>
+    </div>
+
+    <div class="pas">
+      <p class="et">Pasul 2 — ora</p>
+      <h3>La ce oră?</h3>
+      <div class="grila" id="ore"></div>
+      <p class="lumina-zi" id="lumina-zi">Alege o oră și îți spun ce lumină prinzi.</p>
+    </div>
+
+    <div class="pas">
+      <p class="et">Pasul 3 — cine vine</p>
+      <h3>Cum te sunăm înapoi?</h3>
+      <div class="campuri">
+        <label><span>Numele</span>
+          <input id="nume" name="nume" autocomplete="name" placeholder="Popa Robert">
+          <p class="eroare" id="e-nume"></p></label>
+        <label><span>Telefon</span>
+          <input id="tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="0722 123 456">
+          <p class="eroare" id="e-tel"></p></label>
+      </div>
+    </div>
+  </form>
+
+  <aside class="rezumat">
+    <div class="stadiu"><canvas id="cv" aria-hidden="true"></canvas></div>
+    <p class="et" style="margin-bottom:var(--s3)">Ce trimitem</p>
+    <div class="l" id="l-ap"><span>Apartament</span><b>—</b></div>
+    <div class="l" id="l-zi"><span>Ziua</span><b>—</b></div>
+    <div class="l" id="l-ora"><span>Ora</span><b>—</b></div>
+    <div class="l" id="l-cine"><span>Pe numele</span><b>—</b></div>
+    <button class="btn" id="trimite" type="button" disabled>Trimite pe WhatsApp</button>
+    <p class="mic">Îți răspundem în aceeași zi. Dacă ora e prinsă, îți propunem alta în două minute.</p>
+  </aside>
+
+</div></div>
+
+<footer><div class="wrap col">
+  <div>Frunzei 9 · ansamblu rezidențial fictiv, construit ca demonstrație de design.
+    Formularul nu trimite nimic nicăieri: butonul doar compune un mesaj.</div>
+  <div>Str. Frunzei 9<br>Sector 2, București<br><a href="tel:+40721000000">0721 000 000</a></div>
+  <div>Vizite: Luni–Sâmbătă<br>09:00–18:00<br><a href="index.html">Toate apartamentele</a></div>
+</div></footer>
+
+<script src="date.js"></script>
+<script src="sit.js"></script>
+<script src="macheta.js"></script>
+<script>
+(function(){
+  var id = Sit.param('ap');
+  var a = id ? apDupaId(id) : null;
+  Sit.meniu('vizita', a ? a.id : null);
+
+  var st = {zi:null, ora:null, nume:'', tel:''};
+  var ZILE = ['Duminică','Luni','Marți','Miercuri','Joi','Vineri','Sâmbătă'];
+  var SCURT = ['Du','Lu','Ma','Mi','Jo','Vi','Sâ'];
+  var LUNI = ['ian','feb','mar','apr','mai','iun','iul','aug','sep','oct','nov','dec'];
+
+  /* zilele: urmatoarele zece zile lucratoare plus sambetele. Duminica e inchis. */
+  var zile = [], d = new Date(); d.setHours(0,0,0,0);
+  while (zile.length < 10){
+    d = new Date(d.getTime() + 86400000);
+    if (d.getDay() !== 0) zile.push(new Date(d));
+  }
+  Sit.el('zile').innerHTML = zile.map(function(z,i){
+    return '<button type="button" class="zi" data-i="'+i+'" aria-pressed="false">' +
+      '<small>'+SCURT[z.getDay()]+'</small><b>'+z.getDate()+'</b>' +
+      '<small>'+LUNI[z.getMonth()]+'</small></button>';
+  }).join('');
+
+  function scrieOre(){
+    var z = st.zi === null ? null : zile[st.zi];
+    var pana = (z && z.getDay() === 6) ? 14 : 18;
+    var h = [];
+    for (var o = 9; o <= pana; o++) h.push(o);
+    Sit.el('ore').innerHTML = h.map(function(o){
+      return '<button type="button" class="ora" data-o="'+o+'" aria-pressed="'+(st.ora===o)+'"' +
+        (z ? '' : ' disabled') + '>'+(o<10?'0':'')+o+':00</button>';
+    }).join('');
+    if (st.ora !== null && st.ora > pana){ st.ora = null; }
+  }
+
+  function ceLumina(){
+    var p = Sit.el('lumina-zi');
+    if (st.ora === null){ p.textContent = 'Alege o oră și îți spun ce lumină prinzi.'; return; }
+    Sit.Soare.set(st.ora, true);
+    var txt;
+    if (!a) txt = 'La ' + Sit.Soare.text() + ' — ' + Sit.Soare.eticheta().toLowerCase() +
+      '. Macheta din dreapta arată umbrele exact de la ora asta.';
+    else if (a.gy === 1) txt = 'La ' + Sit.Soare.text() + ', apartamentul ' + a.nr +
+      ' primește soare direct prin ferestrele mari. ' +
+      (st.ora >= 16 ? 'Lumina intră adânc, până în hol.' : 'Pata de lumină stă în living.');
+    else txt = 'La ' + Sit.Soare.text() + ', apartamentul ' + a.nr +
+      ' are lumină indirectă — e spre nord. E cea mai constantă lumină din ansamblu și nu se încinge vara.';
+    p.textContent = txt;
+  }
+
+  var reTel = /^(\+?4)?0?7\d{2}[\s.-]?\d{3}[\s.-]?\d{3}$/;
+  function verifica(arata){
+    var okN = st.nume.trim().length >= 3;
+    var okT = reTel.test(st.tel.replace(/\s/g,''));
+    if (arata){
+      Sit.el('e-nume').textContent = (st.nume && !okN) ? 'Scrie numele întreg.' : '';
+      Sit.el('nume').setAttribute('aria-invalid', (st.nume && !okN) ? 'true' : 'false');
+      Sit.el('e-tel').textContent = (st.tel && !okT) ? 'Un număr de telefon românesc, care începe cu 07.' : '';
+      Sit.el('tel').setAttribute('aria-invalid', (st.tel && !okT) ? 'true' : 'false');
+    }
+    return okN && okT && st.zi !== null && st.ora !== null;
+  }
+
+  function linie(el, v){
+    var n = Sit.el(el);
+    n.classList.toggle('gol', !v);
+    n.querySelector('b').textContent = v || '—';
+  }
+  function scrieRezumat(){
+    linie('l-ap', a ? (a.nr + ' · ' + a.cam + ' camere') : 'nu am ales încă');
+    var z = st.zi === null ? null : zile[st.zi];
+    linie('l-zi', z ? (ZILE[z.getDay()] + ' ' + z.getDate() + ' ' + LUNI[z.getMonth()]) : '');
+    linie('l-ora', st.ora === null ? '' : ((st.ora<10?'0':'') + st.ora + ':00'));
+    linie('l-cine', st.nume.trim() ? (st.nume.trim() + (st.tel ? ' · ' + st.tel : '')) : '');
+    Sit.el('trimite').disabled = !verifica(false);
+  }
+
+  Sit.el('zile').addEventListener('click', function(e){
+    var b = e.target.closest('.zi'); if (!b) return;
+    st.zi = parseInt(b.getAttribute('data-i'), 10);
+    Sit.el('zile').querySelectorAll('.zi').forEach(function(o){
+      o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+    scrieOre(); ceLumina(); scrieRezumat();
+  });
+  Sit.el('ore').addEventListener('click', function(e){
+    var b = e.target.closest('.ora'); if (!b || b.disabled) return;
+    st.ora = parseInt(b.getAttribute('data-o'), 10);
+    Sit.el('ore').querySelectorAll('.ora').forEach(function(o){
+      o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+    ceLumina(); scrieRezumat();
+  });
+  ['nume','tel'].forEach(function(k){
+    Sit.el(k).addEventListener('input', function(){
+      st[k] = Sit.el(k).value; verifica(true); scrieRezumat();
+    });
+    Sit.el(k).addEventListener('blur', function(){ verifica(true); });
+  });
+
+  Sit.el('trimite').addEventListener('click', function(){
+    if (!verifica(true)) return;
+    var z = zile[st.zi];
+    var m = 'Bună ziua! Sunt ' + st.nume.trim() + '. Vreau să văd ' +
+      (a ? ('apartamentul ' + a.nr + ' (' + a.cam + ' camere, ' + ETAJE[a.et] + ')') : 'ansamblul') +
+      ' în ' + ZILE[z.getDay()] + ' ' + z.getDate() + ' ' + LUNI[z.getMonth()] +
+      ', la ora ' + ((st.ora<10?'0':'') + st.ora) + ':00. Telefon: ' + st.tel + '.';
+    location.href = 'https://wa.me/40721000000?text=' + encodeURIComponent(m);
+  });
+
+  scrieOre(); scrieRezumat();
+
+  /* aceeasi macheta, luminata la ora pe care ai ales-o pentru vizita */
+  var m = Macheta.creeaza(Sit.el('cv'), {ales: a ? a.id : null});
+  if (a) m.filtreaza(function(x){ return x.id === a.id; });
+  Sit.Soare.set(11, true);
+})();
+</script></body></html>

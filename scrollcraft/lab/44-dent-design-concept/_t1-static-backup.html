@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dent Design Concept. Cabinet stomatologic pe Mihai Bravu, Sector 3, din 2005</title>
+<meta name="description" content="Cabinet stomatologic pe Șos. Mihai Bravu 327, Sector 3, București. Aceeași adresă din iulie 2005. Cinci oameni. Programări la telefon.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ro_RO">
+<meta property="og:title" content="Dent Design Concept. Cabinet stomatologic, Sector 3">
+<meta property="og:description" content="Pe Șos. Mihai Bravu 327 din iulie 2005. Cinci oameni.">
+<meta property="og:image" content="assets/px-6812466.jpg">
+<meta name="theme-color" content="#f6f5f2">
+<style>
+:root {
+  /* culoare */
+  --hartie:  #f6f5f2;
+  --mount:   #ffffff;
+  --tus:     #14161a;
+  --gri:     #5b606a;
+  --linie:   #e3e1db;
+  --acc:     #0f6b63;
+  --acc-ink: #ffffff;
+
+  /* scara de spatiere, baza 4px (refactoring-ui) */
+  --s1: 4px;  --s2: 8px;  --s3: 12px; --s4: 16px; --s5: 24px;
+  --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px; --s10: 128px;
+
+  /* tipografie */
+  --display: "Helvetica Neue", Inter, -apple-system, "Segoe UI", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --masura: 64ch;
+
+  --umbra-mount:
+    0 0 0 1px rgba(20,22,26,.06),
+    0 1px 1px -.5px rgba(20,22,26,.05),
+    0 3px 3px -1.5px rgba(20,22,26,.05),
+    0 12px 12px -6px rgba(20,22,26,.05);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--hartie);
+  color: var(--tus);
+  font-family: var(--display);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 104px; /* loc pentru bara de jos */
+}
+img { display: block; max-width: 100%; }
+
+a { color: var(--acc); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 3px; border-radius: 2px; }
+
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+
+/* ---------- structura ---------- */
+.wrap { width: 100%; max-width: 1180px; margin: 0 auto; padding-inline: var(--s5); }
+section { padding-block: clamp(56px, 9vw, 128px); }
+section + section { border-top: 1px solid var(--linie); }
+
+h1, h2 {
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  margin: 0;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(34px, 8vw, 84px); }
+h2 { font-size: clamp(27px, 4.6vw, 52px); }
+h3 { font-size: 19px; font-weight: 700; letter-spacing: -0.02em; margin: 0; }
+
+p { margin: 0; max-width: var(--masura); text-wrap: pretty; }
+.gri { color: var(--gri); }
+
+.tag {
+  font-family: var(--mono); font-size: 12px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--gri); margin: 0 0 var(--s5);
+}
+
+/* ---------- semnatura: rama de pasparttu ---------- */
+.placa {
+  margin: 0;
+  background: var(--mount);
+  padding: var(--s3);
+  box-shadow: var(--umbra-mount);
+}
+.placa img { width: 100%; height: clamp(230px, 42vw, 520px); object-fit: cover; }
+.placa--mare img { height: clamp(300px, 62vw, 760px); }
+.placa figcaption {
+  font-family: var(--mono); font-size: 12.5px; line-height: 1.55;
+  color: var(--gri); padding: var(--s3) var(--s1) var(--s1);
+  display: flex; flex-wrap: wrap; gap: var(--s1) var(--s4);
+}
+.placa figcaption b { color: var(--tus); font-weight: 400; }
+
+/* ---------- 1. deschidere ---------- */
+.deschidere { padding-top: clamp(28px, 5vw, 56px); }
+.deschidere .placa img { height: clamp(300px, 58vw, 660px); }
+.deschidere h1 { margin-top: var(--s6); }
+.deschidere .sub {
+  font-family: var(--mono); font-size: 13.5px; line-height: 1.6;
+  color: var(--gri); margin-top: var(--s4); max-width: 52ch;
+}
+.deschidere .sub b { color: var(--acc); font-weight: 400; }
+
+/* ---------- 2. locul ---------- */
+.locul .grid { display: grid; gap: var(--s7); }
+.adresa {
+  font-size: clamp(22px, 3.4vw, 34px); font-weight: 700;
+  letter-spacing: -0.03em; line-height: 1.15; margin: 0; max-width: 18ch;
+}
+.detalii {
+  font-family: var(--mono); font-size: 13.5px; color: var(--gri);
+  margin: var(--s5) 0 0; display: grid; gap: var(--s2);
+}
+@media (min-width: 880px) { .locul .grid { grid-template-columns: 1fr 1.15fr; align-items: center; } }
+
+/* ---------- 3. ce se face ---------- */
+.lista { list-style: none; margin: var(--s6) 0 0; padding: 0; max-width: 760px; }
+.lista li {
+  border-top: 1px solid var(--linie);
+  padding: var(--s4) 0;
+  display: grid; gap: var(--s1);
+}
+.lista li:last-child { border-bottom: 1px solid var(--linie); }
+.lista span {
+  font-family: var(--mono); font-size: 12.5px; color: var(--gri);
+}
+
+/* ---------- 4. vechimea (varful) ---------- */
+.vechime { background: #efeee9; }
+.vechime .cifra {
+  font-size: clamp(64px, 18vw, 220px); font-weight: 700;
+  letter-spacing: -0.055em; line-height: .84; margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+.vechime .dupa { margin-top: var(--s5); display: grid; gap: var(--s5); }
+.vechime .chitanta {
+  font-family: var(--mono); font-size: 12.5px; line-height: 1.7; color: var(--gri);
+  border-left: 1px solid var(--linie); padding-left: var(--s4); margin: 0;
+}
+.vechime .placa { margin-top: var(--s7); }
+@media (min-width: 880px) { .vechime .dupa { grid-template-columns: 1.1fr 1fr; align-items: start; } }
+
+/* ---------- 5. cei cinci ---------- */
+.cinci .numar {
+  font-size: clamp(48px, 9vw, 104px); font-weight: 700;
+  letter-spacing: -0.05em; line-height: 1; margin: 0 0 var(--s4);
+}
+
+/* ---------- 6. programare ---------- */
+.programare { background: var(--tus); color: var(--hartie); }
+.programare h2 { color: var(--hartie); }
+.programare p { color: #b3b8c0; }
+.programare .rand { margin-top: var(--s7); display: grid; gap: var(--s5); }
+.programare .fisa {
+  font-family: var(--mono); font-size: 13.5px; line-height: 1.8; color: #b3b8c0;
+  display: grid; gap: var(--s2);
+}
+.programare .fisa b { color: var(--hartie); font-weight: 400; }
+@media (min-width: 720px) { .programare .rand { grid-template-columns: 1fr 1fr; } }
+
+/* ---------- bara de jos: pilula ---------- */
+.bara {
+  position: fixed; left: 50%; transform: translateX(-50%);
+  bottom: var(--s4); z-index: 20;
+  display: flex; align-items: center; gap: var(--s1);
+  padding: var(--s1);
+  background: rgba(246,245,242,.86);
+  box-shadow: 0 0 0 1px rgba(20,22,26,.09), 0 8px 24px -8px rgba(20,22,26,.25);
+  border-radius: 999px;
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  max-width: calc(100vw - 24px);
+}
+/* linkurile se deruleaza, CTA-ul nu: pe telefon actiunea principala ramane mereu pe ecran */
+.bara .linkuri {
+  display: flex; align-items: center; gap: var(--s1);
+  min-width: 0; overflow-x: auto; scrollbar-width: none;
+  mask-image: linear-gradient(to right, #000 86%, transparent);
+  -webkit-mask-image: linear-gradient(to right, #000 86%, transparent);
+}
+.bara .linkuri::-webkit-scrollbar { display: none; }
+.bara a {
+  flex: 0 0 auto; display: flex; align-items: center;
+  min-height: 44px; padding: 0 var(--s4);
+  border-radius: 999px; text-decoration: none;
+  font-size: 14px; color: var(--tus); white-space: nowrap;
+}
+.bara a.cta { background: var(--acc); color: var(--acc-ink); font-weight: 700; }
+.bara a:active { transform: translateY(1px); }
+@media (min-width: 620px) {
+  .bara .linkuri { mask-image: none; -webkit-mask-image: none; overflow-x: visible; }
+}
+
+/* ---------- subsol ---------- */
+footer { padding: var(--s7) 0 var(--s8); border-top: 1px solid var(--linie); }
+footer .mic {
+  font-family: var(--mono); font-size: 12px; line-height: 1.75; color: var(--gri);
+  display: grid; gap: var(--s3); max-width: 78ch;
+}
+
+/* ---------- marcaj de date neconfirmate ---------- */
+.dc { border-bottom: 1px dotted currentColor; justify-self: start; }
+.dc::after { content: "°"; font-size: .72em; vertical-align: super; }
+</style>
+</head>
+<body>
+
+<a class="sr" href="#continut">Sari la conținut</a>
+
+<main id="continut">
+
+  <!-- 1. DESCHIDERE -->
+  <section class="deschidere">
+    <div class="wrap">
+      <figure class="placa">
+        <img src="assets/px-6812466.jpg" width="1800" height="1200"
+             alt="Mână care ridică o piesă de mână dintr-un rând de instrumente, pe fundal închis">
+        <figcaption>
+          <b>Dent Design Concept</b>
+          <span>Cabinet stomatologic</span>
+          <span>Șos. Mihai Bravu 327, Sector 3</span>
+        </figcaption>
+      </figure>
+      <h1>Din 2005,<br>pe Mihai Bravu.</h1>
+      <p class="sub">Cabinet stomatologic în Sector 3, la aceeași adresă de la înființare.
+        <b>Cinci oameni.</b></p>
+    </div>
+  </section>
+
+  <!-- 2. LOCUL -->
+  <section class="locul" id="locul">
+    <div class="wrap">
+      <p class="tag">Unde e</p>
+      <div class="grid">
+        <div>
+          <p class="adresa">Șos. Mihai Bravu 327, blocul 54</p>
+          <div class="detalii">
+            <span>Scara 2, etajul 2, Sector 3, București</span>
+            <span>Zona Dristor</span>
+            <span class="dc">Cum se ajunge, cu ce mijloc de transport</span>
+          </div>
+        </div>
+        <figure class="placa">
+          <img src="assets/px-6627668.jpg" width="1800" height="1200"
+               alt="Rândul de piese de mână montate pe unitul dentar, lângă o tăviță cu instrumente">
+          <figcaption><span>Unitul dentar, cu piesele la locul lor.</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. CE SE FACE -->
+  <section id="ce-facem">
+    <div class="wrap">
+      <p class="tag">Ce se face aici</p>
+      <h2>Lista completă,<br>fără prescurtări.</h2>
+      <ul class="lista">
+        <li><h3>Consultație și plan de tratament</h3><span>Prima vizită.</span></li>
+        <li><h3>Detartraj și periaj profesional</h3><span>Igienizare.</span></li>
+        <li><h3 class="dc">Obturații fizionomice</h3><span>Plombe de culoarea dintelui.</span></li>
+        <li><h3 class="dc">Tratament de canal</h3><span>Endodonție.</span></li>
+        <li><h3 class="dc">Coroane și punți</h3><span>Protetică.</span></li>
+        <li><h3 class="dc">Urgențe</h3><span>Durere acută.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 4. VECHIMEA — varful -->
+  <section class="vechime" id="vechime">
+    <div class="wrap">
+      <p class="tag">De cât timp</p>
+      <p class="cifra">21</p>
+      <h2>de ani la aceeași adresă.</h2>
+      <div class="dupa">
+        <p class="gri">Cabinetul a fost înființat pe 13 iulie 2005 și funcționează de atunci
+          în același loc, pe Mihai Bravu. Douăzeci și unu de ani în care strada s-a schimbat
+          de câteva ori, iar numărul de la intrare a rămas 327.</p>
+        <p class="chitanta">
+          Dent Design Concept SRL<br>
+          Înființată 13.07.2005<br>
+          J40/12259/2005<br>
+          CUI 17777487<br>
+          CAEN 8623, activități de asistență stomatologică<br>
+          Date publice, Registrul Comerțului
+        </p>
+      </div>
+      <figure class="placa placa--mare">
+        <img src="assets/px-9951405.jpg" width="1800" height="1200"
+             alt="Prim-plan cu o piesă de mână ținută în mănuși, deasupra unei suprafețe albe">
+        <figcaption><span>Aceeași meserie, an de an.</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 5. CEI CINCI -->
+  <section class="cinci" id="echipa">
+    <div class="wrap">
+      <p class="tag">Cine lucrează aici</p>
+      <p class="numar">5</p>
+      <h2>oameni.</h2>
+      <p class="gri" style="margin-top:var(--s5)">Un cabinet mic, cu aceiași oameni de la o
+        programare la alta. <span class="dc">Numele și specializările fiecăruia</span> se
+        completează împreună cu cabinetul.</p>
+    </div>
+  </section>
+
+  <!-- 6. PROGRAMARE -->
+  <section class="programare" id="programare">
+    <div class="wrap">
+      <p class="tag" style="color:#8b929c">Programare</p>
+      <h2>Un telefon și o oră.</h2>
+      <p style="margin-top:var(--s5)">Programările se fac la telefon. Se spune ce doare sau ce
+        trebuie verificat, și se stabilește o oră.</p>
+      <div class="rand">
+        <p class="fisa">
+          <b>Telefon</b>
+          <span class="dc">De confirmat cu cabinetul</span>
+        </p>
+        <p class="fisa">
+          <b>Program</b>
+          <span class="dc">Luni până vineri, orele de confirmat</span>
+        </p>
+        <p class="fisa">
+          <b>Adresa</b>
+          <span>Șos. Mihai Bravu 327, bl. 54, sc. 2, et. 2</span>
+          <span>Sector 3, București</span>
+        </p>
+        <p class="fisa">
+          <b>Firma</b>
+          <span>Dent Design Concept SRL</span>
+          <span>CUI 17777487</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="mic">
+      <span>Dent Design Concept SRL. CUI 17777487. J40/12259/2005.
+        Șos. Mihai Bravu 327, bl. 54, sc. 2, et. 2, ap. 36, Sector 3, București.</span>
+      <span>Demonstrație de prezentare, construită pe date publice din Registrul Comerțului.
+        Fotografiile sunt de stoc (Pexels) și se înlocuiesc cu poze din cabinet.
+        Informațiile marcate cu ° se confirmă înainte de publicare.</span>
+    </div>
+  </div>
+</footer>
+
+<nav class="bara" aria-label="Navigare">
+  <div class="linkuri">
+    <a href="#locul">Unde</a>
+    <a href="#ce-facem">Ce se face</a>
+    <a href="#vechime">Din 2005</a>
+    <a href="#echipa">Echipa</a>
+  </div>
+  <a href="#programare" class="cta">Programare</a>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dentist",
+  "name": "Dent Design Concept",
+  "legalName": "DENT DESIGN CONCEPT SRL",
+  "foundingDate": "2005-07-13",
+  "taxID": "17777487",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Șos. Mihai Bravu 327, bl. 54, sc. 2, et. 2",
+    "addressLocality": "București",
+    "addressRegion": "Sector 3",
+    "addressCountry": "RO"
+  },
+  "medicalSpecialty": "Dentistry",
+  "inLanguage": "ro"
+}
+</script>
+
+</body>
+</html>

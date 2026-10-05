@@ -1,0 +1,106 @@
+/* Frunzei 9 — lumea: MACHETA LUMINATA.
+   Hartie calda, cerneala, un accent cobalt. Un singur lucru care se misca: soarele. */
+@font-face{font-family:Afis;src:url(assets/InstrSerif-latin-ext.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap;
+ unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Afis;src:url(assets/InstrSerif-latin.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:Afis;src:url(assets/InstrSerif-it-latin-ext.woff2) format('woff2');font-weight:400;font-style:italic;font-display:swap;
+ unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Afis;src:url(assets/InstrSerif-it-latin.woff2) format('woff2');font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:Text;src:url(assets/InstrSans-latin-ext.woff2) format('woff2');font-weight:400 700;font-display:swap;
+ unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Text;src:url(assets/InstrSans-latin.woff2) format('woff2');font-weight:400 700;font-display:swap}
+@font-face{font-family:Cifre;src:url(assets/JetBrainsMono-latin-ext.woff2) format('woff2');font-weight:400 500;font-display:swap;
+ unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Cifre;src:url(assets/JetBrainsMono-latin.woff2) format('woff2');font-weight:400 500;font-display:swap}
+
+:root{
+  --hartie:#f2efe7; --hartie2:#eae5d9; --hartie3:#e0dacb;
+  --cerneala:#15171b; --cerneala2:#494f59; --sters:#8b8f98;
+  --cobalt:#1f4fd8; --cobalt2:#1740ae; --cobalt-pal:#dde4fb;
+  --soare:#e8a825;
+  --linie:rgba(21,23,27,.13); --linie2:rgba(21,23,27,.28);
+  --arc:cubic-bezier(.16,1,.3,1);
+  --s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:36px;--s7:56px;--s8:80px;--s9:120px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light;scroll-behavior:smooth}
+body{margin:0;background:var(--hartie);color:var(--cerneala);
+ font-family:Text,system-ui,sans-serif;font-size:16.5px;line-height:1.58;
+ -webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+::selection{background:var(--cobalt);color:#fff}
+:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px}
+img,canvas,svg{display:block;max-width:100%}
+.wrap{width:100%;max-width:1280px;margin:0 auto;padding-inline:clamp(18px,4vw,44px)}
+.cif{font-family:Cifre;font-variant-numeric:tabular-nums}
+.et{font-family:Cifre;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--sters)}
+.afis{font-family:Afis;font-weight:400;letter-spacing:-.012em;line-height:1.02;padding-bottom:.06em}
+h1.afis{margin:0;font-size:clamp(46px,8.4vw,116px)}
+h2.afis{margin:0;font-size:clamp(34px,5.4vw,72px)}
+h2.afis i,h1.afis i{color:var(--cobalt)}
+h3{margin:0;font-family:Afis;font-weight:400;font-size:clamp(23px,2.4vw,31px);line-height:1.1}
+p{margin:0;text-wrap:pretty}
+section{padding-block:clamp(54px,7.5vw,104px)}
+
+/* ---- meniu, pe toate cele trei pagini ---- */
+.bara{position:sticky;top:0;z-index:40;background:rgba(242,239,231,.82);
+ backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);
+ border-bottom:1px solid var(--linie)}
+.bara .in{display:flex;align-items:center;gap:var(--s5);min-height:62px}
+.marca{font-family:Afis;font-size:23px;letter-spacing:-.01em;white-space:nowrap}
+.marca b{font-weight:400;color:var(--cobalt)}
+.meniu{display:flex;gap:var(--s5);margin-left:auto;font-size:14.5px;overflow:auto;
+ scrollbar-width:none;-ms-overflow-style:none}
+.meniu::-webkit-scrollbar{display:none}
+.meniu a{white-space:nowrap;padding-block:6px;border-bottom:1.5px solid transparent;color:var(--cerneala2)}
+.meniu a:hover{color:var(--cerneala)}
+.meniu a[aria-current]{color:var(--cerneala);border-color:var(--cobalt)}
+.bara .tel{font-family:Cifre;font-size:13px;white-space:nowrap;color:var(--cerneala)}
+@media(max-width:700px){.bara .tel{display:none}}
+@media(max-width:560px){.bara .in{gap:var(--s4)}.meniu{gap:14px;font-size:13px}.marca{font-size:20px}}
+
+/* ---- butoane ---- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;
+ padding:0 var(--s6);border-radius:99px;background:var(--cobalt);color:#fff;font-weight:600;
+ font-size:15.5px;border:0;cursor:pointer;white-space:nowrap;
+ transition:transform 200ms var(--arc),background 200ms var(--arc)}
+.btn:hover{transform:translateY(-3px);background:var(--cobalt2)}
+.btn[disabled]{background:var(--hartie3);color:var(--sters);cursor:not-allowed;transform:none}
+.btn.gol{background:transparent;color:var(--cerneala);box-shadow:inset 0 0 0 1.5px var(--linie2)}
+.btn.gol:hover{background:var(--hartie2)}
+
+/* ---- soarele: acelasi control pe doua pagini ---- */
+.soare{display:flex;align-items:center;gap:var(--s4);flex-wrap:wrap}
+.soare .ora{font-family:Cifre;font-size:clamp(26px,3vw,38px);line-height:1;min-width:5.4ch}
+.soare .drum{flex:1 1 220px;min-width:180px;position:relative;height:44px;display:flex;align-items:center}
+.soare input[type=range]{width:100%;margin:0;background:none;-webkit-appearance:none;appearance:none;height:44px}
+.soare input[type=range]::-webkit-slider-runnable-track{height:2px;background:var(--linie2);border-radius:2px}
+.soare input[type=range]::-moz-range-track{height:2px;background:var(--linie2);border-radius:2px}
+.soare input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;margin-top:-12px;
+ border-radius:99px;background:var(--soare);box-shadow:0 0 0 6px rgba(232,168,37,.22),0 2px 10px rgba(21,23,27,.28);cursor:grab}
+.soare input[type=range]::-moz-range-thumb{width:26px;height:26px;border:0;border-radius:99px;
+ background:var(--soare);box-shadow:0 0 0 6px rgba(232,168,37,.22);cursor:grab}
+.soare .cat{font-family:Cifre;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sters)}
+
+/* ---- carduri si liste ---- */
+.fila{border-top:1px solid var(--linie);padding-block:var(--s5);display:grid;
+ grid-template-columns:auto 1fr auto;gap:var(--s3) var(--s5);align-items:baseline}
+.fila .nr{font-family:Cifre;font-size:15px;color:var(--cobalt);min-width:4ch}
+.fila .pret{font-family:Afis;font-size:clamp(20px,2.2vw,27px);white-space:nowrap;justify-self:end}
+.fila .sub{grid-column:2/-1;color:var(--sters);font-size:14px;margin-top:-6px}
+@media(max-width:560px){.fila{grid-template-columns:auto 1fr}.fila .pret{grid-column:1/-1;justify-self:start}}
+
+footer{border-top:1px solid var(--linie);background:var(--hartie2);
+ padding-block:var(--s7);font-family:Cifre;font-size:12px;line-height:1.9;color:var(--sters)}
+footer a{color:var(--cerneala2);border-bottom:1px solid var(--linie2)}
+footer .col{display:grid;gap:var(--s5)}
+@media(min-width:760px){footer .col{grid-template-columns:1.4fr 1fr 1fr}}
+
+[data-ap]{opacity:0;transform:translateY(14px);transition:opacity .8s var(--arc),transform .8s var(--arc)}
+[data-ap].on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  [data-ap]{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+  *{animation-duration:.001ms!important;transition-duration:.001ms!important}
+}

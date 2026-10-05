@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ro"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harta — cabinet stomatologic, București</title>
+<meta name="description" content="Arata unde te doare si afli ce este, cat dureaza si cat costa, inainte sa suni.">
+<meta name="theme-color" content="#16130f">
+<style>
+@font-face{font-family:News;src:url(assets/Newsreader-latin-ext.woff2) format('woff2');font-weight:300 700;font-style:normal;font-display:swap;
+ unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:News;src:url(assets/Newsreader-latin.woff2) format('woff2');font-weight:300 700;font-style:normal;font-display:swap}
+@font-face{font-family:News;src:url(assets/Newsreader-it-latin-ext.woff2) format('woff2');font-weight:300 600;font-style:italic;font-display:swap;
+ unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:News;src:url(assets/Newsreader-it-latin.woff2) format('woff2');font-weight:300 600;font-style:italic;font-display:swap}
+@font-face{font-family:Arch;src:url(assets/Archivo-latin-ext.woff2) format('woff2');font-weight:400 700;font-display:swap;
+ unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Arch;src:url(assets/Archivo-latin.woff2) format('woff2');font-weight:400 700;font-display:swap}
+@font-face{font-family:Mono;src:url(assets/JetBrainsMono-latin-ext.woff2) format('woff2');font-weight:400 500;font-display:swap;
+ unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Mono;src:url(assets/JetBrainsMono-latin.woff2) format('woff2');font-weight:400 500;font-display:swap}
+
+/* Lumea: grafit cald, os, un accent de chihlimbar. Subiectul paginii e HARTA.
+   Actul tipografic: titlul din stanga NU e un titlu — e raspunsul, si se schimba. */
+:root{
+  --fund:#16130f; --fund2:#1e1a15; --fund3:#272119;
+  --os:#f0ebe1; --os2:#cdc4b4; --sters:#8b8275;
+  --amb:#e0a04a; --amb2:#c07f2c; --rosu:#d4643f;
+  --linie:rgba(240,235,225,.13); --r:3px;
+  --arc:cubic-bezier(.16,1,.3,1);
+  --s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:36px;--s7:56px;--s8:80px;--s9:120px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;color-scheme:dark}
+body{margin:0;background:var(--fund);color:var(--os);font-family:Arch,system-ui,sans-serif;
+ font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:var(--amb);color:var(--fund)}
+:root{caret-color:var(--amb);accent-color:var(--amb)}
+::-webkit-scrollbar{width:11px}::-webkit-scrollbar-track{background:var(--fund)}
+::-webkit-scrollbar-thumb{background:#3a3228;border:3px solid var(--fund);border-radius:99px}
+:focus-visible{outline:2px solid var(--amb);outline-offset:3px}
+.wrap{width:100%;max-width:1240px;margin:0 auto;padding-inline:clamp(18px,4vw,44px)}
+.mono{font-family:Mono;font-variant-numeric:tabular-nums}
+h2{margin:0;font-family:News;font-weight:400;font-size:clamp(30px,4.6vw,58px);
+ line-height:1.1;letter-spacing:-.018em;padding-bottom:.06em;text-wrap:balance}
+h2 em{font-style:italic;color:var(--amb)}
+h3{margin:0;font-family:News;font-weight:500;font-size:clamp(20px,2.1vw,25px);line-height:1.2}
+p{margin:0;text-wrap:pretty}
+section{padding-block:clamp(56px,8vw,112px)}
+
+/* ================= antet: doar marca si telefonul ================= */
+.sus{position:absolute;inset:0 0 auto;z-index:3;padding-block:clamp(16px,2.4vw,26px)}
+.sus .in{display:flex;align-items:baseline;justify-content:space-between;gap:var(--s4)}
+.semn{font-family:News;font-size:19px;letter-spacing:-.01em}
+.semn i{font-style:italic;color:var(--amb)}
+.tel{font-family:Mono;font-size:13px;letter-spacing:.06em;color:var(--os2);
+ border-bottom:1px solid rgba(224,160,74,.42);padding-bottom:3px}
+.tel:hover{color:var(--amb)}
+
+/* ================= scena: raspunsul | harta ================= */
+.scena{position:relative;min-height:100svh;display:grid;align-items:center;
+ padding-block:clamp(86px,12vw,120px) clamp(28px,5vw,56px)}
+.duo{display:grid;gap:clamp(22px,4vw,46px);align-items:center}
+@media(min-width:960px){.duo{grid-template-columns:minmax(0,1fr) minmax(0,1.28fr);gap:clamp(30px,4vw,64px)}}
+
+.raspuns{min-width:0}
+.cod{font-family:Mono;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;
+ color:var(--amb);display:flex;align-items:center;gap:var(--s3)}
+.cod::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,rgba(224,160,74,.5),transparent)}
+h1{margin:var(--s4) 0 0;font-family:News;font-weight:400;
+ font-size:clamp(40px,6.6vw,80px);line-height:1.04;letter-spacing:-.022em;
+ padding-bottom:.08em;text-wrap:balance}
+h1 em{font-style:italic;color:var(--amb)}
+.desc{margin-top:var(--s4);color:var(--os2);max-width:40ch;font-size:16.5px}
+.cifre{margin-top:clamp(20px,3vw,30px);display:flex;flex-wrap:wrap;gap:var(--s6) var(--s7);
+ border-top:1px solid var(--linie);padding-top:clamp(18px,2.4vw,24px)}
+.cifre>div{min-width:0}
+.k{font-family:Mono;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--sters)}
+.v{font-family:News;font-size:clamp(20px,2.3vw,27px);line-height:1.2;margin-top:7px}
+.gol .cifre,.gol .tasta{display:none}
+.actiune{margin-top:clamp(22px,3.2vw,32px);display:flex;flex-wrap:wrap;align-items:center;gap:var(--s5)}
+.sunat{display:inline-flex;align-items:center;min-height:54px;padding:0 var(--s7);border-radius:99px;
+ background:var(--amb);color:var(--fund);font-weight:700;font-size:16px;white-space:nowrap;
+ transition:transform 200ms var(--arc),background 200ms var(--arc)}
+.sunat:hover{transform:translateY(-3px);background:#f0b55f}
+.langa{font-family:Mono;font-size:12.5px;color:var(--sters);line-height:1.5}
+.raspuns .schimba{transition:opacity 260ms var(--arc),transform 260ms var(--arc)}
+.raspuns.mut .schimba{opacity:0;transform:translateY(9px)}
+
+/* ================= harta ================= */
+.arcada{display:grid;place-items:center;min-width:0}
+svg.gura{width:100%;max-width:700px;height:auto;overflow:visible;touch-action:manipulation}
+@media(max-width:959px){svg.gura{max-width:520px}.arcada{order:-1}}
+.dinte{cursor:pointer}
+.dinte .in{transition:transform 380ms var(--arc)}
+.dinte path{transition:fill 300ms var(--arc),stroke 300ms var(--arc)}
+.dinte:hover .in{transform:scale(1.1)}
+.dinte:hover path.sm{fill:#fffdf5}
+.dinte.ales .in{transform:scale(1.24)}
+.dinte.ales path.sm{fill:var(--amb);stroke:#f5c078}
+.dinte.ales .luciu{fill:rgba(255,255,255,.35)}
+.gingie{fill:none;stroke:rgba(196,124,60,.10);stroke-linecap:round}
+.tinta{fill:transparent}
+.dinte:focus{outline:none}
+.dinte:focus-visible .in{outline:2px solid var(--amb);outline-offset:2px}
+
+/* ================= restul ================= */
+.tabel{margin-top:var(--s7);border-top:1px solid var(--linie)}
+/* grid, NU flex-wrap: altfel pretul cade sub randul lung */
+.rand{display:grid;grid-template-columns:1fr auto;gap:var(--s3) var(--s6);align-items:baseline;
+ padding-block:var(--s5);border-bottom:1px solid var(--linie)}
+.rand .d{color:var(--sters);font-size:15px;grid-column:1/-1;margin-top:-6px}
+.rand.pt .p{color:var(--amb)}
+.rand .tag{display:none;grid-column:1/-1;font-family:Mono;font-size:10px;letter-spacing:.18em;
+ text-transform:uppercase;color:var(--amb);margin-top:2px}
+.rand.pt .tag{display:block}
+.rand .p{font-family:News;font-size:clamp(21px,2.4vw,29px);white-space:nowrap;justify-self:end}
+@media(max-width:460px){.rand{grid-template-columns:1fr}.rand .p{justify-self:start}}
+
+.drum{margin-top:var(--s8);display:grid;gap:var(--s6);position:relative}
+@media(min-width:880px){.drum{grid-template-columns:repeat(3,1fr);gap:var(--s7)}
+ .drum::before{content:"";position:absolute;top:13px;left:6%;right:6%;height:1px;background:var(--linie)}}
+.etapa{position:relative;padding-top:var(--s6)}
+.etapa::before{content:"";position:absolute;top:6px;left:0;width:15px;height:15px;border-radius:99px;
+ background:var(--fund);box-shadow:inset 0 0 0 2px var(--amb)}
+.etapa .t{font-family:Mono;font-size:11.5px;letter-spacing:.14em;color:var(--amb)}
+.etapa p{color:var(--os2);margin-top:var(--s3);font-size:16px}
+
+.pe2{background:var(--fund2)}
+.leg{margin-top:var(--s7);display:grid;gap:var(--s6)}
+@media(min-width:760px){.leg{grid-template-columns:repeat(3,1fr)}}
+footer{border-top:1px solid var(--linie);padding-block:var(--s7);
+ font-family:Mono;font-size:12px;line-height:1.9;color:var(--sters)}
+[data-ap]{opacity:0;transform:translateY(12px);transition:opacity .75s var(--arc),transform .75s var(--arc)}
+[data-ap].on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+ [data-ap]{opacity:1;transform:none}
+ .raspuns.mut .schimba{opacity:1;transform:none}
+ .dinte .in{transition:none}*{animation:none!important}}
+</style></head><body>
+
+<header class="sus"><div class="wrap in">
+  <p class="semn">Harta<i>.</i></p>
+  <a class="tel" href="tel:+40210000000">021 000 00 00</a>
+</div></header>
+
+<section class="scena"><div class="wrap">
+  <div class="duo">
+
+    <div class="raspuns gol" id="raspuns">
+      <p class="cod schimba" id="f-cod">Hartă dentară</p>
+      <h1 class="schimba" id="f-titlu">Arată <em>unde te doare</em>.</h1>
+      <p class="desc schimba" id="f-desc">Atinge dintele care te supără. Îți spun ce e de obicei acolo,
+        cât durează și cât costă — înainte să suni, nu după.</p>
+
+      <div class="cifre schimba">
+        <div><p class="k">Durează</p><p class="v" id="f-dur">—</p></div>
+        <div><p class="k">Costă</p><p class="v" id="f-pret">—</p></div>
+      </div>
+
+      <div class="actiune">
+        <a class="sunat" href="tel:+40210000000">Sună acum</a>
+        <span class="langa">Luni–Vineri 9–19<br>Urgențe: în aceeași zi</span>
+      </div>
+    </div>
+
+    <div class="arcada">
+      <svg class="gura" id="gura" role="group" aria-label="Hartă dentară interactivă"></svg>
+    </div>
+
+  </div>
+</div></section>
+
+<section>
+  <div class="wrap">
+    <h2 data-ap>Toate prețurile, <em>afișate</em>.</h2>
+    <div class="tabel" data-ap>
+      <div class="rand"><span>Consultație, radiografie panoramică și plan de tratament scris</span>
+        <span class="p">150 lei</span><span class="d">Prima vizită. Planul îl iei acasă pe hârtie.</span></div>
+      <div class="rand"><span>Detartraj cu periaj profesional și air-flow</span>
+        <span class="p">300 lei</span><span class="d">Ambele arcade, într-o singură ședință.</span></div>
+      <div class="rand" data-pt="incisiv premolar"><span>Obturație fizionomică</span><span class="p">de la 250 lei</span><span class="tag">Pentru dintele ales</span>
+        <span class="d">Prețul depinde de câte fețe ale dintelui sunt afectate.</span></div>
+      <div class="rand" data-pt="molar"><span>Tratament de canal, un canal</span><span class="p">de la 450 lei</span><span class="tag">Pentru dintele ales</span></div>
+      <div class="rand" data-pt="canin"><span>Coroană ceramică pe metal</span><span class="p">de la 1.400 lei</span><span class="tag">Pentru dintele ales</span></div>
+      <div class="rand"><span>Extracție simplă</span><span class="p">de la 200 lei</span></div>
+    </div>
+    <p class="mono" data-ap style="margin-top:var(--s5);font-size:12.5px;color:var(--sters)">
+      Prețul se confirmă la consultație, după radiografie. Dacă se schimbă, te sunăm înainte.</p>
+  </div>
+</section>
+
+<section class="pe2">
+  <div class="wrap">
+    <h2 data-ap>O oră, <em>trei etape</em>.</h2>
+    <div class="drum" data-ap>
+      <div class="etapa"><p class="t">15 MINUTE</p><h3>Radiografie</h3>
+        <p>Panoramică digitală. O vezi pe ecran împreună cu medicul, nu ți se povestește.</p></div>
+      <div class="etapa"><p class="t">30 MINUTE</p><h3>Planul, scris</h3>
+        <p>Ce se face, în ce ordine, cât costă fiecare etapă. Semnat de amândoi.</p></div>
+      <div class="etapa"><p class="t">15 MINUTE</p><h3>Programarea</h3>
+        <p>Alegi când începem. La durere acută, prima intervenție se face în aceeași zi.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 data-ap>Un telefon, <em>și gata</em>.</h2>
+    <div class="leg" data-ap>
+      <div><p class="k">Telefon</p><p class="v">021 000 00 00</p></div>
+      <div><p class="k">Program</p><p class="v">Luni–Vineri 9–19<br>Sâmbătă 9–14</p></div>
+      <div><p class="k">Adresa</p><p class="v">Str. Exemplu 1<br>Sector 1, București</p></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  Concept de design pentru test de sistem. Cabinetul, prețurile, programul și datele de contact
+  sunt fictive. Harta e orientativă și nu înlocuiește un consult.
+</div></footer>
+
+<script>
+(function(){
+  var REDUS = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- ce e de obicei, cat dureaza, cat costa, pe tip de dinte ---- */
+  var TIP = {
+    incisiv:{nume:'Incisiv', titlu:'Ciobitură sau <em>carie pe față</em>.',
+      desc:'Dinții din față se ciobesc la mușcături tari și se pătează la margine. Se reface cu material fizionomic, într-o singură ședință.',
+      dur:'45 de minute', pret:'de la 250 lei'},
+    canin:{nume:'Canin', titlu:'Uzură și <em>sensibilitate</em>.',
+      desc:'Caninii primesc cea mai mare forță la măcinat. Se subțiază smalțul și apare sensibilitatea la rece. Se acoperă sau se reface conturul.',
+      dur:'45–60 de minute', pret:'de la 300 lei'},
+    premolar:{nume:'Premolar', titlu:'Carie <em>între dinți</em>.',
+      desc:'Zona cel mai greu de curățat cu peria. Se vede pe radiografie înainte să doară — cu cât se prinde mai devreme, cu atât e mai ieftin.',
+      dur:'60 de minute', pret:'de la 250 lei'},
+    molar:{nume:'Molar', titlu:'Carie profundă sau <em>canal</em>.',
+      desc:'Molarii fac toată treaba grea, deci aici ajung cele mai multe probleme. Dacă durerea e pulsatilă și vine noaptea, de obicei e nevoie de canal.',
+      dur:'90 de minute, uneori două ședințe', pret:'de la 450 lei'}
+  };
+
+  var svg = document.getElementById('gura');
+  var NS = 'http://www.w3.org/2000/svg';
+  function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
+
+  function tipDupaIndex(i){            // i: 0..7 de la mijloc spre spate
+    if (i<2) return 'incisiv';
+    if (i<3) return 'canin';
+    if (i<5) return 'premolar';
+    return 'molar';
+  }
+  var LAT   = {incisiv:21, canin:20, premolar:26, molar:34};
+  var INALT = {incisiv:36, canin:39, premolar:31, molar:29};
+
+  function arcada(sus){
+    var g = el('g',{});
+    var cx = 380, rx = 258, ry = 138;
+    // ∩ sus, ∪ jos, cu un gol intre ele — asa arata o harta dentara reala
+    var baza = sus ? 196 : 258;
+    // gingia: o banda care urmeaza EXACT elipsa dintilor, impinsa spre radacini
+    var rxg = rx+9, ryg = ry+11, pct = [];
+    for (var k=0;k<=48;k++){
+      var a = (-1 + 2*k/48) * (Math.PI/2*0.97);
+      pct.push((cx + Math.sin(a)*rxg).toFixed(1)+' '+(baza + (sus?-1:1)*Math.cos(a)*ryg).toFixed(1));
+    }
+    g.appendChild(el('path',{d:'M '+pct.join(' L '), class:'gingie', 'stroke-width':44}));
+    for (var q=0;q<2;q++){
+      for (var i=0;i<8;i++){
+        var t = (i+0.5)/8;
+        var ang = t * Math.PI/2 * 0.97;
+        var x = cx + (q ? 1 : -1) * Math.sin(ang) * rx;
+        var y = baza + (sus ? -1 : 1) * Math.cos(ang) * ry;
+        var tip = tipDupaIndex(i);
+        var w = LAT[tip], h = INALT[tip];
+        var rot = (q?1:-1) * (ang * 180/Math.PI) * 0.8;
+        // grupul EXTERIOR poarta pozitia (atribut), cel INTERIOR scalarea (CSS)
+        var gg = el('g',{class:'dinte', tabindex:'0', role:'button',
+          'data-tip':tip, 'data-poz':(sus?'sus':'jos'), 'data-nr':(q?'dreapta':'stânga'),
+          transform:'translate('+x.toFixed(1)+','+y.toFixed(1)+') rotate('+rot.toFixed(1)+')'});
+        gg.setAttribute('aria-label', TIP[tip].nume+', '+(sus?'sus':'jos')+' '+(q?'dreapta':'stânga'));
+        var inner = el('g',{class:'in', style:'transform-box:fill-box;transform-origin:center',
+          filter:'url(#umbra)'});
+        var sus_ = sus ? -1 : 1;      // coroana priveste spre golul dintre arcade
+        var hw = w/2, hh = h/2, r = w*0.3, ing = w*0.32;
+        // coroana rotunjita la un capat, radacina ingustata la celalalt
+        var d2 = sus_>0
+          ? 'M '+(-hw+r)+' '+(-hh)+' H '+(hw-r)+' A '+r+' '+r+' 0 0 1 '+hw+' '+(-hh+r)+
+            ' L '+(hw-ing*0.5)+' '+(hh-2)+' Q 0 '+(hh+3)+' '+(-hw+ing*0.5)+' '+(hh-2)+
+            ' L '+(-hw)+' '+(-hh+r)+' A '+r+' '+r+' 0 0 1 '+(-hw+r)+' '+(-hh)+' Z'
+          : 'M '+(-hw+r)+' '+(hh)+' H '+(hw-r)+' A '+r+' '+r+' 0 0 0 '+hw+' '+(hh-r)+
+            ' L '+(hw-ing*0.5)+' '+(-hh+2)+' Q 0 '+(-hh-3)+' '+(-hw+ing*0.5)+' '+(-hh+2)+
+            ' L '+(-hw)+' '+(hh-r)+' A '+r+' '+r+' 0 0 0 '+(-hw+r)+' '+(hh)+' Z';
+        inner.appendChild(el('path',{class:'sm', d:d2, fill:'url(#smalt)',
+          stroke:'rgba(22,19,15,.45)', 'stroke-width':1, 'stroke-linejoin':'round'}));
+        if (tip === 'molar' || tip === 'premolar'){
+          var yc = sus_>0 ? (-hh+h*0.30) : (hh-h*0.30);
+          inner.appendChild(el('path',{d:'M '+(-hw+5)+' '+yc+' H '+(hw-5),
+            stroke:'rgba(22,19,15,.18)', 'stroke-width':1.2, fill:'none', 'stroke-linecap':'round'}));
+          inner.appendChild(el('path',{d:'M 0 '+(yc-h*0.13)+' V '+(yc+h*0.13),
+            stroke:'rgba(22,19,15,.14)', 'stroke-width':1.2, fill:'none', 'stroke-linecap':'round'}));
+        }
+        inner.appendChild(el('ellipse',{class:'luciu', cx:(-w*0.13), cy:(sus_>0?(-hh+h*0.17):(hh-h*0.17)),
+          rx:(w*0.22), ry:(h*0.09), fill:'rgba(255,255,255,.62)'}));
+        gg.appendChild(inner);
+        // zona de atingere: mai mare decat dintele, ca sa se poata nimeri pe telefon
+        gg.appendChild(el('rect',{class:'tinta', x:-19, y:-22, width:38, height:44}));
+        g.appendChild(gg);
+      }
+    }
+    return g;
+  }
+
+  var defs = el('defs',{});
+  var lg = el('linearGradient',{id:'smalt', x1:'0', y1:'0', x2:'0.25', y2:'1'});
+  lg.appendChild(el('stop',{offset:'0',    'stop-color':'#fffdf8'}));
+  lg.appendChild(el('stop',{offset:'0.42', 'stop-color':'#f0e8d8'}));
+  lg.appendChild(el('stop',{offset:'1',    'stop-color':'#cfc3ac'}));
+  defs.appendChild(lg);
+  var f = el('filter',{id:'umbra', x:'-60%', y:'-60%', width:'220%', height:'220%'});
+  f.appendChild(el('feDropShadow',{dx:'0', dy:'2.5', stdDeviation:'2.6',
+    'flood-color':'#000', 'flood-opacity':'0.55'}));
+  defs.appendChild(f);
+  svg.appendChild(defs);
+  var tot = el('g',{});
+  tot.appendChild(arcada(true));
+  tot.appendChild(arcada(false));
+  svg.appendChild(tot);
+  // viewBox stransa pe continut: altfel arcadele plutesc intr-un dreptunghi gol
+  var bb = tot.getBBox(), pad = 16;
+  svg.setAttribute('viewBox',
+    (bb.x-pad).toFixed(1)+' '+(bb.y-pad).toFixed(1)+' '+
+    (bb.width+pad*2).toFixed(1)+' '+(bb.height+pad*2).toFixed(1));
+
+  /* ---- selectia: titlul mare DEVINE raspunsul ---- */
+  var box = document.getElementById('raspuns'), ales = null, ceas = null;
+  function alege(g){
+    if (ales === g) return;
+    if (ales) ales.classList.remove('ales');
+    ales = g; g.classList.add('ales');
+    var t = TIP[g.getAttribute('data-tip')];
+    var cod = t.nume + ' · ' + g.getAttribute('data-poz') + ' ' + g.getAttribute('data-nr');
+    function scrie(){
+      box.classList.remove('gol');
+      document.getElementById('f-cod').textContent  = cod;
+      document.getElementById('f-titlu').innerHTML  = t.titlu;
+      document.getElementById('f-desc').textContent = t.desc;
+      document.getElementById('f-dur').textContent  = t.dur;
+      document.getElementById('f-pret').textContent = t.pret;
+      box.classList.remove('mut');
+      var t2 = g.getAttribute('data-tip');
+      document.querySelectorAll('.rand[data-pt]').forEach(function(r){
+        r.classList.toggle('pt', r.getAttribute('data-pt').split(' ').indexOf(t2) > -1);
+      });
+    }
+    if (REDUS){ scrie(); return; }
+    box.classList.add('mut');
+    clearTimeout(ceas);
+    ceas = setTimeout(scrie, 230);
+  }
+  // degetul pe telefon nu nimereste un dinte de 22px: se alege cel mai apropiat
+  var toti = [].slice.call(svg.querySelectorAll('.dinte')).map(function(g){
+    var m = g.transform.baseVal.consolidate().matrix;
+    return {g:g, x:m.e, y:m.f};
+  });
+  svg.addEventListener('click', function(e){
+    var pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
+    var p = pt.matrixTransform(svg.getScreenCTM().inverse());
+    var best = null, dmin = Infinity;
+    toti.forEach(function(t){
+      var d = (t.x-p.x)*(t.x-p.x) + (t.y-p.y)*(t.y-p.y);
+      if (d < dmin){ dmin = d; best = t.g; }
+    });
+    if (best && dmin < 70*70) alege(best);
+  });
+  svg.addEventListener('keydown', function(e){
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var g = e.target.closest('.dinte'); if (g){ e.preventDefault(); alege(g); }
+  });
+
+  /* ---- un singur lucru care se misca: molarii pulseaza pana cand alegi ---- */
+  if (!REDUS){
+    var molari = [].slice.call(svg.querySelectorAll('.dinte[data-tip="molar"] path.sm'));
+    var t0 = 0, activ = true;
+    svg.addEventListener('click', function(){ activ = false;
+      molari.forEach(function(m){ m.style.stroke=''; }); }, {once:true});
+    (function puls(){
+      t0 += .02;
+      if (activ) molari.forEach(function(m,i){
+        var a = .18 + .32*(0.5+0.5*Math.sin(t0 + i*.5));
+        m.style.stroke = 'rgba(212,100,63,'+a.toFixed(2)+')';
+      });
+      requestAnimationFrame(puls);
+    })();
+  }
+
+  var io=new IntersectionObserver(function(es){es.forEach(function(e,i){
+    if(e.isIntersecting){e.target.style.transitionDelay=Math.min(i*70,280)+'ms';
+      e.target.classList.add('on');io.unobserve(e.target);}});},{rootMargin:'0px 0px -12% 0px'});
+  document.querySelectorAll('[data-ap]').forEach(function(el){io.observe(el)});
+})();
+</script></body></html>

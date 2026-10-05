@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ODONTA — implant dentar și estetică dentară, București</title>
+<meta name="description" content="Implant dentar de la 2.400 lei, fațete ceramice și All-on-4. Plan de tratament cu preț fix înainte să începem. Consultație cu scanare 3D, București.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=bespoke-serif@500,600&f[]=switzer@400,500,600,700&display=swap">
+<style>
+/* ═══════════════════════════════════════════════════════════════════════
+   DEMO. Numele clinicii, medicii, prețurile și recenziile sunt inventate.
+
+   Premium LUMINOS, nu întunecat. Bază de porțelan cu subton rece, ca să nu
+   cadă în familia bej-alamă pe care o folosește orice site „premium".
+   Un singur accent: jad profund. O scară de colț: 4px.
+   Mișcare restrânsă, deliberat: la servicii medicale, animația excesivă
+   scade încrederea. Se mișcă doar ce confirmă o acțiune sau dezvăluie text.
+   ═══════════════════════════════════════════════════════════════════════ */
+:root{
+  --porcelan:#f7f8f6;
+  --alb:#fdfdfc;
+  --ink:#14201d;
+  --mute:#67726e;
+  --jad:#1c5e52;
+  --jad-2:#144a41;
+  --line:rgba(20,32,29,.12);
+  --disp:'Bespoke Serif',Georgia,serif;
+  --body:'Switzer',system-ui,sans-serif;
+  --r:4px;
+  --sh:0 1px 2px rgba(20,32,29,.05),0 12px 34px rgba(20,32,29,.07);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--porcelan);color:var(--ink);font-family:var(--body);
+  font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{width:100%;max-width:1220px;margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:var(--disp);font-weight:600;letter-spacing:-.018em;line-height:1.06}
+h1{font-size:clamp(36px,5.4vw,68px)}
+h2{font-size:clamp(28px,3.8vw,48px)}
+h3{font-size:20px}
+.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--jad);
+  font-weight:600;display:block;margin-bottom:14px}
+.lead{color:var(--mute);font-size:clamp(16px,1.5vw,19px);max-width:50ch}
+.sect{padding:clamp(68px,8.5vh,116px) 0}
+.num{font-variant-numeric:tabular-nums}
+
+/* ── BUTOANE: o singură intenție pe toată pagina, o singură etichetă ──── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:16px 30px;border-radius:var(--r);text-decoration:none;font-weight:600;
+  font-size:15px;border:1px solid var(--jad);background:var(--jad);color:#fff;
+  white-space:nowrap;
+  transition:background .25s,transform .2s cubic-bezier(.16,1,.3,1),box-shadow .25s}
+.btn:hover{background:var(--jad-2);transform:translateY(-2px);box-shadow:0 10px 26px rgba(28,94,82,.26)}
+.btn:active{transform:scale(.98)}
+.btn.alt{background:transparent;color:var(--jad)}
+.btn.alt:hover{background:rgba(28,94,82,.07);box-shadow:none}
+.tel{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;
+  font-size:15px;color:var(--ink);white-space:nowrap}
+.tel:hover{color:var(--jad)}
+
+/* ── ANTET ───────────────────────────────────────────────────────────── */
+.nav{position:sticky;top:0;z-index:50;background:rgba(247,248,246,.92);
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-family:var(--disp);font-weight:600;font-size:22px;letter-spacing:-.01em;
+  text-decoration:none;display:flex;align-items:center;gap:9px}
+.brand s{width:9px;height:9px;background:var(--jad);border-radius:50%;text-decoration:none}
+.nav nav{display:flex;gap:26px}
+.nav nav a{font-size:15px;color:var(--mute);text-decoration:none;transition:color .2s}
+.nav nav a:hover{color:var(--ink)}
+.nav .act{display:flex;align-items:center;gap:16px}
+
+/* ── HERO: fotografie reală, text pe stânga, fără aglomerare ─────────── */
+.hero{padding:clamp(44px,6vh,76px) 0 clamp(56px,7vh,88px)}
+.hero .g{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(26px,4vw,62px);align-items:center}
+.hero p{margin-top:20px}
+.hero .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.hero figure{position:relative;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh)}
+.hero figure img{aspect-ratio:4/3.4;object-fit:cover;width:100%}
+/* Cartonașul de preț peste fotografie: răspunde la prima întrebare reală. */
+.pricecard{position:absolute;left:18px;bottom:18px;background:rgba(253,253,252,.96);
+  backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:var(--r);
+  padding:14px 18px;box-shadow:var(--sh)}
+.pricecard b{display:block;font-family:var(--disp);font-size:26px;line-height:1}
+.pricecard span{font-size:12.5px;color:var(--mute)}
+
+/* ── BANDA DE ÎNCREDERE: sub hero, nu în el ──────────────────────────── */
+.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:var(--alb)}
+.trust .g{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;padding:28px 0}
+.trust div b{display:block;font-family:var(--disp);font-size:clamp(24px,2.6vw,34px);line-height:1}
+.trust div span{font-size:13.5px;color:var(--mute)}
+
+/* ── SERVICII: carduri cu fotografie și interval de preț ─────────────── */
+.serv{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px}
+.card{background:var(--alb);border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden;display:flex;flex-direction:column;
+  transition:box-shadow .3s,transform .35s cubic-bezier(.16,1,.3,1),border-color .3s}
+.card:hover{box-shadow:var(--sh);transform:translateY(-4px);border-color:rgba(28,94,82,.35)}
+.card img{aspect-ratio:16/10;object-fit:cover;width:100%}
+.card .b{padding:22px 22px 24px;display:flex;flex-direction:column;gap:9px;flex:1}
+.card p{color:var(--mute);font-size:15px;flex:1}
+.card .p{display:flex;align-items:baseline;gap:7px;margin-top:4px;
+  padding-top:14px;border-top:1px solid var(--line)}
+.card .p b{font-family:var(--disp);font-size:24px;color:var(--jad)}
+.card .p span{font-size:13px;color:var(--mute)}
+
+/* ── FRICA: secțiunea care chiar decide programarea ──────────────────── */
+.frica{background:var(--alb);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.qa{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:38px}
+.q{border:1px solid var(--line);border-radius:var(--r);padding:24px 24px 26px;background:var(--porcelan)}
+.q h3{font-size:18px;margin-bottom:8px}
+.q p{color:var(--mute);font-size:15px}
+
+/* ── TEHNOLOGIE: două fotografii mari, text scurt ────────────────────── */
+.teh{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:42px}
+.teh figure{margin:0;border-radius:var(--r);overflow:hidden;position:relative;box-shadow:var(--sh)}
+.teh img{aspect-ratio:5/4;object-fit:cover;width:100%}
+.teh figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 20px;color:#fff;
+  background:linear-gradient(transparent,rgba(10,18,16,.86) 62%)}
+.teh figcaption b{display:block;font-family:var(--disp);font-size:19px}
+.teh figcaption span{font-size:13.5px;opacity:.85}
+
+/* ── MEDICUL ─────────────────────────────────────────────────────────── */
+.med{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(24px,4vw,56px);align-items:center}
+.med figure{border-radius:var(--r);overflow:hidden;box-shadow:var(--sh)}
+.med img{aspect-ratio:4/5;object-fit:cover;width:100%}
+.med ul{list-style:none;margin-top:22px;display:grid;gap:11px}
+.med li{display:flex;gap:11px;align-items:flex-start;font-size:15.5px;color:var(--mute)}
+.med li s{flex:0 0 auto;width:6px;height:6px;margin-top:9px;border-radius:50%;
+  background:var(--jad);text-decoration:none}
+
+/* ── PREȚURI: tabel grupat, nu 12 rânduri cu linii ───────────────────── */
+.pret{background:var(--alb);border:1px solid var(--line);border-radius:var(--r);
+  margin-top:38px;overflow:hidden}
+.pret .row{display:flex;justify-content:space-between;gap:20px;align-items:baseline;
+  padding:19px 24px}
+.pret .row+.row{border-top:1px solid var(--line)}
+.pret .row strong{font-weight:600;font-size:16.5px}
+.pret .row em{font-style:normal;display:block;font-size:13.5px;color:var(--mute);margin-top:2px}
+.pret .row b{font-family:var(--disp);font-size:20px;color:var(--jad);white-space:nowrap}
+.notaprep{font-size:14px;color:var(--mute);margin-top:14px}
+
+/* ── RECENZII ────────────────────────────────────────────────────────── */
+.rec{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+.rev{background:var(--alb);border:1px solid var(--line);border-radius:var(--r);padding:24px}
+.rev q{quotes:none;display:block;font-size:16px;line-height:1.55}
+.rev footer{margin-top:16px;font-size:13.5px;color:var(--mute)}
+.stars{color:var(--jad);letter-spacing:2px;font-size:13px;margin-bottom:12px}
+
+/* ── PROGRAMARE ──────────────────────────────────────────────────────── */
+.prog{background:var(--jad);color:#fff}
+.prog .g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,60px);align-items:start}
+.prog h2{color:#fff}
+.prog .lead{color:rgba(255,255,255,.8)}
+.prog .info{margin-top:26px;display:grid;gap:14px;font-size:15.5px}
+.prog .info div b{display:block;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;
+  opacity:.72;margin-bottom:3px;font-weight:600}
+.prog a.tel{color:#fff}
+.prog a.tel:hover{color:rgba(255,255,255,.82)}
+form{background:var(--alb);border-radius:var(--r);padding:26px;display:grid;gap:14px;
+  box-shadow:0 20px 50px rgba(10,26,22,.2)}
+label{display:block;font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:6px}
+input,select,textarea{width:100%;padding:13px 14px;border:1px solid var(--line);
+  border-radius:var(--r);font:inherit;font-size:15px;background:var(--porcelan);color:var(--ink);
+  transition:border-color .2s,box-shadow .2s}
+input::placeholder,textarea::placeholder{color:#98a19d}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--jad);
+  box-shadow:0 0 0 3px rgba(28,94,82,.15)}
+.help{font-size:13px;color:var(--mute);margin-top:6px}
+form .btn{width:100%;margin-top:4px}
+
+/* ── SUBSOL ──────────────────────────────────────────────────────────── */
+.foot{border-top:1px solid var(--line);padding:32px 0 20px;font-size:14px;color:var(--mute)}
+.foot .g{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.demo{margin-top:22px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px}
+
+/* Dezvăluirea la citire: singura mișcare care nu confirmă o acțiune. */
+.rv{opacity:0;transform:translateY(20px);
+  transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.rv.on{opacity:1;transform:none}
+
+/* ── BARA DE ACȚIUNE PE TELEFON ──────────────────────────────────────
+   Butonul lung din antet nu încape la 320px lângă logo. În loc să-l
+   îngrămădim, pe telefon acțiunea trece jos, la degetul mare, iar apelul
+   vine primul: la un cabinet, omul sună, nu completează formulare. */
+.barjos{display:none}
+@media (max-width:640px){
+  body{padding-bottom:76px}
+  .barjos{display:grid;grid-template-columns:1fr 1fr;gap:10px;
+    position:fixed;left:0;right:0;bottom:0;z-index:60;padding:11px 14px;
+    background:rgba(247,248,246,.96);backdrop-filter:blur(14px);
+    border-top:1px solid var(--line)}
+  .barjos .btn{width:100%;padding:14px 10px;font-size:14.5px}
+}
+
+/* ── MOBIL ───────────────────────────────────────────────────────────── */
+@media (max-width:980px){
+  .nav nav{display:none}
+  .nav .act .btn{display:none}      /* trece in bara de jos */
+  .hero .g,.med,.prog .g,.teh{grid-template-columns:1fr}
+  .serv,.rec{grid-template-columns:1fr 1fr}
+  .trust .g{grid-template-columns:1fr 1fr;gap:18px}
+  .qa{grid-template-columns:1fr}
+  .med figure{max-width:420px}
+}
+@media (max-width:640px){
+  .serv,.rec{grid-template-columns:1fr}
+  .nav .act .tel span{display:none}
+  .pret .row{flex-direction:column;gap:4px}
+}
+@media (max-width:420px){ .wrap{padding:0 16px} form{padding:20px} }
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><s></s>ODONTA</a>
+    <nav>
+      <a href="#servicii">Servicii</a>
+      <a href="#tehnologie">Tehnologie</a>
+      <a href="#medic">Medicul</a>
+      <a href="#preturi">Prețuri</a>
+    </nav>
+    <div class="act">
+      <a class="tel" href="tel:+40211234567"><span>021 123 45 67</span></a>
+      <a class="btn" href="#programare">Programează consultația</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap g">
+      <div>
+        <h1>Dinți ficși în trei zile, cu preț stabilit dinainte</h1>
+        <p class="lead">Cabinet de implantologie și estetică dentară în București. Scanare 3D la prima vizită, plan de tratament scris și preț fix înainte să începem, fără estimări care cresc pe parcurs.</p>
+        <div class="row">
+          <a class="btn" href="#programare">Programează consultația</a>
+          <a class="btn alt" href="#preturi">Vezi prețurile</a>
+        </div>
+      </div>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1728342057953-94bfad8f0e7e?w=1100&q=76" alt="Cabinet stomatologic luminos, cu scaun alb lângă fereastră" fetchpriority="high">
+        <div class="pricecard"><b class="num">200 lei</b><span>consultația, se scade din tratament</span></div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="trust">
+    <div class="wrap g">
+      <div><b class="num">1.400+</b><span>implanturi montate</span></div>
+      <div><b class="num">12</b><span>ani de la primul caz</span></div>
+      <div><b class="num">4,9</b><span>din 5, pe Google</span></div>
+      <div><b class="num">10</b><span>ani garanție la implant</span></div>
+    </div>
+  </section>
+
+  <section class="sect wrap" id="servicii">
+    <span class="eyebrow rv">Ce facem</span>
+    <h2 class="rv">Patru tratamente, toate<br>cu preț de pornire afișat</h2>
+    <div class="serv">
+      <article class="card rv">
+        <img src="https://images.unsplash.com/photo-1593022356769-11f762e25ed9?w=700&q=74" alt="Model de implant dentar pe birou">
+        <div class="b">
+          <h3>Implant dentar</h3>
+          <p>Un dinte lipsă, înlocuit cu rădăcină de titan și coroană ceramică. Se mestecă normal, nu se scoate.</p>
+          <div class="p"><b class="num">2.400 lei</b><span>de la, per implant</span></div>
+        </div>
+      </article>
+      <article class="card rv">
+        <img src="https://images.unsplash.com/photo-1600170311833-c2cf5280ce49?w=700&q=74" alt="Scanare dentară 3D afișată pe tabletă">
+        <div class="b">
+          <h3>All-on-4</h3>
+          <p>O arcadă întreagă fixată pe patru implanturi. Dinți provizorii ficși în 72 de ore.</p>
+          <div class="p"><b class="num">19.000 lei</b><span>de la, o arcadă</span></div>
+        </div>
+      </article>
+      <article class="card rv">
+        <img src="https://images.unsplash.com/photo-1677026010083-78ec7f1b84ed?w=700&q=74" alt="Zâmbet cu dinți albi, prim-plan">
+        <div class="b">
+          <h3>Fațete ceramice</h3>
+          <p>Formă și culoare corectate, fără șlefuire agresivă. Vezi rezultatul simulat înainte să accepți.</p>
+          <div class="p"><b class="num">1.900 lei</b><span>de la, per dinte</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sect frica">
+    <div class="wrap">
+      <h2 class="rv">Întrebările pe care<br>le pune toată lumea</h2>
+      <div class="qa">
+        <article class="q rv"><h3>Doare?</h3><p>Nu. Implantul se pune cu anestezie locală, iar majoritatea pacienților iau un antiinflamator în seara respectivă și atât. Dacă ți-e frică de ac, spune-ne de la început: avem anestezie computerizată, fără înțepătura clasică.</p></article>
+        <article class="q rv"><h3>Cât durează, cap-coadă?</h3><p>Un implant simplu: 40 de minute de intervenție, apoi 3 luni de vindecare până la coroană. La All-on-4 pleci cu dinți ficși provizorii în 72 de ore.</p></article>
+        <article class="q rv"><h3>De unde știu că nu crește prețul?</h3><p>După scanare primești un plan scris, cu fiecare etapă și suma ei. Prețul din plan e cel final. Dacă apare ceva neprevăzut, se oprește lucrarea și se discută, nu se adaugă pe factură.</p></article>
+        <article class="q rv"><h3>Se poate plăti în rate?</h3><p>Da, în 6 sau 12 rate fără dobândă, direct la cabinet. Nu e nevoie de bancă și nu se verifică istoricul.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sect wrap" id="tehnologie">
+    <h2 class="rv">Vezi rezultatul înainte<br>să atingem ceva</h2>
+    <p class="lead rv" style="margin-top:16px">Scanerul intraoral face o hartă a gurii în câteva minute, fără amprenta cu pastă. Pe baza ei se construiește planul, iar tu vezi simularea pe ecran înainte să decizi.</p>
+    <div class="teh">
+      <figure class="rv">
+        <img src="https://images.unsplash.com/photo-1667133295315-820bb6481730?w=800&q=74" alt="Pacientă scanată cu scaner intraoral, modelul apare pe ecran">
+        <figcaption><b>Scanare fără amprentă</b><span>Trei minute, fără pastă în gură</span></figcaption>
+      </figure>
+      <figure class="rv">
+        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=74" alt="Medic analizând radiografii dentare">
+        <figcaption><b>Planificare pe radiografie 3D</b><span>Poziția implantului, decisă înainte de intervenție</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sect wrap" id="medic">
+    <div class="med">
+      <figure class="rv"><img src="https://images.unsplash.com/photo-1588776814546-daab30f310ce?w=700&q=76" alt="Doi medici stomatologi în timpul unei intervenții"></figure>
+      <div>
+        <span class="eyebrow rv">Cine te tratează</span>
+        <h2 class="rv">Dr. Andrei Mureșan</h2>
+        <p class="lead rv" style="margin-top:14px">Se ocupă exclusiv de implantologie din 2014. Fiecare caz complex e planificat împreună cu tehnicianul dentar înainte de prima intervenție.</p>
+        <ul class="rv">
+          <li><s></s>Medic primar, specializare în implantologie orală</li>
+          <li><s></s>Peste 1.400 de implanturi montate din 2014</li>
+          <li><s></s>Formare în chirurgie ghidată digital, Viena</li>
+          <li><s></s>Membru al Societății Române de Implantologie</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sect wrap" id="preturi">
+    <span class="eyebrow rv">Prețuri</span>
+    <h2 class="rv">Ce costă, scris aici,<br>nu „la evaluare"</h2>
+    <div class="pret rv">
+      <div class="row"><div><strong>Consultație cu scanare 3D și plan scris</strong><em>Se scade integral din tratament</em></div><b class="num">200 lei</b></div>
+      <div class="row"><div><strong>Implant dentar</strong><em>Rădăcină de titan, fără coroană</em></div><b class="num">de la 2.400 lei</b></div>
+      <div class="row"><div><strong>Coroană ceramică pe implant</strong><em>Zirconiu, garanție 10 ani</em></div><b class="num">de la 1.600 lei</b></div>
+      <div class="row"><div><strong>All-on-4, o arcadă</strong><em>Patru implanturi, dinți ficși provizorii în 72h</em></div><b class="num">de la 19.000 lei</b></div>
+      <div class="row"><div><strong>Fațete ceramice</strong><em>Preț per dinte, cu simulare inclusă</em></div><b class="num">de la 1.900 lei</b></div>
+      <div class="row"><div><strong>Albire profesională</strong><em>O ședință, în cabinet</em></div><b class="num">900 lei</b></div>
+    </div>
+    <p class="notaprep rv">Prețul final apare în planul scris, după scanare. Plata se poate face în 6 sau 12 rate fără dobândă.</p>
+  </section>
+
+  <section class="sect frica">
+    <div class="wrap">
+      <h2 class="rv">Ce spun pacienții</h2>
+      <div class="rec">
+        <article class="rev rv">
+          <div class="stars">★★★★★</div>
+          <q>Am amânat patru ani din frică. Mi s-a explicat fiecare pas înainte, iar a doua zi eram la serviciu. Prețul a fost exact cel din plan.</q>
+          <footer>Mihaela T., implant molar</footer>
+        </article>
+        <article class="rev rv">
+          <div class="stars">★★★★★</div>
+          <q>Am venit cu proteză mobilă după zece ani. Am plecat cu dinți ficși în trei zile. Diferența cea mai mare e că pot mânca o coajă de pâine fără să mă gândesc.</q>
+          <footer>Constantin D., All-on-4</footer>
+        </article>
+        <article class="rev rv">
+          <div class="stars">★★★★★</div>
+          <q>Simularea m-a convins. Am văzut exact cum o să arate înainte să accept, iar rezultatul chiar așa a ieșit.</q>
+          <footer>Raluca B., fațete</footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sect prog" id="programare">
+    <div class="wrap g">
+      <div>
+        <h2>Programează consultația</h2>
+        <p class="lead">Scanare 3D, plan scris și preț fix. 200 de lei, care se scad integral dacă începi tratamentul.</p>
+        <div class="info">
+          <div><b>Telefon</b><a class="tel" href="tel:+40211234567">021 123 45 67</a></div>
+          <div><b>Adresă</b>Str. Exemplu nr. 10, Sector 1, București</div>
+          <div><b>Program</b>Luni până vineri, 09:00 - 19:00. Sâmbătă, 09:00 - 14:00.</div>
+          <div><b>Urgențe</b>În aceeași zi, dacă suni până la 17:00.</div>
+        </div>
+      </div>
+      <form onsubmit="return false">
+        <div>
+          <label for="nume">Numele tău</label>
+          <input id="nume" name="nume" type="text" required placeholder="Ion Popescu">
+        </div>
+        <div>
+          <label for="tel">Telefon</label>
+          <input id="tel" name="tel" type="tel" required placeholder="07xx xxx xxx">
+          <p class="help">Te sunăm în aceeași zi lucrătoare ca să stabilim ora.</p>
+        </div>
+        <div>
+          <label for="trat">Ce te interesează</label>
+          <select id="trat" name="trat">
+            <option>Implant dentar</option>
+            <option>All-on-4, arcadă completă</option>
+            <option>Fațete ceramice</option>
+            <option>Albire</option>
+            <option>Încă nu știu, vreau o evaluare</option>
+          </select>
+        </div>
+        <div>
+          <label for="msg">Detalii (opțional)</label>
+          <textarea id="msg" name="msg" rows="3" placeholder="De exemplu: mi-a căzut o lucrare veche"></textarea>
+        </div>
+        <button class="btn" type="submit">Programează consultația</button>
+        <p class="help">Datele se folosesc doar ca să te contactăm. Nu le dăm nimănui.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<div class="barjos">
+  <a class="btn alt" href="tel:+40211234567">Sună acum</a>
+  <a class="btn" href="#programare">Programează</a>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="g">
+      <span>ODONTA · Str. Exemplu nr. 10, Sector 1, București</span>
+      <span>021 123 45 67</span>
+    </div>
+    <p class="demo">Demonstrație de design. Numele clinicii, medicul, prețurile, cifrele și recenziile sunt exemple inventate, nu date reale.</p>
+  </div>
+</footer>
+
+<script>
+/* Singura mișcare care nu confirmă o acțiune: dezvăluirea la citire.
+   Se oprește după prima apariție, ca să nu ruleze cât timp stai pe pagină. */
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.rv');
+  if (reduce){ els.forEach(function(e){ e.classList.add('on'); }); return; }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e,i){
+      if(!e.isIntersecting) return;
+      e.target.style.transitionDelay = Math.min(i*55,220)+'ms';
+      e.target.classList.add('on');
+      io.unobserve(e.target);
+    });
+  },{threshold:.15});
+  els.forEach(function(e){ io.observe(e); });
+})();
+</script>
+</body>
+</html>

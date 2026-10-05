@@ -1,0 +1,11 @@
+import { chromium } from 'playwright-core';
+const S='/private/tmp/claude-501/-Users-robert/adf39f36-5b09-4f36-a736-be1fc8abe29e/scratchpad/';
+const b=await chromium.launch({channel:'chrome'});
+const d=await b.newPage({viewport:{width:1440,height:900}});
+await d.goto('http://127.0.0.1:8080/a-grila/index.html',{waitUntil:'load'});
+await d.waitForTimeout(3000); await d.screenshot({path:S+'v2-desk.png'});
+const m=await b.newPage({viewport:{width:390,height:844},deviceScaleFactor:3,isMobile:true,hasTouch:true});
+await m.goto('http://127.0.0.1:8080/a-grila/index.html',{waitUntil:'load'});
+await m.waitForTimeout(3000); await m.screenshot({path:S+'v2-tel.png'});
+console.log('ok');
+await b.close();

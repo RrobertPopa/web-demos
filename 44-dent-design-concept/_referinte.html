@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Referințe — Dent Design Concept</title>
+<style>
+  :root {
+    --tus: #14161a; --hartie: #fbfbfa; --gri: #6b6f76; --linie: #e4e3e0;
+    --acc: #1a3ef0;
+    --umbra-md:
+      0 0 0 1px rgba(0,0,0,.06), 0 1px 1px -.5px rgba(0,0,0,.06),
+      0 3px 3px -1.5px rgba(0,0,0,.06), 0 6px 6px -3px rgba(0,0,0,.06),
+      0 12px 12px -6px rgba(0,0,0,.06), 0 24px 24px -12px rgba(0,0,0,.06);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--hartie); color: var(--tus);
+    font: 400 16px/1.6 ui-sans-serif, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 56px 20px 96px; }
+  header { border-bottom: 1px solid var(--linie); padding-bottom: 28px; margin-bottom: 44px; }
+  h1 { font-size: clamp(28px, 5vw, 44px); line-height: 1.1; letter-spacing: -.03em; margin: 0 0 12px; }
+  .sub { color: var(--gri); max-width: 62ch; text-wrap: pretty; margin: 0; }
+  .card { margin-bottom: 56px; }
+  .card img {
+    width: 100%; height: auto; display: block; border-radius: 12px;
+    box-shadow: var(--umbra-md);
+  }
+  .eticheta {
+    display: flex; flex-wrap: wrap; gap: 10px; align-items: baseline;
+    margin: 0 0 14px;
+  }
+  .litera {
+    font-size: 13px; font-weight: 700; letter-spacing: .12em;
+    background: var(--tus); color: var(--hartie);
+    padding: 4px 10px; border-radius: 999px;
+  }
+  h2 { font-size: clamp(20px, 3vw, 26px); letter-spacing: -.02em; margin: 0; }
+  .meta { color: var(--gri); font-size: 14px; }
+  .meta a { color: var(--acc); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  dl { display: grid; grid-template-columns: max-content 1fr; gap: 8px 18px; margin: 20px 0 0; }
+  dt { color: var(--gri); font-size: 13px; letter-spacing: .04em; text-transform: uppercase; }
+  dd { margin: 0; text-wrap: pretty; }
+  .verdict {
+    margin-top: 18px; padding: 14px 16px; border-radius: 10px;
+    background: #fff; box-shadow: var(--umbra-md); font-size: 15px; text-wrap: pretty;
+  }
+  .ok { border-left: 3px solid #1d8a4e; }
+  .atentie { border-left: 3px solid #c07a12; }
+  @container (max-width: 1px) { dl { display: block; } }
+  @media (max-width: 620px) {
+    dl { grid-template-columns: 1fr; gap: 2px 0; }
+    dt { margin-top: 12px; }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --tus: #f2f2f0; --hartie: #101114; --gri: #9a9ea6; --linie: #2a2c31; --acc: #7f97ff;
+    }
+    :root:not([data-theme="light"]) .verdict { background: #181a1f; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Trei referințe pentru Dent Design Concept</h1>
+  <p class="sub">Toate trei sunt site-uri stomatologice reale, premiate pe Awwwards, fotografiate
+  de mine la 1280px pe 20.09.2026. Alege una — de la ea pornesc cele trei direcții de hero
+  din Trecerea 0. Nu se copiază; se preia ADN-ul vizual.</p>
+</header>
+
+<section class="card">
+  <div class="eticheta">
+    <span class="litera">A</span>
+    <h2>MINÉMAL Dental Aesthetics</h2>
+    <span class="meta">Evgenii Astapov · Honorable Mention · <a href="https://minemal.dental">minemal.dental</a></span>
+  </div>
+  <img src="_referinte/ref-minemal.png" alt="MINÉMAL: wordmark uriaș tăiat de marginea de jos, peste portret alb-negru, fundal grafit">
+  <dl>
+    <dt>Ce face</dt>
+    <dd>Wordmark monumental care iese din ecran pe jos, cu un portret alb-negru stratificat astfel încât literele trec prin fața și prin spatele imaginii. Fundal grafit uniform, zero alb clinic.</dd>
+    <dt>Ce iau</dt>
+    <dd>Stratificarea tipografie-imagine ca semnătură, disciplina de a avea un singur element pe primul ecran, fotografia de portret tratată cu ochi de editorial de modă.</dd>
+    <dt>Ce nu iau</dt>
+    <dd>Aerul de brand de lux impersonal. Un cabinet de cartier de 21 de ani nu e o casă de modă.</dd>
+  </dl>
+  <p class="verdict ok"><strong>Test de amprentă: trece lejer, 5 din 5.</strong> Niciun rând din
+  registru nu are hero cu tipografie monumentală tăiată de cadru, niciunul nu e pe fundal închis
+  uniform, niciunul nu stratifică text și imagine. <em>Dar</em> intră în conflict cu
+  <code>site-premium</code>, care cere „light, Apple-like". Dacă o alegi, o alegi știind
+  că e o abatere deliberată.</p>
+</section>
+
+<section class="card">
+  <div class="eticheta">
+    <span class="litera">B</span>
+    <h2>Taravilla Lab</h2>
+    <span class="meta">Rubio &amp; del Amo · Honorable Mention · <a href="https://taravillalab.com">taravillalab.com</a></span>
+  </div>
+  <img src="_referinte/ref-taravilla.png" alt="Taravilla Lab: fotografie reală de laborator, mâini la cuptorul de zirconiu, navigație-pilulă jos">
+  <dl>
+    <dt>Ce face</dt>
+    <dd>Fotografie reală de proces, fără filtru și fără wash: mâini, cuptor de zirconiu, tehnician la lucru. Navigația e o pilulă lipită de marginea de <strong>jos</strong>, nu de sus. Accent violet, rar.</dd>
+    <dt>Ce iau</dt>
+    <dd>Meseria arătată în loc de zâmbetul de stoc. Navigația jos — dimensiune complet neconsumată în registrul tău. Onestitatea imaginii: lumină de cabinet, nu studio.</dd>
+    <dt>Ce nu iau</dt>
+    <dd>Hero-ul care e doar fotografie, fără nicio afirmație. Un prospect trebuie să înțeleagă în trei secunde unde a ajuns.</dd>
+  </dl>
+  <p class="verdict atentie"><strong>Test de amprentă: trece, 4 din 5, dar cu o atingere.</strong>
+  „Fotografie reală full-bleed" e consumat de Aquadent. Diferența e reală — Aquadent are wash
+  aproape opac și titlu centrat peste, aici nu există niciunul — dar e diferența cea mai subțire
+  dintre cele trei. Dacă o alegi, navigația jos devine obligatorie ca separator.</p>
+</section>
+
+<section class="card">
+  <div class="eticheta">
+    <span class="litera">C</span>
+    <h2>Studio Brusco</h2>
+    <span class="meta">ET Studio · Site of the Day · <a href="https://studiobrusco.com">studiobrusco.com</a></span>
+  </div>
+  <img src="_referinte/ref-brusco.png" alt="Studio Brusco: cuvântul STUDIO în display ultra-subțire uriaș, peste video cu medicul la lucru">
+  <dl>
+    <dt>Ce face</dt>
+    <dd>Video full-bleed cu medicul la lucru, peste care stă cuvântul „STUDIO" într-un display ultra-subțire, lat cât ecranul. Deasupra, o frază în majuscule mici, centrată. Paletă desaturată cu un verde mentă.</dd>
+    <dt>Ce iau</dt>
+    <dd>Contrastul dintre o literă foarte subțire la scară foarte mare și fotografia caldă dedesubt. Eleganța italiană fără ornament.</dd>
+    <dt>Ce nu iau</dt>
+    <dd>Titlul centrat peste imagine. Și bannerul de cookie-uri care acoperă jumătate din hero — exact ce nu facem.</dd>
+  </dl>
+  <p class="verdict atentie"><strong>Test de amprentă: pică, 2 din 5.</strong> Hero full-bleed cu
+  titlu centrat peste imagine e fix amprenta consumată de Aquadent, iar „tipografic, ultra-subțire,
+  centrat" e aproape de Professional Dental Care. O recomand doar dacă îți place atât de mult
+  atmosfera încât acceptăm să reconstruim structura complet în jurul ei.</p>
+</section>
+
+</div>
+</body>
+</html>

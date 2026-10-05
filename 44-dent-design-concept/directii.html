@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trecerea 0 — Dent Design Concept</title>
+<style>
+  /* ============ comun ============ */
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: #0b0b0c; }
+  img { display: block; max-width: 100%; }
+
+  .banda {
+    background: #0b0b0c; color: #8e8f93;
+    font: 400 13px/1.5 ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    padding: 14px 20px; border-bottom: 1px solid #222;
+  }
+  .banda b { color: #fff; font-weight: 600; }
+  .banda span { color: #d8a657; }
+
+  .eticheta {
+    background: #0b0b0c; color: #fff;
+    padding: 22px 20px 20px;
+    font: 400 14px/1.5 ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: baseline;
+  }
+  .eticheta .lit {
+    font-size: 12px; font-weight: 700; letter-spacing: .14em;
+    background: #fff; color: #0b0b0c; padding: 3px 9px; border-radius: 999px;
+  }
+  .eticheta .promite { color: #fff; }
+  .eticheta .pentru { color: #8e8f93; }
+
+  .ecran { min-height: 100svh; min-height: 100vh; position: relative; overflow: hidden; }
+
+  /* placeholder marcat vizibil */
+  .ph { color: inherit; opacity: .85; }
+  .ph::after { content: "°"; font-size: .7em; vertical-align: super; opacity: .6; }
+
+  /* ============ A — Cronica ============ */
+  .a {
+    --hartie: #f2eee7; --tus: #1b1815; --gri: #6d665c;
+    --acc: #9c3b21; --linie: #ddd6cb;
+    background: var(--hartie); color: var(--tus);
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    display: grid; grid-template-columns: 36px 1fr; align-items: stretch;
+  }
+  .a .ani {
+    border-right: 1px solid var(--linie);
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px 0;
+  }
+  .a .ani ol {
+    list-style: none; margin: 0; padding: 0;
+    writing-mode: vertical-rl; rotate: 180deg;
+    display: flex; gap: 10px; align-items: center;
+    font: 400 11px/1 ui-monospace, "SF Mono", Menlo, monospace;
+    letter-spacing: .1em; color: var(--gri);
+  }
+  .a .ani li:first-child, .a .ani li:last-child { color: var(--acc); font-weight: 700; }
+  .a .corp {
+    padding: clamp(28px, 6vw, 72px) clamp(20px, 5vw, 64px);
+    display: grid; gap: clamp(28px, 4vw, 52px); align-content: center;
+    grid-template-columns: 1fr;
+  }
+  .a .kicker {
+    font: 400 12px/1.4 ui-monospace, "SF Mono", Menlo, monospace;
+    letter-spacing: .18em; text-transform: uppercase; color: var(--gri);
+    margin: 0 0 18px;
+  }
+  .a h1 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-weight: 400; font-size: clamp(30px, 6.2vw, 64px); line-height: 1.06;
+    letter-spacing: -0.015em; margin: 0; text-wrap: balance;
+  }
+  .a h1 em { font-style: italic; color: var(--acc); }
+  .a p.lead {
+    margin: 20px 0 0; max-width: 46ch; color: var(--gri);
+    font-size: clamp(15px, 1.6vw, 17px); line-height: 1.6; text-wrap: pretty;
+  }
+  .a .planse { display: grid; gap: 14px; }
+  .a figure { margin: 0; background: #fff; padding: 12px; box-shadow: 0 1px 2px rgba(0,0,0,.06); }
+  .a figure img { width: 100%; height: clamp(180px, 34vw, 340px); object-fit: cover; }
+  .a figcaption {
+    font: 400 11px/1.4 ui-monospace, "SF Mono", Menlo, monospace;
+    color: var(--gri); padding-top: 10px; letter-spacing: .04em;
+  }
+  .a .fapte {
+    display: flex; flex-wrap: wrap; gap: 8px 28px; margin: 0; padding: 18px 0 0;
+    border-top: 1px solid var(--linie);
+    font: 400 13px/1.5 ui-monospace, "SF Mono", Menlo, monospace; color: var(--gri);
+  }
+  .a .ani li.punct { display: none; }
+  @media (min-width: 700px) {
+    .a { grid-template-columns: 62px 1fr; }
+    .a .ani li.punct { display: block; }
+  }
+  @media (min-width: 900px) {
+    .a .corp { grid-template-columns: 1.05fr .95fr; align-items: center; }
+    .a figure img { height: clamp(300px, 30vw, 430px); }
+  }
+
+  /* ============ B — Mâna ============ */
+  .b {
+    --acc: #37b7a4;
+    background: #0d0f10; color: #fff;
+    font-family: "Helvetica Neue", Inter, -apple-system, "Segoe UI", Arial, sans-serif;
+  }
+  .b .foto { position: absolute; inset: 0; }
+  .b .foto img { width: 100%; height: 100%; object-fit: cover; object-position: 58% 50%; }
+  .b .jos {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: clamp(20px, 4vw, 44px) clamp(20px, 5vw, 56px) clamp(78px, 9vw, 104px);
+    background: linear-gradient(to top, rgba(6,8,9,.88) 30%, rgba(6,8,9,0));
+  }
+  .b h1 {
+    font-weight: 700; font-size: clamp(32px, 7.4vw, 78px); line-height: 0.98;
+    letter-spacing: -0.035em; margin: 0; text-wrap: balance;
+  }
+  .b .legenda {
+    margin: 16px 0 0; max-width: 64ch;
+    font: 400 13px/1.55 ui-monospace, "SF Mono", Menlo, monospace;
+    letter-spacing: .02em; color: #b9bdc0; text-wrap: pretty;
+  }
+  .b .legenda strong { color: var(--acc); font-weight: 400; }
+  .b .nav {
+    position: absolute; left: 50%; translate: -50% 0; bottom: clamp(18px, 3vw, 28px);
+    display: flex; gap: 2px; padding: 4px;
+    background: rgba(255,255,255,.1); border-radius: 999px;
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    max-width: calc(100% - 32px); overflow-x: auto; scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    mask-image: linear-gradient(to right, #000 88%, transparent);
+    -webkit-mask-image: linear-gradient(to right, #000 88%, transparent);
+  }
+  .b .nav::-webkit-scrollbar { display: none; }
+  @media (min-width: 560px) {
+    .b .nav { mask-image: none; -webkit-mask-image: none; }
+  }
+  .b .nav a {
+    flex: 0 0 auto; color: #fff; text-decoration: none; white-space: nowrap;
+    font-size: 13px; letter-spacing: .01em; padding: 9px 15px; border-radius: 999px;
+    min-height: 44px; display: flex; align-items: center;
+  }
+  .b .nav a.activ { background: #fff; color: #0d0f10; }
+
+  /* ============ C — Fișa ============ */
+  .c {
+    --hartie: #fcfbf8; --tus: #17181c; --gri: #71757e;
+    --acc: #1b3a6b; --linie: #e6e4de;
+    background: var(--hartie); color: var(--tus);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    padding: clamp(26px, 5vw, 60px) clamp(18px, 5vw, 60px);
+    display: grid; align-content: start; gap: clamp(22px, 3vw, 34px);
+  }
+  .c .cap { display: grid; gap: 18px; }
+  .c .reg {
+    display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 11px;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--gri);
+  }
+  .c h1 {
+    font-family: Georgia, "Times New Roman", serif; font-weight: 400;
+    font-size: clamp(27px, 5.4vw, 52px); line-height: 1.1; letter-spacing: -0.01em;
+    margin: 0; text-wrap: balance;
+  }
+  .c .sus { display: grid; gap: 22px; }
+  .c figure { margin: 0; }
+  .c figure img {
+    width: 100%; height: clamp(150px, 22vw, 210px); object-fit: cover;
+    border-radius: 2px;
+  }
+  .c figcaption { font-size: 11px; color: var(--gri); padding-top: 8px; letter-spacing: .05em; }
+  .c table { width: 100%; border-collapse: collapse; font-size: clamp(13px, 1.5vw, 14px); }
+  .c caption {
+    text-align: left; font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--gri); padding-bottom: 10px;
+  }
+  .c tr { border-top: 1px solid var(--linie); }
+  .c tr:last-child { border-bottom: 1px solid var(--linie); }
+  .c td { padding: 13px 0; vertical-align: baseline; }
+  .c td.nr { width: 3.2em; color: var(--acc); font-variant-numeric: tabular-nums; }
+  .c td.det { text-align: right; color: var(--gri); font-variant-numeric: tabular-nums;
+    white-space: nowrap; }
+  @media (max-width: 460px) {
+    .c tr { display: grid; grid-template-columns: 3.2em 1fr; }
+    .c td { padding: 11px 0 4px; }
+    .c td.nr { grid-row: span 2; padding-top: 11px; }
+    .c td.det { text-align: left; padding: 0 0 11px; font-size: 12px; }
+  }
+  .c .subsol {
+    display: flex; flex-wrap: wrap; gap: 10px 26px; font-size: 12px; color: var(--gri);
+    border-top: 1px solid var(--linie); padding-top: 16px;
+  }
+  @media (min-width: 860px) {
+    .c .sus { grid-template-columns: 1fr 300px; align-items: end; }
+  }
+</style>
+</head>
+<body>
+
+<p class="banda">
+  <b>TRECEREA 0</b> · Dent Design Concept · trei direcții, un ecran fiecare, zero animații.
+  Alege o literă. Datele marcate cu <span>°</span> sunt de confirmat cu cabinetul —
+  nu le-am inventat ca fapte.
+  Fotografiile sunt stoc — cabinetul nu are poze publice.
+</p>
+
+<!-- ============ A ============ -->
+<div class="eticheta">
+  <span class="lit">A</span>
+  <span class="promite">Cronica — promite vechime.</span>
+  <span class="pentru">Pentru pacientul care caută siguranță, nu noutate.</span>
+</div>
+<section class="ecran a">
+  <div class="ani" aria-hidden="true">
+    <ol><li>2005</li><li class="punct">·</li><li class="punct">·</li><li class="punct">·</li><li class="punct">·</li><li class="punct">·</li><li class="punct">·</li><li class="punct">·</li><li class="punct">·</li><li class="punct">·</li><li>2026</li></ol>
+  </div>
+  <div class="corp">
+    <div>
+      <p class="kicker">Șos. Mihai Bravu 327 · Sector 3</p>
+      <h1>Douăzeci și unu de ani<br>în <em>aceeași</em> încăpere.</h1>
+      <p class="lead">Cabinetul s-a deschis în iulie 2005 și e la aceeași adresă de atunci.
+        Cinci oameni, un singur cabinet.</p>
+      <p class="fapte">
+        <span>Din 13.07.2005</span>
+        <span>5 oameni</span>
+        <span class="ph">Program</span>
+      </p>
+    </div>
+    <div class="planse">
+      <figure>
+        <img src="assets/px-4269493.jpg" alt="Medic stomatolog în halat, cu instrumentarul pregătit pe tavă">
+        <figcaption>Instrumentar pregătit pe tavă.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ B ============ -->
+<div class="eticheta">
+  <span class="lit">B</span>
+  <span class="promite">Mâna — promite meseria.</span>
+  <span class="pentru">Pentru pacientul care a fost dezamăgit și vrea competență.</span>
+</div>
+<section class="ecran b">
+  <div class="foto">
+    <img src="assets/px-6812466.jpg" alt="Mână care ridică un instrument dintr-un rând de freze, pe fundal închis">
+  </div>
+  <div class="jos">
+    <h1>Din 2005,<br>pe Mihai Bravu.</h1>
+    <p class="legenda">
+      Cabinet stomatologic · Șos. Mihai Bravu 327, Sector 3, București ·
+      <strong>Dent Design Concept</strong>
+    </p>
+  </div>
+  <nav class="nav">
+    <a href="#" class="activ">Cabinet</a>
+    <a href="#">Ce facem</a>
+    <a href="#">Echipa</a>
+    <a href="#">Program</a>
+    <a href="#">Contact</a>
+  </nav>
+</section>
+
+<!-- ============ C ============ -->
+<div class="eticheta">
+  <span class="lit">C</span>
+  <span class="promite">Fișa — promite claritate.</span>
+  <span class="pentru">Pentru pacientul care vrea să știe exact ce se face și cât durează.</span>
+</div>
+<section class="ecran c">
+  <div class="cap">
+    <div class="reg">
+      <span>Dent Design Concept</span>
+      <span>Mihai Bravu 327</span>
+      <span>Sector 3</span>
+      <span>Din 2005</span>
+    </div>
+    <div class="sus">
+      <h1>Tot ce se poate face aici, scris pe o singură pagină.</h1>
+      <figure>
+        <img src="assets/px-7787975.jpg" alt="Oglindă stomatologică și sondă, ținute în mănuși albastre">
+        <figcaption>Oglindă și sondă.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <table>
+    <caption>Lista serviciilor</caption>
+    <tbody>
+      <tr><td class="nr">01</td><td>Consultație și plan de tratament</td><td class="det ph">30 min</td></tr>
+      <tr><td class="nr">02</td><td>Detartraj și periaj profesional</td><td class="det ph">45 min</td></tr>
+      <tr><td class="nr">03</td><td class="ph">Obturații fizionomice</td><td class="det ph">60 min</td></tr>
+      <tr><td class="nr">04</td><td class="ph">Tratament de canal</td><td class="det ph">90 min</td></tr>
+      <tr><td class="nr">05</td><td class="ph">Protetică — coroane și punți</td><td class="det ph">pe etape</td></tr>
+      <tr><td class="nr">06</td><td class="ph">Urgențe</td><td class="det ph">în aceeași zi</td></tr>
+    </tbody>
+  </table>
+
+  <p class="subsol">
+    <span>Luni–Vineri <span class="ph">ora</span></span>
+    <span class="ph">Telefon</span>
+    <span>Șos. Mihai Bravu 327, Bl. 54</span>
+  </p>
+</section>
+
+</body>
+</html>

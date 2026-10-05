@@ -1,0 +1,206 @@
+/* ============================================================
+   APOTECA ORIONIS — foaia de stil comuna
+   ============================================================ */
+@font-face{font-family:Syne;src:url(../assets/Syne-latin-ext.woff2) format('woff2');font-weight:400 800;font-display:swap;
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Syne;src:url(../assets/Syne-latin.woff2) format('woff2');font-weight:400 800;font-display:swap}
+@font-face{font-family:Archivo;src:url(../assets/Archivo-latin-ext.woff2) format('woff2');font-weight:400 700;font-display:swap;
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Archivo;src:url(../assets/Archivo-latin.woff2) format('woff2');font-weight:400 700;font-display:swap}
+@font-face{font-family:'JetBrains Mono';src:url(../assets/JetBrainsMono-latin-ext.woff2) format('woff2');font-weight:400 500;font-display:swap;
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'JetBrains Mono';src:url(../assets/JetBrainsMono-latin.woff2) format('woff2');font-weight:400 500;font-display:swap}
+
+:root{
+  --spatiu:#05060e; --adanc:#090b18; --panou:#0f1228; --panou2:#141834;
+  --linie:#242a4e; --text:#eaebf8; --sters:#9aa0cc;
+  --toxic:#b8ff45; --toxic-inchis:#8ad11f; --cosmic:#8b6cff; --alarma:#ff5470;
+  --d:Syne,system-ui,sans-serif; --t:Archivo,system-ui,sans-serif;
+  --m:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:36px;--s7:56px;--s8:80px;--s9:120px;
+  --arc:cubic-bezier(.16,1,.3,1); --arc2:cubic-bezier(.22,.9,.3,1.14);
+  --nav:70px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;color-scheme:dark;overflow-x:clip}
+body{margin:0;background:var(--spatiu);color:var(--text);font-family:var(--t);font-size:17px;
+  line-height:1.55;-webkit-font-smoothing:antialiased;padding-top:var(--nav)}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+::selection{background:var(--toxic);color:var(--spatiu)}
+:root{caret-color:var(--toxic);accent-color:var(--toxic)}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:var(--spatiu)}
+::-webkit-scrollbar-thumb{background:#2b3160;border:3px solid var(--spatiu);border-radius:99px}
+:focus-visible{outline:2px solid var(--toxic);outline-offset:3px;border-radius:4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+
+.wrap{width:100%;max-width:1280px;margin:0 auto;padding-inline:clamp(18px,4vw,48px)}
+h1,h2,h3{margin:0;font-family:var(--d);font-weight:800;letter-spacing:-0.03em;line-height:1.04;text-wrap:balance}
+h1{font-size:clamp(34px,5.4vw,80px)}
+h2{font-size:clamp(30px,4.6vw,60px)}
+h3{font-size:clamp(19px,2vw,23px);font-weight:700;letter-spacing:-0.02em}
+p{margin:0;text-wrap:pretty}
+.mono{font-family:var(--m);font-variant-numeric:tabular-nums}
+.sts{color:var(--sters)}
+.et{font-family:var(--m);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--toxic)}
+section{padding-block:clamp(56px,7.5vw,112px)}
+
+/* ---------- cerul, panza din spate ---------- */
+#cer{position:fixed;inset:0;z-index:0;pointer-events:none}
+.continut{position:relative;z-index:1}
+
+/* ---------- meniul ---------- */
+.meniu{position:fixed;inset:0 0 auto;z-index:50;height:var(--nav);
+  background:rgba(5,6,14,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--linie)}
+.meniu .wrap{height:100%;display:flex;align-items:center;gap:var(--s5)}
+.logo{font-family:var(--d);font-weight:800;font-size:19px;letter-spacing:-0.03em;
+  display:flex;align-items:center;gap:10px;white-space:nowrap}
+.logo svg{width:17px;height:17px;flex:0 0 auto;color:var(--toxic)}
+.navlist{margin-left:auto;display:flex;gap:var(--s2);align-items:center}
+.navlist a{padding:10px 15px;border-radius:99px;font-size:15px;color:var(--sters);
+  transition:color 200ms var(--arc),background 200ms var(--arc)}
+.navlist a:hover{color:var(--text);background:rgba(255,255,255,.06)}
+.navlist a[aria-current="page"]{color:var(--toxic)}
+.cos-btn{display:flex;align-items:center;gap:9px;padding:10px 17px;border-radius:99px;
+  background:var(--toxic);color:var(--spatiu);font-weight:700;font-size:15px;
+  transition:transform 200ms var(--arc2),filter 200ms var(--arc)}
+.cos-btn:hover{transform:translateY(-2px)}
+.cos-btn:active{transform:translateY(1px)}
+.cos-btn svg{width:17px;height:17px;flex:0 0 auto}
+.cos-btn .n{min-width:21px;height:21px;display:grid;place-items:center;border-radius:99px;
+  background:var(--spatiu);color:var(--toxic);font-family:var(--m);font-size:12px}
+.cos-btn.sare{animation:sare 520ms var(--arc2)}
+@keyframes sare{0%{transform:scale(1)}30%{transform:scale(1.09)}100%{transform:scale(1)}}
+.burger{display:none}
+@media (max-width:820px){
+  .navlist{position:fixed;inset:var(--nav) 0 auto;flex-direction:column;align-items:stretch;gap:0;
+    background:var(--spatiu);border-bottom:1px solid var(--linie);
+    padding:var(--s3);transform:translateY(-118%);transition:transform 420ms var(--arc);margin-left:0}
+  .meniu[data-deschis="1"] .navlist{transform:none}
+  .navlist a{padding:15px;border-radius:10px;font-size:17px}
+  .burger{display:grid;place-items:center;width:44px;height:44px;border-radius:10px}
+  .burger span{display:block;width:20px;height:2px;background:var(--text);position:relative;
+    transition:background 200ms var(--arc)}
+  .burger span::before,.burger span::after{content:"";position:absolute;left:0;width:20px;height:2px;
+    background:var(--text);transition:transform 320ms var(--arc)}
+  .burger span::before{top:-6px}.burger span::after{top:6px}
+  .meniu[data-deschis="1"] .burger span{background:transparent}
+  .meniu[data-deschis="1"] .burger span::before{transform:translateY(6px) rotate(45deg)}
+  .meniu[data-deschis="1"] .burger span::after{transform:translateY(-6px) rotate(-45deg)}
+  .cos-btn{margin-left:auto;padding:10px 14px}
+}
+@media (max-width:430px){
+  .logo{font-size:15.5px;gap:7px}
+  .cos-btn .lab{display:none}
+  .logo .lung{display:none}
+  .logo svg{width:15px;height:15px}
+  .cos-btn{padding:10px 12px;font-size:14px;gap:7px}
+  .meniu .wrap{gap:var(--s3)}
+}
+
+/* ---------- butoane ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;
+  padding:0 var(--s7);border-radius:99px;font-weight:700;font-size:16.5px;
+  background:var(--toxic);color:var(--spatiu);
+  transition:transform 200ms var(--arc2),box-shadow 240ms var(--arc)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 34px -12px rgba(184,255,69,.6)}
+.btn:active{transform:translateY(1px)}
+.btn--gol{background:transparent;color:var(--text);box-shadow:inset 0 0 0 1px var(--linie)}
+.btn--gol:hover{background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px #39406f}
+.btn[disabled]{opacity:.45;pointer-events:none}
+
+/* ---------- capsula desenata ---------- */
+.capsula{position:relative;width:100%;aspect-ratio:1/1;display:grid;place-items:center;overflow:hidden}
+.capsula .aura{position:absolute;width:76%;aspect-ratio:1/1;border-radius:99px;filter:blur(46px);opacity:.5;
+  background:radial-gradient(circle,var(--c,#b8ff45) 0%,transparent 68%)}
+.capsula .pil{position:relative;width:38%;height:72%;border-radius:999px;overflow:hidden;
+  box-shadow:0 26px 60px -24px rgba(0,0,0,.85),inset 0 0 0 1px rgba(255,255,255,.14);
+  transform:rotate(-22deg)}
+.capsula .pil::before,.capsula .pil::after{content:"";position:absolute;left:0;right:0;height:50%}
+.capsula .pil::before{top:0;background:linear-gradient(160deg,#f4f6ff,#c3c8e6)}
+.capsula .pil::after{bottom:0;background:linear-gradient(160deg,var(--c,#b8ff45),color-mix(in srgb,var(--c,#b8ff45) 55%,#05060e))}
+.capsula .luciu{position:absolute;width:38%;height:72%;border-radius:999px;transform:rotate(-22deg);
+  background:linear-gradient(105deg,rgba(255,255,255,.55) 4%,rgba(255,255,255,0) 26%)}
+
+/* ---------- cardul de produs ---------- */
+.grila{display:grid;gap:var(--s5);grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.card{position:relative;background:var(--panou);border:1px solid var(--linie);border-radius:18px;
+  padding:var(--s4);display:flex;flex-direction:column;gap:var(--s3);
+  transition:transform 340ms var(--arc),border-color 340ms var(--arc),box-shadow 340ms var(--arc);
+  transform-style:preserve-3d;will-change:transform}
+.card:hover{border-color:#3a4176;box-shadow:0 30px 60px -30px rgba(0,0,0,.9)}
+.card .vis{border-radius:12px;background:radial-gradient(120% 90% at 50% 10%,var(--panou2),#070917);
+  overflow:hidden}
+.card h3{transition:color 220ms var(--arc)}
+.card:hover h3{color:var(--toxic)}
+.card .sub{font-family:var(--m);font-size:12px;color:var(--sters);letter-spacing:.04em}
+.card .jos{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:var(--s3)}
+.pret{font-family:var(--d);font-weight:800;font-size:22px;font-variant-numeric:tabular-nums}
+.pret small{font-family:var(--t);font-weight:400;font-size:13px;color:var(--sters)}
+.adauga{padding:11px 17px;border-radius:99px;background:rgba(184,255,69,.12);color:var(--toxic);
+  font-weight:700;font-size:14px;transition:background 200ms var(--arc),transform 200ms var(--arc2)}
+.adauga:hover{background:var(--toxic);color:var(--spatiu)}
+.adauga:active{transform:scale(.95)}
+
+/* ---------- bara de toxicitate ---------- */
+.tox{display:grid;gap:6px}
+.tox .cap{display:flex;justify-content:space-between;font-family:var(--m);font-size:11.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--sters)}
+.tox .bar{height:5px;border-radius:99px;background:#1d2246;overflow:hidden}
+.tox .bar i{display:block;height:100%;width:100%;border-radius:99px;transform-origin:left;
+  transform:scaleX(var(--v,0));transition:transform 1.1s var(--arc);
+  background:linear-gradient(90deg,var(--toxic),#ffd84d 58%,var(--alarma))}
+
+/* ---------- sertarul cu cosul ---------- */
+.fundal{position:fixed;inset:0;z-index:60;background:rgba(3,4,10,.62);
+  backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);opacity:0;pointer-events:none;
+  transition:opacity 380ms var(--arc)}
+.fundal[data-on="1"]{opacity:1;pointer-events:auto}
+.sertar{position:fixed;top:0;right:0;bottom:0;z-index:70;width:min(430px,100vw);
+  background:var(--adanc);border-left:1px solid var(--linie);display:flex;flex-direction:column;
+  transform:translateX(102%);transition:transform 460ms var(--arc);box-shadow:-40px 0 80px -40px #000}
+.sertar[data-on="1"]{transform:none}
+.sertar header{display:flex;align-items:center;gap:var(--s3);padding:var(--s5);border-bottom:1px solid var(--linie)}
+.sertar header h2{font-size:22px}
+.inchide{margin-left:auto;width:40px;height:40px;border-radius:99px;display:grid;place-items:center;
+  background:rgba(255,255,255,.06);font-size:19px;transition:background 200ms var(--arc)}
+.inchide:hover{background:rgba(255,255,255,.14)}
+.sertar .lista{flex:1;overflow-y:auto;padding:var(--s4) var(--s5);display:grid;gap:var(--s4);align-content:start}
+.rand{display:grid;grid-template-columns:62px 1fr auto;gap:var(--s4);align-items:center;
+  animation:intra 380ms var(--arc) both}
+.rand .mini{width:62px;height:62px;border-radius:10px;background:var(--panou);overflow:hidden}
+.rand .nume{font-weight:700;font-size:15.5px;line-height:1.25}
+.rand .meta{font-family:var(--m);font-size:12px;color:var(--sters);margin-top:3px}
+.pasi{display:flex;align-items:center;gap:2px;margin-top:8px;background:var(--panou);border-radius:99px;
+  padding:3px;width:max-content}
+.pasi button{width:28px;height:28px;border-radius:99px;display:grid;place-items:center;font-size:16px;
+  color:var(--sters);transition:background 180ms var(--arc),color 180ms var(--arc)}
+.pasi button:hover{background:rgba(255,255,255,.1);color:var(--text)}
+.pasi .q{min-width:26px;text-align:center;font-family:var(--m);font-size:13.5px}
+.rand .st{font-family:var(--d);font-weight:800;font-variant-numeric:tabular-nums;font-size:16px}
+.sertar footer{padding:var(--s5);border-top:1px solid var(--linie);display:grid;gap:var(--s4)}
+.total{display:flex;justify-content:space-between;align-items:baseline}
+.total .v{font-family:var(--d);font-weight:800;font-size:30px;font-variant-numeric:tabular-nums}
+.gol{padding:var(--s8) var(--s5);text-align:center;color:var(--sters)}
+@keyframes intra{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* ---------- aparitii la scroll ---------- */
+[data-apare]{opacity:0;transform:translateY(18px);
+  transition:opacity 700ms var(--arc),transform 700ms var(--arc)}
+[data-apare].vazut{opacity:1;transform:none}
+
+/* ---------- subsol ---------- */
+footer.jos{border-top:1px solid var(--linie);padding-block:var(--s8);background:var(--adanc)}
+footer.jos .mic{font-family:var(--m);font-size:12.5px;line-height:1.9;color:var(--sters);max-width:76ch}
+footer.jos .mare{font-family:var(--d);font-weight:800;font-size:clamp(40px,10vw,128px);
+  letter-spacing:-0.045em;line-height:.92;margin-bottom:var(--s6)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;
+    transition-duration:.001ms !important}
+  [data-apare]{opacity:1;transform:none}
+  .tox .bar i{transform:scaleX(var(--v,0))}
+}

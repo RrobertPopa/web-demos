@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ro"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Frunzei 9 — 24 de apartamente, Sector 2</title>
+<meta name="description" content="Macheta ansamblului: alege un apartament, vezi etajul, orientarea, cate ore de soare primeste si cat costa.">
+<meta name="theme-color" content="#f2efe7">
+<link rel="stylesheet" href="stil.css">
+<style>
+.scena{padding-block:clamp(22px,3.4vw,40px) clamp(30px,4vw,48px)}
+.antet{display:flex;flex-wrap:wrap;gap:var(--s3) var(--s5);align-items:baseline}
+.antet .et{white-space:nowrap}
+h1.afis{margin-top:clamp(10px,1.6vw,18px);max-width:16ch;font-size:clamp(42px,7.2vw,96px)}
+.stadiu{margin-top:clamp(16px,2.4vw,26px);position:relative;
+ background:linear-gradient(180deg,#f6f3ec,#ece7da);border:1px solid var(--linie);border-radius:4px}
+#cv{width:100%;height:clamp(290px,40vh,430px);touch-action:manipulation}
+.banda{margin-top:clamp(16px,2.2vw,22px);display:grid;gap:var(--s5);align-items:center}
+@media(min-width:900px){.banda{grid-template-columns:minmax(0,1fr) minmax(320px,.85fr)}}
+.card{border:1px solid var(--linie);border-radius:4px;background:#fbf9f4;
+ padding:var(--s4) var(--s5);min-height:112px;display:flex;align-items:center}
+.card .in{width:100%}
+.card .sus{display:flex;align-items:baseline;gap:var(--s3);flex-wrap:wrap}
+.card .nrm{font-family:Afis;font-size:clamp(28px,3.4vw,40px);line-height:1}
+.card .pr{margin-left:auto;font-family:Afis;font-size:clamp(21px,2.4vw,28px);white-space:nowrap}
+.card .dt{margin-top:7px;font-size:14px;color:var(--cerneala2)}
+.card .go{margin-top:10px;display:inline-flex;align-items:center;gap:7px;font-size:14px;
+ color:var(--cobalt);font-weight:600;border-bottom:1.5px solid rgba(31,79,216,.3);padding-bottom:2px}
+.card .indemn{color:var(--sters);font-size:15px}
+.vandut{color:var(--sters)}
+
+.unelte{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s6)}
+.f{min-height:42px;padding:0 var(--s4);border-radius:99px;border:1.5px solid var(--linie);
+ background:transparent;cursor:pointer;font-size:14.5px;transition:all 180ms var(--arc)}
+.f:hover{border-color:var(--linie2)}
+.f[aria-pressed=true]{background:var(--cerneala);color:var(--hartie);border-color:var(--cerneala)}
+.lista{margin-top:var(--s6)}
+.fila{cursor:pointer;transition:background 200ms var(--arc)}
+.fila:hover{background:var(--hartie2)}
+.fila:last-child{border-bottom:1px solid var(--linie)}
+.nimic{padding-block:var(--s7);color:var(--sters);text-align:center;border-top:1px solid var(--linie)}
+
+.doua{margin-top:var(--s7);display:grid;gap:var(--s6)}
+@media(min-width:840px){.doua{grid-template-columns:1fr 1fr;gap:var(--s8)}}
+.puncte{display:grid;gap:var(--s4);margin-top:var(--s5)}
+.puncte div{display:grid;grid-template-columns:auto 1fr;gap:var(--s4);align-items:baseline;
+ border-top:1px solid var(--linie);padding-top:var(--s4)}
+.puncte .m{font-family:Cifre;font-size:12px;color:var(--cobalt)}
+.puncte .m.nu{color:var(--sters)}
+.drumuri{margin-top:var(--s6);display:grid;gap:0}
+.drumuri div{display:grid;grid-template-columns:1fr auto;gap:var(--s4);align-items:baseline;
+ border-top:1px solid var(--linie);padding-block:var(--s4)}
+.drumuri b{font-family:Cifre;font-weight:400;font-size:14px;color:var(--cerneala2)}
+.final{background:var(--cerneala);color:var(--hartie)}
+.final h2{color:var(--hartie)} .final h2 i{color:#8ea9f5}
+.final .btn.gol{color:var(--hartie);box-shadow:inset 0 0 0 1.5px rgba(242,239,231,.3)}
+.final .btn.gol:hover{background:rgba(242,239,231,.08)}
+.final .rand{margin-top:var(--s6);display:flex;flex-wrap:wrap;gap:var(--s4)}
+</style></head><body>
+
+<div class="bara"></div>
+
+<section class="scena"><div class="wrap">
+  <div class="antet">
+    <p class="et">Str. Frunzei 9 · Sector 2 · P+3</p>
+    <p class="et">Recepție 2027 · autorizație obținută</p>
+  </div>
+  <h1 class="afis">24 de apartamente. <i id="h-libere">11 libere.</i></h1>
+
+  <div class="stadiu"><canvas id="cv" aria-label="Machetă interactivă a ansamblului"></canvas></div>
+
+  <div class="banda">
+    <div id="soare"></div>
+    <div class="card" id="card"><div class="in">
+      <p class="indemn">Fiecare volum din machetă e un apartament.</p>
+    </div></div>
+  </div>
+</div></section>
+
+<section id="libere"><div class="wrap">
+  <h2 class="afis" data-ap>Ce e liber, <i>acum</i>.</h2>
+  <div class="unelte" data-ap>
+    <button class="f" data-f="cam" data-v="0" aria-pressed="true">Toate</button>
+    <button class="f" data-f="cam" data-v="2" aria-pressed="false">2 camere</button>
+    <button class="f" data-f="cam" data-v="3" aria-pressed="false">3 camere</button>
+    <span style="width:var(--s5)"></span>
+    <button class="f" data-f="lib" data-v="1" aria-pressed="true">Doar libere</button>
+    <button class="f" data-f="sud" data-v="1" aria-pressed="false">Doar spre sud</button>
+  </div>
+  <div class="lista" id="lista" data-ap></div>
+  <p class="et" data-ap style="margin-top:var(--s5)">
+    Prețurile sunt cu TVA 9% inclus, pentru plata integrală la semnare.</p>
+</div></section>
+
+<section style="background:var(--hartie2)"><div class="wrap">
+  <h2 class="afis" data-ap>Ce intră <i>în preț</i>.</h2>
+  <div class="doua" data-ap>
+    <div>
+      <h3>Inclus</h3>
+      <div class="puncte">
+        <div><span class="m">+</span><span>Finisaje complete: gresie, parchet, uși, faianță, tâmplărie tricamerală.</span></div>
+        <div><span class="m">+</span><span>Bucătărie mobilată și utilată: plită, cuptor, hotă, chiuvetă.</span></div>
+        <div><span class="m">+</span><span>Centrală proprie pe gaz și încălzire în pardoseală în baie.</span></div>
+        <div><span class="m">+</span><span>Boxă la subsol, 4 m², repartizată la semnare.</span></div>
+        <div><span class="m">+</span><span>Curte proprie la parter, terasă la etajul 3.</span></div>
+      </div>
+    </div>
+    <div>
+      <h3>Separat</h3>
+      <div class="puncte">
+        <div><span class="m nu">—</span><span>Loc de parcare subteran: <b class="cif">12.000 €</b>. Sunt 18 locuri la 24 de apartamente.</span></div>
+        <div><span class="m nu">—</span><span>Aer condiționat: prizele și traseele sunt trase, unitățile nu.</span></div>
+        <div><span class="m nu">—</span><span>Mobilier, în afară de bucătărie.</span></div>
+        <div><span class="m nu">—</span><span>Taxe de intabulare, aproximativ <b class="cif">1.500 lei</b>.</span></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2 class="afis" data-ap>Cât faci <i>pe jos</i>.</h2>
+  <div class="drumuri" data-ap>
+    <div><span>Metrou Obor</span><b>7 minute</b></div>
+    <div><span>Parcul Obor și piața</span><b>4 minute</b></div>
+    <div><span>Școala nr. 39</span><b>6 minute</b></div>
+    <div><span>Grădiniță</span><b>3 minute</b></div>
+    <div><span>Farmacie deschisă non-stop</span><b>5 minute</b></div>
+    <div><span>Kaufland Colentina</span><b>11 minute</b></div>
+  </div>
+  <p class="et" data-ap style="margin-top:var(--s5)">
+    Măsurat pe jos, în pas normal, de la poarta ansamblului.</p>
+</div></section>
+
+<section class="final"><div class="wrap">
+  <h2 class="afis" data-ap>Vino să vezi <i>lumina</i>.</h2>
+  <p data-ap style="margin-top:var(--s4);max-width:46ch;color:rgba(242,239,231,.76)">
+    Vizitele se fac la fața locului, în șantier, cu cască. Durează douăzeci de minute
+    și se pot face și sâmbăta. Alegi ziua și ora tu.</p>
+  <div class="rand" data-ap>
+    <a class="btn" href="vizita.html">Programează vizita</a>
+    <a class="btn gol" href="tel:+40721000000">0721 000 000</a>
+  </div>
+</div></section>
+
+<footer><div class="wrap col">
+  <div>Frunzei 9 · ansamblu rezidențial fictiv, construit ca demonstrație de design.
+    Adresa, prețurile, stadiul și telefonul nu sunt reale.</div>
+  <div>Str. Frunzei 9<br>Sector 2, București<br><a href="tel:+40721000000">0721 000 000</a></div>
+  <div>Vizite: Luni–Sâmbătă<br>09:00–18:00<br><a href="vizita.html">Programare</a></div>
+</div></footer>
+
+<script src="date.js"></script>
+<script src="sit.js"></script>
+<script src="macheta.js"></script>
+<script>
+(function(){
+  Sit.meniu('index');
+  Sit.soare(Sit.el('soare'));
+  Sit.apar();
+  Sit.el('h-libere').textContent = SUMA.libere + ' libere.';
+
+  var card = Sit.el('card');
+  var cuMouse = matchMedia('(hover:hover) and (pointer:fine)').matches;
+  var INDEMN = cuMouse
+    ? 'Treci cu cursorul peste machetă. Fiecare volum e un apartament: cele albe sunt libere.'
+    : 'Atinge un volum din machetă. Fiecare volum e un apartament: cele albe sunt libere.';
+  function arata(a, fix){
+    if (!a){
+      card.innerHTML = '<div class="in"><p class="indemn">' + INDEMN + '</p></div>';
+      return;
+    }
+    card.innerHTML = '<div class="in">' +
+      '<div class="sus"><span class="nrm">' + a.nr + '</span>' +
+        '<span class="et">' + ETAJE[a.et] + ' · ' + a.orient + '</span>' +
+        '<span class="pr' + (a.liber ? '' : ' vandut') + '">' +
+          (a.liber ? bani(a.pret) : 'Vândut') + '</span></div>' +
+      '<p class="dt">' + a.cam + ' camere · ' + mp(a.mp) + ' utili · balcon ' + mp(a.balcon) +
+        ' · <b class="cif">' + a.soare.toFixed(1).replace('.',',') + ' h</b> de soare direct</p>' +
+      (a.liber ? '<a class="go" href="apartament.html?ap=' + a.id + '">Vezi planul și lumina →</a>' : '') +
+    '</div>';
+  }
+
+  var m = Macheta.creeaza(Sit.el('cv'), {
+    peste: function(a){ if (a) arata(a); },
+    // cu mouse, clicul duce direct. Pe atingere, intai vezi fisa si apoi decizi.
+    alege: function(a){
+      if (cuMouse && a.liber) location.href = 'apartament.html?ap=' + a.id;
+      else { arata(a); card.scrollIntoView({block:'nearest'}); }
+    }
+  });
+
+  /* filtrele lucreaza si pe machetă, si pe listă — acelasi obiect, doua reprezentari */
+  var st = {cam:0, lib:1, sud:0};
+  function trece(a){
+    if (st.cam && a.cam !== st.cam) return false;
+    if (st.lib && !a.liber) return false;
+    if (st.sud && a.gy !== 1) return false;
+    return true;
+  }
+  var lista = Sit.el('lista');
+  function scrie(){
+    var v = AP.filter(trece).sort(function(a,b){ return a.pret - b.pret; });
+    if (!v.length){ lista.innerHTML = '<p class="nimic">Nimic cu filtrele astea. Scoate unul.</p>'; return; }
+    lista.innerHTML = v.map(function(a){
+      return '<div class="fila" data-id="' + a.id + '" role="link" tabindex="0">' +
+        '<span class="nr">' + a.nr + '</span>' +
+        '<span>' + a.cam + ' camere, ' + mp(a.mp) + '</span>' +
+        '<span class="pret' + (a.liber ? '' : ' vandut') + '">' +
+          (a.liber ? bani(a.pret) : 'Vândut') + '</span>' +
+        '<span class="sub">' + ETAJE[a.et] + ' · ' + a.orient + ' · balcon ' + mp(a.balcon) +
+          ' · ' + a.soare.toFixed(1).replace('.',',') + ' h de soare</span>' +
+      '</div>';
+    }).join('');
+  }
+  function du(id){ var a = apDupaId(id); if (a && a.liber) location.href = 'apartament.html?ap=' + id; }
+  lista.addEventListener('click', function(e){
+    var f = e.target.closest('.fila'); if (f) du(f.getAttribute('data-id'));
+  });
+  lista.addEventListener('keydown', function(e){
+    if (e.key !== 'Enter') return;
+    var f = e.target.closest('.fila'); if (f) du(f.getAttribute('data-id'));
+  });
+  lista.addEventListener('mouseover', function(e){
+    var f = e.target.closest('.fila'); if (f) m.evidentiaza(f.getAttribute('data-id'));
+  });
+
+  document.querySelectorAll('.f').forEach(function(b){
+    b.addEventListener('click', function(){
+      var f = b.getAttribute('data-f'), v = parseInt(b.getAttribute('data-v'), 10);
+      if (f === 'cam'){ st.cam = v;
+        document.querySelectorAll('.f[data-f=cam]').forEach(function(o){
+          o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+      } else {
+        st[f] = st[f] ? 0 : 1;
+        b.setAttribute('aria-pressed', st[f] ? 'true' : 'false');
+      }
+      scrie(); m.filtreaza(trece);
+    });
+  });
+  scrie(); m.filtreaza(trece);
+})();
+</script></body></html>

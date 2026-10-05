@@ -1,0 +1,12 @@
+import { chromium } from 'playwright-core';
+const b = await chromium.launch({ channel: 'chrome' });
+const p = await b.newPage({ viewport:{width:1440,height:900}, deviceScaleFactor:1 });
+await p.goto(process.argv[2], { waitUntil:'load' });
+await p.waitForTimeout(900);
+await p.evaluate(() => document.querySelector('#straturi').scrollIntoView({block:'start'}));
+await p.waitForTimeout(700);
+await p.screenshot({ path: process.argv[3] + '/strat-sus.png' });
+await p.click('.comut button[data-mod="jos"]');
+await p.waitForTimeout(1100);
+await p.screenshot({ path: process.argv[3] + '/strat-jos.png' });
+await b.close(); console.log('ok');

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catalog — Apoteca Orionis</title>
+<meta name="description" content="Toate cele opt substante, cu grad de toxicitate, constelatie de origine si pret.">
+<meta name="theme-color" content="#05060e">
+<link rel="stylesheet" href="css/stil.css">
+</head>
+<body>
+<canvas id="cer" aria-hidden="true"></canvas>
+
+<header class="meniu" data-deschis="0">
+  <div class="wrap">
+    <a class="logo" href="index.html"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="10" r="3.2"/><path d="M10 1.4v3M10 15.6v3M1.4 10h3M15.6 10h3M4 4l2.1 2.1M13.9 13.9L16 16M16 4l-2.1 2.1M6.1 13.9L4 16"/></svg><span class="lung">Apoteca </span>Orionis</a>
+    <nav class="navlist" aria-label="Principal">
+      <a href="index.html">Acasă</a>
+      <a href="produse.html">Catalog</a>
+      <a href="produs.html?id=neutron">Piesa lunii</a>
+    </nav>
+    <button class="cos-btn" type="button" aria-haspopup="dialog"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 3h2l1.7 8.5h8.1l1.7-6H6"/><circle cx="8" cy="16" r="1.3"/><circle cx="14.5" cy="16" r="1.3"/></svg><span class="lab">Coș</span> <span class="n">0</span></button>
+    <button class="burger" type="button" aria-label="Deschide meniul" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<div class="continut">
+  <section style="padding-bottom:var(--s6)">
+    <div class="wrap">
+      <h1 style="margin-top:var(--s4);font-size:clamp(36px,6vw,80px)" data-apare="60">Opt lucruri<br>de vânzare.</h1>
+      <p class="sts" style="margin-top:var(--s5);max-width:48ch" data-apare="120">
+        Sortează după ce te interesează. Stocul e real în cadrul demonstrației: ce se termină, se termină.</p>
+
+      <div id="filtre" style="margin-top:var(--s7);display:flex;flex-wrap:wrap;gap:var(--s4);align-items:center"
+        data-apare="0"></div>
+      <p class="mono sts" id="cate" style="margin-top:var(--s4);font-size:13px"></p>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap"><div class="grila" id="catalog"></div></div>
+  </section>
+</div>
+
+<footer class="jos">
+  <div class="wrap">
+    <p class="mare">Apoteca<br>Orionis</p>
+    <p class="mic">
+      <b>Concept de design. Magazin fictiv.</b> Produsele, constelațiile, prețurile și efectele
+      descrise sunt inventate în întregime pentru o demonstrație de interfață. Nu există nicio
+      substanță reală în spatele acestui site și nimic de aici nu se poate cumpăra.<br>
+      Construit de Popa Robert Alexandru P.F.A., București.
+    </p>
+  </div>
+</footer>
+<div class="fundal" id="fundal"></div>
+<aside class="sertar" id="sertar" role="dialog" aria-label="Coșul tău" aria-hidden="true">
+  <header><h2>Coșul tău</h2><button class="inchide" type="button" aria-label="Închide">&times;</button></header>
+  <div class="lista" id="cos-lista"></div>
+  <footer>
+    <p class="total"><span class="sts">Total</span><span class="v" id="cos-total">0 lei</span></p>
+    <button class="btn" id="cos-plata" type="button" disabled>Trimite comanda</button>
+    <p class="mono sts" style="font-size:12px;text-align:center">Nimic nu se plătește. E o demonstrație.</p>
+  </footer>
+</aside>
+
+<script src="js/produse.js"></script>
+<script>
+function PAGINA(api) {
+  var P = api.PRODUSE.slice();
+  var stareC = 'toate', stareS = 'nume';
+
+  var filtre = document.getElementById('filtre');
+  var constelatii = ['toate'].concat(P.map(function (p) { return p.constelatie; })
+    .filter(function (v, i, a) { return a.indexOf(v) === i; }).sort());
+
+  var g1 = document.createElement('div');
+  g1.style.cssText = 'display:flex;flex-wrap:wrap;gap:var(--s2)';
+  constelatii.forEach(function (c) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'adauga'; b.textContent = c === 'toate' ? 'Toate' : c;
+    b.dataset.c = c;
+    b.style.cssText = 'background:rgba(255,255,255,.05);color:var(--sters);font-weight:400';
+    b.addEventListener('click', function () { stareC = c; pune(); });
+    g1.appendChild(b);
+  });
+  filtre.appendChild(g1);
+
+  var sel = document.createElement('div');
+  sel.style.cssText = 'display:flex;gap:var(--s2);margin-left:auto;align-items:center';
+  sel.innerHTML = '<span class="mono sts" style="font-size:12.5px;letter-spacing:.12em">SORTEAZĂ</span>';
+  [['nume','A → Z'],['tox','Toxicitate'],['pret','Preț']].forEach(function (s) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'adauga'; b.textContent = s[1]; b.dataset.s = s[0];
+    b.style.cssText = 'background:rgba(255,255,255,.05);color:var(--sters);font-weight:400';
+    b.addEventListener('click', function () { stareS = s[0]; pune(); });
+    sel.appendChild(b);
+  });
+  filtre.appendChild(sel);
+
+  var grila = document.getElementById('catalog'), cate = document.getElementById('cate');
+
+  function pune() {
+    Array.prototype.forEach.call(filtre.querySelectorAll('button'), function (b) {
+      var activ = (b.dataset.c && b.dataset.c === stareC) || (b.dataset.s && b.dataset.s === stareS);
+      b.style.background = activ ? 'var(--toxic)' : 'rgba(255,255,255,.05)';
+      b.style.color = activ ? 'var(--spatiu)' : 'var(--sters)';
+      b.style.fontWeight = activ ? '700' : '400';
+    });
+
+    var lista = P.filter(function (p) { return stareC === 'toate' || p.constelatie === stareC; });
+    lista.sort(function (a, b) {
+      if (stareS === 'tox') return b.tox - a.tox;
+      if (stareS === 'pret') return a.pret - b.pret;
+      return a.nume.localeCompare(b.nume, 'ro');
+    });
+
+    cate.textContent = lista.length + (lista.length === 1 ? ' produs' : ' produse');
+    grila.innerHTML = lista.map(function (p, i) {
+      return '<article class="card" data-apare="' + (i * 55) + '">' +
+        '<a class="vis" href="produs.html?id=' + p.id + '">' + api.capsulaHTML(p.culoare) + '</a>' +
+        '<p class="sub">' + p.constelatie + ' · ' + p.forma + '</p>' +
+        '<h3><a href="produs.html?id=' + p.id + '">' + p.nume + '</a></h3>' +
+        '<p class="sts" style="font-size:15px">' + p.scurt + '</p>' +
+        '<div class="tox" data-tox="' + p.tox + '"><div class="cap"><span>Toxicitate</span><span>' +
+          p.tox + '/100</span></div><div class="bar"><i></i></div></div>' +
+        '<p class="mono sts" style="font-size:12px">' + (p.stoc > 3 ? p.stoc + ' în stoc'
+          : '<span style="color:var(--alarma)">doar ' + p.stoc + ' în stoc</span>') + '</p>' +
+        '<div class="jos"><p class="pret">' + p.pret + ' <small>lei</small></p>' +
+        '<button class="adauga" type="button" data-adauga="' + p.id + '">Pune în coș</button></div></article>';
+    }).join('');
+    api.apare();
+  }
+  pune();
+}
+</script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sferic Optic Cyl — Optică medicală Timișoara</title>
+<meta name="description" content="Centru de optică medicală în Timișoara, din 1999. Prețurile lentilelor sunt afișate. Determinarea dioptriilor 50 lei. Str. Stelelor nr. 4, vis-à-vis de P-ța Dacia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --canvas:#F7F8F8;
+  --surface:#FFFFFF;
+  --ink:#12171A;
+  --ink-mid:#48545A;
+  --ink-soft:#77848A;
+  --line:#DFE5E6;
+  --line-hard:#12171A;
+  --accent:#A85E06;
+  --accent-soft:#FBF1E3;
+  --ok:#1F6B45;
+  --shut:#8A3220;
+  --display:"Fraunces","Iowan Old Style",Georgia,serif;
+  --text:"Public Sans","Helvetica Neue",Arial,sans-serif;
+  --gut:clamp(18px,5vw,64px);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--canvas);color:var(--ink);
+  font-family:var(--text);font-size:16px;line-height:1.55;
+  overflow-x:hidden;
+}
+.wrap{max-width:980px;margin:0 auto;padding-inline:var(--gut)}
+h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.015em;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+
+/* ============ 1. deschidere ============ */
+.top{padding-block:clamp(22px,4vw,34px) 0}
+.marca{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;
+  font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-mid);
+}
+.marca b{font-weight:600;letter-spacing:.08em;color:var(--ink)}
+.marca span{color:var(--ink-soft)}
+
+.deschidere{padding-block:clamp(46px,11vw,104px) clamp(40px,8vw,76px)}
+.deschidere h1{
+  font-size:clamp(31px,7.4vw,66px);line-height:1.06;
+  font-variation-settings:"opsz" 120;max-width:15ch;
+}
+.deschidere h1 em{font-style:normal;color:var(--accent)}
+.deschidere .sub{
+  margin-top:clamp(20px,3.5vw,30px);font-size:clamp(16px,2.1vw,19px);
+  color:var(--ink-mid);max-width:48ch;line-height:1.5;
+}
+.slogan{
+  margin-top:clamp(26px,4vw,38px);padding-top:18px;border-top:1px solid var(--line);
+  font-family:var(--display);font-size:clamp(15px,2vw,17px);color:var(--ink-soft);
+  font-variation-settings:"opsz" 20;
+}
+
+/* ============ 2. registrul ============ */
+.registru{padding-block:clamp(34px,6vw,62px)}
+.cap{display:flex;flex-direction:column;gap:9px;margin-bottom:clamp(22px,4vw,34px)}
+.cap h2{font-size:clamp(23px,4vw,38px);line-height:1.12;font-variation-settings:"opsz" 60;max-width:19ch}
+.cap p{color:var(--ink-mid);font-size:15.5px;max-width:56ch}
+
+.lista{border-top:1px solid var(--line-hard)}
+.rand{
+  display:grid;grid-template-columns:1fr auto;gap:2px 16px;align-items:baseline;
+  padding-block:15px;border-bottom:1px solid var(--line);
+  opacity:0;transform:translateY(10px);
+}
+.rand.vine{opacity:1;transform:none;transition:opacity .5s ease,transform .5s ease}
+.rand .ce{font-weight:500;font-size:16px;line-height:1.35}
+.rand .det{grid-column:1;font-size:13.5px;color:var(--ink-soft);line-height:1.4}
+.rand .pret{
+  font-family:var(--display);font-weight:600;font-size:clamp(19px,3vw,25px);
+  font-variant-numeric:tabular-nums;white-space:nowrap;grid-row:1/3;
+  font-variation-settings:"opsz" 40;
+}
+.rand .pret small{font-family:var(--text);font-size:12px;font-weight:400;color:var(--ink-soft);letter-spacing:.02em}
+.sursa{
+  margin-top:16px;font-size:13px;color:var(--ink-soft);
+}
+
+/* ============ tăcere ============ */
+.tacere{
+  padding-block:clamp(56px,14vw,132px);
+}
+.tacere p{
+  font-family:var(--display);font-size:clamp(21px,4.4vw,40px);line-height:1.24;
+  max-width:17ch;font-variation-settings:"opsz" 80;
+}
+
+/* ============ 3. devizul (vârf) ============ */
+.deviz{
+  background:var(--ink);color:var(--canvas);
+  padding-block:clamp(40px,7vw,74px);
+}
+.deviz .cap h2{color:#fff}
+.deviz .cap p{color:#A7B4B9}
+.deviz-grid{display:grid;gap:clamp(20px,3vw,32px)}
+@media(min-width:760px){.deviz-grid{grid-template-columns:1fr 300px;align-items:start}}
+
+fieldset{border:0;padding:0;margin:0 0 22px}
+legend{
+  padding:0;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:#8C9BA1;margin-bottom:11px;
+}
+.optiuni{display:flex;flex-direction:column;gap:7px}
+.op{
+  display:flex;align-items:baseline;gap:11px;cursor:pointer;
+  padding:12px 13px;border:1px solid #2E3A40;border-radius:7px;
+  background:#181F23;transition:border-color .18s ease,background .18s ease;
+}
+.op:hover{border-color:#4A585F}
+.op input{
+  appearance:none;-webkit-appearance:none;margin:0;flex:none;
+  width:15px;height:15px;border:1.5px solid #566268;border-radius:50%;
+  position:relative;top:2px;
+}
+.op input[type=checkbox]{border-radius:4px}
+.op input:checked{border-color:var(--accent);background:var(--accent)}
+.op input:checked::after{
+  content:"";position:absolute;inset:3.5px;border-radius:50%;background:#181F23;
+}
+.op input[type=checkbox]:checked::after{border-radius:1px;inset:3px}
+.op:has(input:checked){border-color:var(--accent);background:#20262A}
+.op input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.op-txt{flex:1 1 auto;min-width:0}
+.op-nume{display:block;font-size:15px;font-weight:500;line-height:1.3}
+.op-det{display:block;font-size:12.5px;color:#8C9BA1;line-height:1.35;margin-top:2px}
+.op-pret{
+  font-family:var(--display);font-weight:600;font-size:16px;white-space:nowrap;
+  font-variant-numeric:tabular-nums;
+}
+
+.total{
+  background:#181F23;border:1px solid #2E3A40;border-radius:10px;
+  padding:18px;position:sticky;top:18px;
+}
+.total h3{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8C9BA1;font-family:var(--text);font-weight:500}
+.total-linii{margin-top:13px;display:flex;flex-direction:column;gap:7px;font-size:13.5px;color:#A7B4B9}
+.total-linii div{display:flex;justify-content:space-between;gap:12px}
+.total-linii span{font-variant-numeric:tabular-nums;white-space:nowrap}
+.total-suma{
+  margin-top:15px;padding-top:15px;border-top:1px solid #2E3A40;
+  display:flex;align-items:baseline;justify-content:space-between;gap:10px;
+}
+.total-suma b{
+  font-family:var(--display);font-weight:700;font-size:clamp(28px,5vw,38px);
+  font-variant-numeric:tabular-nums;color:#fff;font-variation-settings:"opsz" 60;
+}
+.total-suma i{font-style:normal;font-size:12.5px;color:#8C9BA1}
+.total-nota{margin-top:12px;font-size:12.5px;color:#8C9BA1;line-height:1.45}
+
+/* ============ 4. încredere ============ */
+.fapte{padding-block:clamp(38px,7vw,72px)}
+.fapte-grid{display:grid;gap:clamp(24px,4vw,42px)}
+@media(min-width:720px){.fapte-grid{grid-template-columns:1.15fr 1fr}}
+.fapt{padding-block:15px;border-top:1px solid var(--line)}
+.fapt:first-child{border-top:1px solid var(--line-hard)}
+.fapt h3{font-size:17px;font-variation-settings:"opsz" 24;margin-bottom:5px}
+.fapt p{font-size:14.5px;color:var(--ink-mid);line-height:1.5}
+.marci{
+  display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;
+}
+.marca-chip{
+  font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;
+  border:1px solid var(--line);padding:5px 10px;border-radius:5px;color:var(--ink-mid);
+  background:var(--surface);
+}
+.aviz{
+  background:var(--accent-soft);border-left:2px solid var(--accent);
+  padding:16px 18px;border-radius:0 8px 8px 0;
+}
+.aviz p{font-size:14.5px;color:#5C3A08;line-height:1.5}
+
+/* ============ 5. închidere ============ */
+.vino{
+  background:var(--surface);border-top:1px solid var(--line);
+  padding-block:clamp(38px,7vw,72px) clamp(90px,14vw,80px);
+}
+.vino h2{font-size:clamp(24px,4.4vw,40px);font-variation-settings:"opsz" 72;max-width:14ch}
+.stare{
+  display:inline-flex;align-items:center;gap:9px;margin-top:20px;
+  font-size:14.5px;font-weight:500;padding:9px 14px;border-radius:999px;
+  border:1px solid var(--line);background:var(--canvas);
+}
+.stare i{width:8px;height:8px;border-radius:50%;background:var(--ink-soft);flex:none;font-style:normal}
+.stare[data-o="1"] i{background:var(--ok)}
+.stare[data-o="1"]{color:var(--ok);border-color:#BFD9CB}
+.stare[data-o="0"] i{background:var(--shut)}
+
+.vino-grid{display:grid;gap:clamp(22px,4vw,40px);margin-top:clamp(26px,4vw,40px)}
+@media(min-width:720px){.vino-grid{grid-template-columns:1fr 1fr}}
+.orar{border-top:1px solid var(--line-hard)}
+.orar div{
+  display:flex;justify-content:space-between;gap:14px;
+  padding-block:11px;border-bottom:1px solid var(--line);font-size:14.5px;
+}
+.orar div[data-azi="1"]{font-weight:600}
+.orar div[data-azi="1"]::after{content:"azi";font-weight:500;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-left:auto;padding-left:10px}
+.orar span{color:var(--ink-mid);font-variant-numeric:tabular-nums}
+.orar div[data-azi="1"] span{color:var(--ink)}
+
+.unde{display:flex;flex-direction:column;gap:14px}
+.unde p{font-size:15.5px;line-height:1.5}
+.unde .adr{font-family:var(--display);font-size:19px;font-variation-settings:"opsz" 28}
+.actiuni{display:flex;flex-wrap:wrap;gap:9px;margin-top:4px}
+.buton{
+  display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+  font-size:15px;font-weight:600;padding:13px 19px;border-radius:8px;
+  background:var(--ink);color:var(--canvas);
+}
+.buton.alt{background:transparent;color:var(--ink);border:1px solid var(--line-hard)}
+
+.subsol{
+  padding-block:22px;border-top:1px solid var(--line);
+  font-size:12.5px;color:var(--ink-soft);line-height:1.6;
+}
+
+/* bara de pe telefon */
+.bara{
+  position:fixed;left:0;right:0;bottom:0;z-index:20;
+  display:flex;gap:8px;padding:9px 12px calc(9px + env(safe-area-inset-bottom));
+  background:rgba(247,248,248,.94);backdrop-filter:blur(10px);
+  border-top:1px solid var(--line);
+}
+.bara a{
+  flex:1 1 0;text-align:center;text-decoration:none;font-size:14.5px;font-weight:600;
+  padding:12px 8px;border-radius:8px;background:var(--ink);color:var(--canvas);
+}
+.bara a.alt{background:transparent;color:var(--ink);border:1px solid var(--line-hard)}
+@media(min-width:720px){.bara{display:none}.vino{padding-bottom:clamp(38px,7vw,72px)}}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  .rand{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap marca">
+    <b>Sferic Optic Cyl</b>
+    <span>Centru de optică medicală · Timișoara</span>
+  </div>
+</header>
+
+<section class="deschidere">
+  <div class="wrap">
+    <h1>Cât costă o pereche de ochelari? <em>La noi scrie.</em></h1>
+    <p class="sub">Nicio optică nu-și publică prețurile. Noi le publicăm pe toate, de la determinarea dioptriilor până la montajul în ramă, ca să știi cu ce vii de acasă.</p>
+    <p class="slogan">Bucuria de a vedea bine. De 26 de ani, în Timișoara.</p>
+  </div>
+</section>
+
+<section class="registru">
+  <div class="wrap">
+    <div class="cap">
+      <h2>Prețurile noastre, întregi</h2>
+      <p>Prețurile de mai jos sunt pentru lentile. Rama se alege separat, în magazin, în funcție de buget.</p>
+    </div>
+
+    <div class="lista" id="lista">
+      <div class="rand">
+        <div class="ce">Determinarea dioptriilor și eliberarea rețetei</div>
+        <div class="det">Cu autorefractometru REKTO PRESTIGE Auto Ref-Keratometer</div>
+        <div class="pret">50 <small>lei</small></div>
+      </div>
+      <div class="rand">
+        <div class="ce">Lentile cu tratament antireflex standard</div>
+        <div class="det">HOYA. Prețul e pentru o lentilă</div>
+        <div class="pret">98 <small>lei</small></div>
+      </div>
+      <div class="rand">
+        <div class="ce">Lentile pentru calculator, telefon și tabletă</div>
+        <div class="det">HOYA BlueControl, pentru peste 4 ore în fața ecranului</div>
+        <div class="pret">de la 160 <small>lei</small></div>
+      </div>
+      <div class="rand">
+        <div class="ce">Lentile fotocromatice, care se închid la lumină</div>
+        <div class="det">Transitions, tehnologie Chromea 7</div>
+        <div class="pret">de la 265 <small>lei</small></div>
+      </div>
+      <div class="rand">
+        <div class="ce">Ochelari pentru condus noaptea și pe ceață</div>
+        <div class="det">Include tratament antireflex și durificare</div>
+        <div class="pret">294 <small>lei</small></div>
+      </div>
+      <div class="rand">
+        <div class="ce">Lentile progresive</div>
+        <div class="det">Pentru distanță și aproape, în aceeași lentilă</div>
+        <div class="pret">de la 475 <small>lei</small></div>
+      </div>
+      <div class="rand">
+        <div class="ce">Clip-on polarizat, peste ochelarii pe care îi ai</div>
+        <div class="det">Ramă specială care încadrează diferite modele</div>
+        <div class="pret">580 <small>lei</small></div>
+      </div>
+      <div class="rand">
+        <div class="ce">Montajul lentilelor în ramă</div>
+        <div class="det">Pe mașină cu scanare 3D. Prețul depinde de complexitatea ramei</div>
+        <div class="pret">50–150 <small>lei</small></div>
+      </div>
+      <div class="rand">
+        <div class="ce">Kit de curățare ZEISS</div>
+        <div class="det">Soluție 30 ml și lavetă din microfibră</div>
+        <div class="pret">75 <small>lei</small></div>
+      </div>
+    </div>
+    <p class="sursa">Prețuri informative, valabile pentru persoane fizice.</p>
+  </div>
+</section>
+
+<section class="tacere">
+  <div class="wrap">
+    <p>Acum pune-le cap la cap și vezi cât te costă ai tăi.</p>
+  </div>
+</section>
+
+<section class="deviz" id="deviz">
+  <div class="wrap">
+    <div class="cap">
+      <h2>Devizul tău, înainte să vii</h2>
+      <p>Alege ce îți trebuie. Totalul se face din prețurile de mai sus, pentru o pereche întreagă, adică două lentile.</p>
+    </div>
+
+    <div class="deviz-grid">
+      <form id="form">
+        <fieldset>
+          <legend>Ce fel de lentile</legend>
+          <div class="optiuni">
+            <label class="op">
+              <input type="radio" name="lentila" value="98" data-nume="Antireflex standard" checked>
+              <span class="op-txt">
+                <span class="op-nume">Antireflex standard</span>
+                <span class="op-det">Pentru purtare zilnică</span>
+              </span>
+              <span class="op-pret">98 lei</span>
+            </label>
+            <label class="op">
+              <input type="radio" name="lentila" value="160" data-nume="Pentru ecrane (BlueControl)" data-dela="1">
+              <span class="op-txt">
+                <span class="op-nume">Pentru ecrane</span>
+                <span class="op-det">HOYA BlueControl, dacă stai mult la calculator sau telefon</span>
+              </span>
+              <span class="op-pret">de la 160 lei</span>
+            </label>
+            <label class="op">
+              <input type="radio" name="lentila" value="265" data-nume="Fotocromatice Transitions" data-dela="1">
+              <span class="op-txt">
+                <span class="op-nume">Fotocromatice</span>
+                <span class="op-det">Se închid singure afară, la soare</span>
+              </span>
+              <span class="op-pret">de la 265 lei</span>
+            </label>
+            <label class="op">
+              <input type="radio" name="lentila" value="294" data-nume="Pentru condus noaptea">
+              <span class="op-txt">
+                <span class="op-nume">Pentru condus noaptea</span>
+                <span class="op-det">Cu antireflex și durificare incluse</span>
+              </span>
+              <span class="op-pret">294 lei</span>
+            </label>
+            <label class="op">
+              <input type="radio" name="lentila" value="475" data-nume="Progresive" data-dela="1">
+              <span class="op-txt">
+                <span class="op-nume">Progresive</span>
+                <span class="op-det">Distanță și aproape, în aceeași lentilă</span>
+              </span>
+              <span class="op-pret">de la 475 lei</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Montajul în ramă</legend>
+          <div class="optiuni">
+            <label class="op">
+              <input type="radio" name="montaj" value="50" data-nume="Montaj, ramă simplă" checked>
+              <span class="op-txt"><span class="op-nume">Ramă întreagă, simplă</span></span>
+              <span class="op-pret">50 lei</span>
+            </label>
+            <label class="op">
+              <input type="radio" name="montaj" value="150" data-nume="Montaj, ramă complexă">
+              <span class="op-txt"><span class="op-nume">Ramă cu fir sau complexă</span></span>
+              <span class="op-pret">150 lei</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Mai adaugi</legend>
+          <div class="optiuni">
+            <label class="op">
+              <input type="checkbox" name="extra" value="50" data-nume="Determinarea dioptriilor" checked>
+              <span class="op-txt">
+                <span class="op-nume">Determinarea dioptriilor</span>
+                <span class="op-det">Dacă nu ai deja rețetă de la medic</span>
+              </span>
+              <span class="op-pret">50 lei</span>
+            </label>
+            <label class="op">
+              <input type="checkbox" name="extra" value="75" data-nume="Kit de curățare ZEISS">
+              <span class="op-txt"><span class="op-nume">Kit de curățare ZEISS</span></span>
+              <span class="op-pret">75 lei</span>
+            </label>
+          </div>
+        </fieldset>
+      </form>
+
+      <aside class="total">
+        <h3>Devizul tău</h3>
+        <div class="total-linii" id="linii"></div>
+        <div class="total-suma">
+          <b id="suma">296</b>
+          <i id="notaDela">lei, fără ramă</i>
+        </div>
+        <p class="total-nota">Rama se adaugă separat. Vino cu rețeta sau ți-o facem noi pe loc.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="fapte">
+  <div class="wrap">
+    <div class="cap">
+      <h2>De ce prețul ăsta ține</h2>
+    </div>
+    <div class="fapte-grid">
+      <div>
+        <div class="fapt">
+          <h3>Măsurăm cu aparat, nu din ochi</h3>
+          <p>Determinarea dioptriilor se face cu autorefractometru REKTO PRESTIGE Auto Ref-Keratometer, iar parametrii se măsoară pe rama pe care ai ales-o, nu pe una standard.</p>
+        </div>
+        <div class="fapt">
+          <h3>Montajul se face pe scanare 3D</h3>
+          <p>Lentilele se prelucrează pe mașină cu scanare 3D complet computerizată. Rețeta prescrisă e respectată exact, iar lentila stă perfect în ramă, indiferent de dioptrii.</p>
+        </div>
+        <div class="fapt">
+          <h3>Lentile originale, cu garanție</h3>
+          <p>Lucrăm cu trei producători, iar fiecare lentilă vine cu marcaje de identificare, certificat de garanție și instrucțiuni de utilizare.</p>
+          <div class="marci">
+            <span class="marca-chip">Hoya</span>
+            <span class="marca-chip">Essilor</span>
+            <span class="marca-chip">Zeiss</span>
+          </div>
+        </div>
+        <div class="fapt">
+          <h3>Și lentile de contact</h3>
+          <p>Adaptare și livrare pentru lentile de la Bausch &amp; Lomb, Ciba Vision și CooperVision.</p>
+        </div>
+      </div>
+      <div class="aviz">
+        <p><b>Servicii de optică medicală și optometrie avizate de Ministerul Sănătății.</b></p>
+        <p style="margin-top:10px">Centrul funcționează din 1999 în același loc, vis-à-vis de Piața Dacia. Douăzeci și șase de ani în care oamenii s-au întors, iar copiii lor au venit la rândul lor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="vino">
+  <div class="wrap">
+    <h2>Vino cu rețeta sau ți-o facem noi</h2>
+    <div class="stare" id="stare"><i></i><span id="stareTxt">Verific programul…</span></div>
+
+    <div class="vino-grid">
+      <div class="orar" id="orar">
+        <div data-zi="1"><span>Luni</span><span>10:00 – 18:00</span></div>
+        <div data-zi="2"><span>Marți</span><span>10:00 – 18:00</span></div>
+        <div data-zi="3"><span>Miercuri</span><span>10:00 – 18:00</span></div>
+        <div data-zi="4"><span>Joi</span><span>10:00 – 18:00</span></div>
+        <div data-zi="5"><span>Vineri</span><span>10:00 – 18:00</span></div>
+        <div data-zi="6"><span>Sâmbătă</span><span>10:00 – 12:00, cu programare</span></div>
+        <div data-zi="0"><span>Duminică</span><span>Închis</span></div>
+      </div>
+
+      <div class="unde">
+        <p class="adr">Str. Stelelor nr. 4, bl. 4, parter<br>vis-à-vis de P-ța Dacia, Timișoara</p>
+        <p>Sâmbăta lucrăm doar pe bază de programare, telefonic sau pe e-mail.</p>
+        <div class="actiuni">
+          <a class="buton" href="tel:0722632167">Sună la 0722 632 167</a>
+          <a class="buton alt" href="mailto:office@ochelar.ro">Scrie-ne pe e-mail</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="subsol">
+      SC Sferic Optic Cyl SRL · Str. Stelelor nr. 4, bl. 4, parter, Timișoara · Tel/Fax 0356 459 657 · Mobil 0722 632 167 · office@ochelar.ro<br>
+      Prețurile afișate sunt informative și se adresează persoanelor fizice.
+    </p>
+  </div>
+</section>
+
+<nav class="bara">
+  <a href="tel:0722632167">Sună acum</a>
+  <a class="alt" href="#deviz">Vezi prețurile</a>
+</nav>
+
+<script>
+(function(){
+  "use strict";
+
+  /* --- registrul se scrie rând cu rând --- */
+  var randuri = document.querySelectorAll(".rand");
+  if (!window.IntersectionObserver || matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    randuri.forEach(function(r){ r.classList.add("vine"); });
+  } else {
+    var io = new IntersectionObserver(function(intrari){
+      intrari.forEach(function(e){
+        if (!e.isIntersecting) return;
+        var i = Array.prototype.indexOf.call(randuri, e.target);
+        e.target.style.transitionDelay = Math.min(i % 5, 4) * 55 + "ms";
+        e.target.classList.add("vine");
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: "0px 0px -12% 0px", threshold: .15 });
+    randuri.forEach(function(r){ io.observe(r); });
+  }
+
+  /* --- devizul --- */
+  var form = document.getElementById("form");
+  var linii = document.getElementById("linii");
+  var suma = document.getElementById("suma");
+  var nota = document.getElementById("notaDela");
+
+  function lei(n){ return n.toLocaleString("ro-RO"); }
+
+  function calc(){
+    var lentila = form.querySelector('input[name="lentila"]:checked');
+    var montaj  = form.querySelector('input[name="montaj"]:checked');
+    var extra   = form.querySelectorAll('input[name="extra"]:checked');
+
+    var randuriDeviz = [];
+    var total = 0;
+    var aprox = false;
+
+    var pl = parseInt(lentila.value, 10) * 2;
+    total += pl;
+    if (lentila.dataset.dela) aprox = true;
+    randuriDeviz.push([lentila.dataset.nume + ", 2 lentile", pl]);
+
+    var pm = parseInt(montaj.value, 10);
+    total += pm;
+    randuriDeviz.push([montaj.dataset.nume, pm]);
+
+    extra.forEach(function(x){
+      var p = parseInt(x.value, 10);
+      total += p;
+      randuriDeviz.push([x.dataset.nume, p]);
+    });
+
+    linii.innerHTML = randuriDeviz.map(function(r){
+      return '<div>' + r[0] + '<span>' + lei(r[1]) + ' lei</span></div>';
+    }).join("");
+
+    suma.textContent = (aprox ? "de la " : "") + lei(total);
+    nota.textContent = "lei, fără ramă";
+  }
+
+  form.addEventListener("change", calc);
+  calc();
+
+  /* --- orarul viu --- */
+  var PROGRAM = { 1:[600,1080], 2:[600,1080], 3:[600,1080], 4:[600,1080], 5:[600,1080], 6:[600,720], 0:null };
+  var ZILE = ["duminică","luni","marți","miercuri","joi","vineri","sâmbătă"];
+
+  function orarViu(){
+    var acum = new Date();
+    var zi = acum.getDay();
+    var min = acum.getHours() * 60 + acum.getMinutes();
+    var interval = PROGRAM[zi];
+    var deschis = !!interval && min >= interval[0] && min < interval[1];
+
+    var el = document.getElementById("stare");
+    var txt = document.getElementById("stareTxt");
+    el.dataset.o = deschis ? "1" : "0";
+
+    if (deschis && zi === 6) {
+      txt.textContent = "Deschis până la 12:00, pe bază de programare";
+    } else if (deschis) {
+      txt.textContent = "Deschis acum, până la 18:00";
+    } else {
+      var d = zi;
+      for (var i = 1; i <= 7; i++) {
+        var u = (zi + i) % 7;
+        if (PROGRAM[u]) { d = u; break; }
+      }
+      var cand = (d === (zi + 1) % 7) ? "mâine" : ZILE[d];
+      var ora = d === 6 ? "10:00, cu programare" : "10:00";
+      txt.textContent = "Închis acum. Deschidem " + cand + " la " + ora;
+    }
+  }
+  orarViu();
+  setInterval(orarViu, 60000);
+
+  /* --- ziua de azi, îngroșată în orar --- */
+  var azi = new Date().getDay();
+  var r = document.querySelector('#orar div[data-zi="' + azi + '"]');
+  if (r) r.dataset.azi = "1";
+})();
+</script>
+</body>
+</html>

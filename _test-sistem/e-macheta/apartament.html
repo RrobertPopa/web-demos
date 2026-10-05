@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ro"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apartament — Frunzei 9</title>
+<meta name="description" content="Planul apartamentului, lumina la ora aleasa, pretul defalcat.">
+<meta name="theme-color" content="#f2efe7">
+<link rel="stylesheet" href="stil.css">
+<style>
+.cap{padding-block:clamp(26px,3.6vw,44px) 0}
+.inapoi{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--cerneala2)}
+.inapoi:hover{color:var(--cobalt)}
+h1.afis{margin-top:var(--s4);font-size:clamp(52px,9vw,124px);line-height:.92}
+.subcap{margin-top:var(--s4);display:flex;flex-wrap:wrap;gap:var(--s3) var(--s6);align-items:baseline;
+ border-top:1px solid var(--linie);padding-top:var(--s4)}
+.subcap .b{font-family:Afis;font-size:clamp(22px,2.6vw,31px);line-height:1}
+.subcap .s{font-size:14px;color:var(--sters);margin-top:3px}
+
+.doi{padding-block:clamp(26px,3.6vw,40px);display:grid;gap:clamp(26px,3.4vw,48px);align-items:start}
+@media(min-width:1000px){.doi{grid-template-columns:minmax(0,1.34fr) minmax(300px,.66fr)}}
+.desen{border:1px solid var(--linie);border-radius:4px;background:#f7f4ed;padding:clamp(10px,1.6vw,20px)}
+#plan{width:100%;height:auto;max-height:min(58vh,560px)}
+.subsol{margin-top:var(--s4);display:flex;flex-wrap:wrap;gap:var(--s4);align-items:center;
+ justify-content:space-between}
+.marturie{font-size:14.5px;color:var(--cerneala2);max-width:46ch}
+.marturie b{color:var(--cerneala);font-weight:600}
+
+.bani{border:1px solid var(--linie);border-radius:4px;background:#fbf9f4;padding:var(--s5)}
+.bani .l{display:flex;justify-content:space-between;gap:var(--s4);padding-block:11px;
+ border-bottom:1px solid var(--linie);font-size:15px}
+.bani .l:last-of-type{border-bottom:0}
+.bani .l b{font-family:Cifre;font-weight:400;white-space:nowrap}
+.bani .t{display:flex;justify-content:space-between;gap:var(--s4);align-items:baseline;
+ margin-top:var(--s4);padding-top:var(--s4);border-top:1.5px solid var(--cerneala)}
+.bani .t span{font-size:14px;color:var(--cerneala2)}
+.bani .t b{font-family:Afis;font-weight:400;font-size:clamp(25px,2.8vw,34px)}
+.bani .btn{width:100%;margin-top:var(--s5)}
+.bani .mic{margin-top:var(--s3);font-size:12.5px;color:var(--sters);text-align:center}
+
+.vecini{display:grid;gap:var(--s4)}
+@media(min-width:620px){.vecini{grid-template-columns:1fr 1fr}}
+.vecin{border:1px solid var(--linie);border-radius:4px;padding:var(--s4) var(--s5);
+ display:flex;justify-content:space-between;align-items:baseline;gap:var(--s4);
+ transition:background 200ms var(--arc)}
+.vecin:hover{background:var(--hartie2)}
+.vecin .n{font-family:Afis;font-size:25px}
+.vecin .p{font-family:Cifre;font-size:14px;color:var(--cerneala2)}
+.lipsa{padding:var(--s7) 0;text-align:center;color:var(--sters)}
+</style></head><body>
+
+<div class="bara"></div>
+<main id="continut"></main>
+
+<footer><div class="wrap col">
+  <div>Frunzei 9 · ansamblu rezidențial fictiv, construit ca demonstrație de design.
+    Planurile sunt schematice; suprafețele se confirmă la măsurătoarea de recepție.</div>
+  <div>Str. Frunzei 9<br>Sector 2, București<br><a href="tel:+40721000000">0721 000 000</a></div>
+  <div>Vizite: Luni–Sâmbătă<br>09:00–18:00<br><a href="index.html">Toate apartamentele</a></div>
+</div></footer>
+
+<script src="date.js"></script>
+<script src="sit.js"></script>
+<script src="plan.js"></script>
+<script>
+(function(){
+  var id = Sit.param('ap');
+  var a = id ? apDupaId(id) : null;
+  if (!a) a = AP.filter(function(x){ return x.liber; })[0];
+  Sit.meniu('ap', a.id);
+
+  var libere = AP.filter(function(x){ return x.liber; })
+                 .sort(function(x,y){ return parseInt(x.nr,10) - parseInt(y.nr,10); });
+  var poz = libere.map(function(x){ return x.id; }).indexOf(a.id);
+  var ant = libere[(poz - 1 + libere.length) % libere.length];
+  var urm = libere[(poz + 1) % libere.length];
+
+  var parcare = 12000;
+  var avans = Math.round(a.pret * 0.15 / 100) * 100;
+
+  Sit.el('continut').innerHTML =
+  '<section class="cap"><div class="wrap">' +
+    '<a class="inapoi" href="index.html">← Toate apartamentele</a>' +
+    '<h1 class="afis">Apartamentul <i>' + a.nr + '</i></h1>' +
+    '<div class="subcap">' +
+      '<div><p class="b">' + ETAJE[a.et] + '</p><p class="s">din P+3</p></div>' +
+      '<div><p class="b">' + a.cam + ' camere</p><p class="s">' + mp(a.mp) + ' utili</p></div>' +
+      '<div><p class="b">' + a.orient + '</p><p class="s">balcon ' + mp(a.balcon) + '</p></div>' +
+      '<div><p class="b">' + a.soare.toFixed(1).replace('.',',') + ' h</p>' +
+        '<p class="s">soare direct, în martie</p></div>' +
+    '</div>' +
+  '</div></section>' +
+
+  '<div class="wrap"><div class="doi">' +
+    '<div>' +
+      '<div class="desen"><svg id="plan" role="img" aria-label="Planul apartamentului ' + a.nr + '"></svg></div>' +
+      '<div class="subsol"><div id="soare" style="flex:1 1 320px"></div></div>' +
+      '<p class="marturie" id="marturie" style="margin-top:var(--s4)"></p>' +
+    '</div>' +
+
+    '<aside class="bani">' +
+      '<p class="et">Prețul, desfăcut</p>' +
+      '<div class="l"><span>Apartament, ' + mp(a.mp) + ' utili</span><b>' + bani(a.pret) + '</b></div>' +
+      '<div class="l"><span>Boxă 4 m², subsol</span><b>inclusă</b></div>' +
+      '<div class="l"><span>Finisaje și bucătărie utilată</span><b>incluse</b></div>' +
+      '<div class="l"><span>TVA 9%</span><b>inclus</b></div>' +
+      '<div class="l"><span>Loc de parcare, opțional</span><b>+ ' + bani(parcare) + '</b></div>' +
+      '<div class="t"><span>Avans la semnare, 15%</span><b>' + bani(avans) + '</b></div>' +
+      '<a class="btn" href="vizita.html?ap=' + a.id + '">Programează vizita</a>' +
+      '<p class="mic">Restul la recepție, în 2027. Fără penalizare dacă renunți în 14 zile.</p>' +
+    '</aside>' +
+  '</div></div>' +
+
+  '<section><div class="wrap">' +
+    '<h2 class="afis" data-ap>Ce e <i>lângă</i>.</h2>' +
+    '<p data-ap style="margin-top:var(--s4);max-width:48ch;color:var(--cerneala2)">' +
+      'Următoarele două apartamente libere, în ordinea numerelor.</p>' +
+    '<div class="vecini" data-ap style="margin-top:var(--s6)">' +
+      '<a class="vecin" href="apartament.html?ap=' + ant.id + '">' +
+        '<span><span class="n">' + ant.nr + '</span> ' +
+        '<span class="p">' + ant.cam + ' camere · ' + ETAJE[ant.et] + '</span></span>' +
+        '<span class="p">' + bani(ant.pret) + '</span></a>' +
+      '<a class="vecin" href="apartament.html?ap=' + urm.id + '">' +
+        '<span><span class="n">' + urm.nr + '</span> ' +
+        '<span class="p">' + urm.cam + ' camere · ' + ETAJE[urm.et] + '</span></span>' +
+        '<span class="p">' + bani(urm.pret) + '</span></a>' +
+    '</div>' +
+  '</div></section>';
+
+  var P = Plan.creeaza(Sit.el('plan'), a);
+  Sit.soare(Sit.el('soare'));
+  var mrt = Sit.el('marturie');
+  Sit.Soare.on(function(S){
+    var cate = P.lumina();
+    var o = S.text();
+    mrt.innerHTML = cate
+      ? 'La <b>' + o + '</b> soarele intră prin ' + (cate === 1 ? 'o fereastră' : cate + ' ferestre') +
+        '. Pata de lumină e desenată la scară: cu cât soarele e mai jos, cu atât intră mai adânc în cameră.'
+      : (a.gy === 0
+          ? 'La <b>' + o + '</b> nu intră soare direct. Apartamentul e orientat spre nord — ' +
+            'are lumină constantă toată ziua și nu se încinge vara. De aia costă mai puțin.'
+          : 'La <b>' + o + '</b> soarele e sub orizont.');
+  });
+  Sit.apar();
+})();
+</script></body></html>

@@ -1,3 +1,4 @@
 captures/
 .playwright-cli/
 .DS_Store
+node_modules/
